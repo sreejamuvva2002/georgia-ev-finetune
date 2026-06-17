@@ -1,0 +1,10 @@
+# Linux GPU serving requirements (CUDA 12.x)
+vllm>=0.8.0
+
+# Only needed if re-training / merging on the Linux box:
+# transformers>=4.51
+# peft>=0.14
+# trl>=0.17
+# bitsandbytes>=0.45
+# datasets
+# accelerate

@@ -1,0 +1,27 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# --- OS / editor ---
+.DS_Store
+
+# --- Model weights & adapters (too large for git; reproducible from training) ---
+training_project/adapters/
+releases/
+*.safetensors
+*.gguf
+*.bin
+
+# --- Release archives ---
+*.tar.gz
+*.zip
+
+# --- Gradio runtime / self-signed certs ---
+.gradio/
+*.pem
+
+# --- Local Claude Code settings ---
+.claude/settings.local.json

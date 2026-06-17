@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 6327.24it/s]
+[1/50] qid=1 -> 2524 chars
+[2/50] qid=2 -> 719 chars
+[3/50] qid=3 -> 810 chars
+[4/50] qid=4 -> 246 chars
+[5/50] qid=5 -> 565 chars
+[6/50] qid=6 -> 436 chars
+[7/50] qid=7 -> 161 chars
+[8/50] qid=8 -> 132 chars
+[9/50] qid=9 -> 85 chars
+[10/50] qid=10 -> 1690 chars
+[11/50] qid=11 -> 456 chars
+[12/50] qid=12 -> 2447 chars
+[13/50] qid=13 -> 1139 chars
+[14/50] qid=14 -> 882 chars
+[15/50] qid=15 -> 111 chars
+[16/50] qid=16 -> 171 chars
+[17/50] qid=17 -> 109 chars
+[18/50] qid=18 -> 199 chars
+[19/50] qid=19 -> 260 chars
+[20/50] qid=20 -> 282 chars
+[21/50] qid=21 -> 1421 chars
+[22/50] qid=22 -> 467 chars
+[23/50] qid=23 -> 188 chars
+[24/50] qid=24 -> 503 chars
+[25/50] qid=25 -> 758 chars
+[26/50] qid=26 -> 134 chars
+[27/50] qid=27 -> 1831 chars
+[28/50] qid=28 -> 477 chars
+[29/50] qid=29 -> 526 chars
+[30/50] qid=30 -> 2429 chars
+[31/50] qid=31 -> 610 chars
+[32/50] qid=32 -> 353 chars
+[33/50] qid=33 -> 1701 chars
+[34/50] qid=34 -> 1743 chars
+[35/50] qid=35 -> 1164 chars
+[36/50] qid=36 -> 1020 chars
+[37/50] qid=37 -> 952 chars
+[38/50] qid=38 -> 2865 chars
+[39/50] qid=39 -> 320 chars
+[40/50] qid=40 -> 343 chars
+[41/50] qid=41 -> 3548 chars
+[42/50] qid=42 -> 258 chars
+[43/50] qid=43 -> 417 chars
+[44/50] qid=44 -> 1131 chars
+[45/50] qid=45 -> 251 chars
+[46/50] qid=46 -> 678 chars
+[47/50] qid=47 -> 2111 chars
+[48/50] qid=48 -> 1054 chars
+[49/50] qid=49 -> 2728 chars
+[50/50] qid=50 -> 167 chars
+saved /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/eval_results/finetuned_answers.json
+EXIT=0

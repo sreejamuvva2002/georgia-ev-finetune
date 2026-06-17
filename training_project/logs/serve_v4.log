@@ -1,0 +1,75 @@
+Loading MLX 14B + adapter (/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx_v4)… (reads ~15GB)
+Model ready.
+* Running on local URL:  http://127.0.0.1:7861
+* Running on public URL: https://eb66e792004358ce31.gradio.live
+
+This share link is temporary and will last for up to 1 week (best effort). For free permanent hosting and GPU upgrades, run `gradio deploy` from the terminal in the working directory to deploy to Hugging Face Spaces (https://huggingface.co/spaces)
+LOCAL_URL: http://127.0.0.1:7861/
+SHARE_URL: https://eb66e792004358ce31.gradio.live
+LOGIN: guest / evtest123
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/Users/surya/Desktop/Desktop - Unknown/projects/georgia-ev-finetune/.venv/lib/python3.13/site-packages/gradio/routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+/opt/homebrew/Cellar/python@3.13/3.13.13/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:400: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-64791-h_k2k4j5'}
+  warnings.warn(

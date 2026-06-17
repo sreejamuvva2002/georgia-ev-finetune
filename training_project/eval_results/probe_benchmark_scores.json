@@ -1,0 +1,2036 @@
+[
+  {
+    "question": "How many entries does the KB record for companies in the General Automotive role? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 129,
+    "model_count": "129"
+  },
+  {
+    "question": "Provide the complete list of Georgia suppliers categorized under the Materials role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "How many entries does the KB record for companies in the Materials role? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 22,
+    "model_count": "22"
+  },
+  {
+    "question": "I need the full roster of the Vehicle Assembly role suppliers in Georgia — who are they?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of companies in the Vehicle Assembly role in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 10,
+    "model_count": "10"
+  },
+  {
+    "question": "Provide the complete list of Georgia suppliers categorized under the Battery Cell role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Report the precise count of companies in the Battery Cell role.",
+    "kind": "count",
+    "pass": true,
+    "expected": 2,
+    "model_count": "2"
+  },
+  {
+    "question": "Provide the complete list of Georgia suppliers categorized under the Battery Pack role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "How many entries does the KB record for companies in the Battery Pack role? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 4,
+    "model_count": "4"
+  },
+  {
+    "question": "I need the full roster of the Thermal Management role suppliers in Georgia — who are they?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of companies in the Thermal Management role in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 5,
+    "model_count": "5"
+  },
+  {
+    "question": "I need the full roster of the Power Electronics role suppliers in Georgia — who are they?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of companies in the Power Electronics role in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 3,
+    "model_count": "3"
+  },
+  {
+    "question": "Provide the complete list of Georgia suppliers categorized under the Charging Infrastructure role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of companies in the Charging Infrastructure role in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 1,
+    "model_count": "1"
+  },
+  {
+    "question": "Enumerate every Georgia firm whose EV supply chain role is the Wiring Harness role; list them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "How many entries does the KB record for companies in the Wiring Harness role? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 2,
+    "model_count": "2"
+  },
+  {
+    "question": "Provide the complete list of Georgia suppliers categorized under the OEM Corporate Footprint role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of companies in the OEM Corporate Footprint role in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 5,
+    "model_count": "5"
+  },
+  {
+    "question": "Give the complete roster of Georgia companies in the OEM classification.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Report the precise count of OEM companies.",
+    "kind": "count",
+    "pass": true,
+    "expected": 12,
+    "model_count": "12"
+  },
+  {
+    "question": "Enumerate all Georgia suppliers assigned to OEM Footprint; list each one.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of OEM Footprint companies in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 8,
+    "model_count": "8"
+  },
+  {
+    "question": "Who are all the OEM Supply Chain companies in the Georgia EV knowledge base?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "State the exact number of OEM Supply Chain companies in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 16,
+    "model_count": "16"
+  },
+  {
+    "question": "State the exact number of Tier 1 companies in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 71,
+    "model_count": "71"
+  },
+  {
+    "question": "Who are all the Tier 1/2 companies in the Georgia EV knowledge base?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Report the precise count of Tier 1/2 companies.",
+    "kind": "count",
+    "pass": true,
+    "expected": 18,
+    "model_count": "18"
+  },
+  {
+    "question": "Report the precise count of Tier 2/3 companies.",
+    "kind": "count",
+    "pass": true,
+    "expected": 70,
+    "model_count": "70"
+  },
+  {
+    "question": "Provide the complete supplier list tied to Hyundai in Georgia (per Primary OEMs).",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "I want the full Kia supplier roster in Georgia — list them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "I want the full Rivian supplier roster in Georgia — list them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia company whose Primary OEMs include Blue Bird.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete supplier list tied to Club Car in Georgia (per Primary OEMs).",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete supplier list tied to Porsche in Georgia (per Primary OEMs).",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete supplier list tied to Mercedes-Benz in Georgia (per Primary OEMs).",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "I want the full Yamaha supplier roster in Georgia — list them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete supplier list tied to Textron in Georgia (per Primary OEMs).",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia company whose Primary OEMs include SK Battery America.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia company whose Primary OEMs include Archer Aviation.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Cobb County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Clarke County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Gwinnett County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Dade County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Bulloch County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Gordon County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Richmond County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Hall County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia EV companies situated in Cherokee County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia EV companies situated in Stephens County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Spalding County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Fulton County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia EV companies situated in Henry County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Bryan County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia EV companies situated in Newton County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Bibb County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Meriwether County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia EV companies situated in Forsyth County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Douglas County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia EV companies situated in Coweta County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Walton County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Whitfield County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Floyd County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Chatham County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Carroll County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Lamar County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Harris County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Franklin County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Who are all the companies the Georgia EV KB places in Bartow County?",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every supplier the KB records in Jackson County.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of OEM Georgia companies that are also in the General Automotive role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of OEM Georgia companies that are also in the Vehicle Assembly role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both OEM Footprint and in the Power Electronics role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both OEM Footprint and in the OEM Corporate Footprint role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy OEM Supply Chain and in the Thermal Management role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy OEM Supply Chain and in the Power Electronics role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of OEM Supply Chain Georgia companies that are also in the Wiring Harness role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Tier 1 Georgia companies that are also in the Materials role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 1 and in the Thermal Management role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 1 and in the Charging Infrastructure role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both Tier 1/2 and in the General Automotive role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 1/2 and in the Battery Cell role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 1/2 and in the Battery Pack role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 1/2 and in the Thermal Management role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both Tier 2/3 and in the Materials role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both Tier 2/3 and in the Thermal Management role.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 2/3 and in the Power Electronics role? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both OEM and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy OEM and EV/Battery relevant = Indirect? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both OEM and EV/Battery relevant = No.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of OEM Footprint Georgia companies that are also EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both OEM Supply Chain and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both Tier 1 and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Tier 1/2 Georgia companies that are also EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy Tier 1/2 and EV/Battery relevant = Indirect? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Tier 1/2 Georgia companies that are also EV/Battery relevant = No.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both Tier 2/3 and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of the General Automotive role Georgia companies that are also EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of the Materials role Georgia companies that are also EV/Battery relevant = Indirect.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both the Vehicle Assembly role and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of the Vehicle Assembly role Georgia companies that are also EV/Battery relevant = Indirect.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Which Georgia firms satisfy the Battery Cell role and EV/Battery relevant = Yes? List them all.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of the Battery Pack role Georgia companies that are also EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both the Thermal Management role and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both the Thermal Management role and EV/Battery relevant = Indirect.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both the Power Electronics role and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of the Charging Infrastructure role Georgia companies that are also EV/Battery relevant = Indirect.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of the Wiring Harness role Georgia companies that are also EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Enumerate every Georgia supplier matching both the OEM Corporate Footprint role and EV/Battery relevant = Yes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "How many entries does the KB record for OEM companies? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 12,
+    "model_count": "12"
+  },
+  {
+    "question": "Report the precise count of OEM Footprint companies.",
+    "kind": "count",
+    "pass": true,
+    "expected": 8,
+    "model_count": "8"
+  },
+  {
+    "question": "How many entries does the KB record for OEM Supply Chain companies? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 16,
+    "model_count": "16"
+  },
+  {
+    "question": "State the exact number of Tier 1 companies in the Georgia EV KB.",
+    "kind": "count",
+    "pass": true,
+    "expected": 71,
+    "model_count": "71"
+  },
+  {
+    "question": "How many entries does the KB record for Tier 1/2 companies? Give the precise count.",
+    "kind": "count",
+    "pass": true,
+    "expected": 18,
+    "model_count": "18"
+  },
+  {
+    "question": "Report the precise count of Tier 2/3 companies.",
+    "kind": "count",
+    "pass": true,
+    "expected": 70,
+    "model_count": "70"
+  },
+  {
+    "question": "Report the EV/Battery relevance distribution (the Yes, No, and Indirect counts).",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "38",
+      "82",
+      "71"
+    ],
+    "present": [
+      "38",
+      "82",
+      "71"
+    ]
+  },
+  {
+    "question": "Which one is the company with the highest employment in the Georgia EV KB? Name it.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "WIKA USA",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Which one is the company with the highest employment in Meriwether County? Name it.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "KTX America Corporation",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Which one is the company with the highest employment in Henry County? Name it.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Ascend Elements",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Identify the single company with the highest employment in Lamar County.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Continental Tire the Americas LLC",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Identify the single company with the highest employment in Floyd County.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "TDK Components USA Inc.",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Which one is the company with the highest employment in Carroll County? Name it.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Yachiyo Manufacturing of America LLC",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Bryan County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Hyundai Motor Group",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Which one is the company with the highest employment in Chatham County? Name it.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Hyundai & LG Energy Solution (LGES)",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Spalding County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Vernay",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Clarke County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Eaton Corp.",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Which one is the company with the highest employment in Harris County? Name it.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Hitachi Astemo",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Identify the single company with the highest employment in Whitfield County.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "MollerTech LLC",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Bartow County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "TI Fluid Systems",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Forsyth County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "TN Americas Holding Inc.",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Gordon County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Teklas USA",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Report the company with the highest employment in Newton County from the Georgia EV KB.",
+    "kind": "superlative",
+    "pass": true,
+    "expected_company": "Beaver Manufacturing Co. Inc.",
+    "comp_ok": true,
+    "num_ok": true
+  },
+  {
+    "question": "Compute the total combined employment across companies in Bulloch County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "503"
+    ],
+    "present": [
+      "503"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in Richmond County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "4550"
+    ],
+    "present": [
+      "4550"
+    ]
+  },
+  {
+    "question": "What is the total combined employment across companies in Laurens County? Give the figure.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "88943"
+    ],
+    "present": [
+      "88943"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in Troup County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "4157"
+    ],
+    "present": [
+      "4157"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in DeKalb County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "1727"
+    ],
+    "present": [
+      "1727"
+    ]
+  },
+  {
+    "question": "What is the total combined employment across companies in Spalding County? Give the figure.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "2049"
+    ],
+    "present": [
+      "2049"
+    ]
+  },
+  {
+    "question": "Report the total combined employment across companies in Whitfield County from the Georgia EV KB.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "770"
+    ],
+    "present": [
+      "770"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in Forsyth County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "21680"
+    ],
+    "present": [
+      "21680"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in Hall County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "189307"
+    ],
+    "present": [
+      "189307"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in Walton County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "1520"
+    ],
+    "present": [
+      "1520"
+    ]
+  },
+  {
+    "question": "Report the total combined employment across companies in Bibb County from the Georgia EV KB.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "980"
+    ],
+    "present": [
+      "980"
+    ]
+  },
+  {
+    "question": "Compute the total combined employment across companies in Cherokee County.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "530"
+    ],
+    "present": [
+      "530"
+    ]
+  },
+  {
+    "question": "Report the total combined employment across all companies in the Georgia EV KB from the Georgia EV KB.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "1448330"
+    ],
+    "present": [
+      "1448330"
+    ]
+  },
+  {
+    "question": "Compute the total employment of all OEM companies.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "29657"
+    ],
+    "present": [
+      "29657"
+    ]
+  },
+  {
+    "question": "What is the total employment of all OEM Footprint companies? Give the figure.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "479809"
+    ],
+    "present": [
+      "479809"
+    ]
+  },
+  {
+    "question": "Report the total employment of all OEM Supply Chain companies from the Georgia EV KB.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "896231"
+    ],
+    "present": [
+      "896231"
+    ]
+  },
+  {
+    "question": "Compute the total employment of all Tier 1 companies.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "22410"
+    ],
+    "present": [
+      "22410"
+    ]
+  },
+  {
+    "question": "Compute the total employment of all Tier 1/2 companies.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "4756"
+    ],
+    "present": [
+      "4756"
+    ]
+  },
+  {
+    "question": "Compute the total employment of all Tier 2/3 companies.",
+    "kind": "aggregate",
+    "pass": true,
+    "expected_numbers": [
+      "15467"
+    ],
+    "present": [
+      "15467"
+    ]
+  },
+  {
+    "question": "Report the precise count of EV supply chain roles served by exactly one company.",
+    "kind": "count",
+    "pass": true,
+    "expected": 27,
+    "model_count": "27"
+  },
+  {
+    "question": "State the exact number of Georgia counties that have Tier 1 suppliers but no Battery Cell or Battery Pack suppliers.",
+    "kind": "count",
+    "pass": true,
+    "expected": 37,
+    "model_count": "37"
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with battery-related products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with lithium-ion battery materials.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with thermal-related products or services.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with wiring harnesses.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with harness-related products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with copper foil.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with electrodeposited materials.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with powder coating-related products or services.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with battery or materials recycling.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with composite materials.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with aluminum products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with plastics or polymer products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with polymer materials.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with DC-to-DC converters.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with chemical products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with battery electrolytes.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with capacitors.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with research and development activity.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with stamping products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with stamped components.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with seating products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with tire products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with axles.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with transmissions.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with brake products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with steel products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with glass products.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with connectors.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with sensors.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "Provide the complete list of Georgia companies associated with textile or interior components.",
+    "kind": "names",
+    "pass": true,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "count_ok": true,
+    "missing": [],
+    "hallucinated": []
+  },
+  {
+    "question": "What is the gross profit margin of Kia Georgia Inc.?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Who sits on the board of directors at Hyundai Motor Group?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "What is the share price of Novelis today?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Where are the public EV fast-charging stations in Macon?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "How many electric cars were registered in Georgia in 2025?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "What is the humidity in Savannah right now?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Which Georgia supplier will go bankrupt next year?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "In your opinion, which is the best-managed supplier in the KB?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Give me the fax number for SK Battery America.",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "What is the LinkedIn URL of Yazaki North America?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List the EV battery factories in North Carolina.",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "What is the dividend yield of Adient?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "How many vehicles per day are assembled at the Hyundai Metaplant?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "What is the bond rating of ZF Gainesville LLC?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Who founded a company called Peachtree EV Motors LLC?",
+    "kind": "refusal",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List the Georgia Charging Infrastructure companies located in DeKalb County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Which Tier 1 Georgia companies are in the Battery Cell role?",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "Identify Georgia Vehicle Assembly companies located in Chatham County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List all companies located in Echols County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List all companies located in Glynn County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List all companies located in Quitman County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List all companies located in Taliaferro County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  },
+  {
+    "question": "List all companies located in Webster County.",
+    "kind": "none",
+    "pass": true,
+    "declined": true,
+    "named": 0
+  }
+]

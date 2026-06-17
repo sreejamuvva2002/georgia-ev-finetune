@@ -1,0 +1,44 @@
+# mlx-lm LoRA config for Qwen2.5-14B-Instruct-MLX-8bit (Georgia EV) — v5 (RESUMED).
+# v5 RESUME (2026-06-17): the laptop powered off mid-v5 at iter ~975; only the iter-550
+# checkpoint was saved. mlx-lm resume reloads ONLY the weights (no optimizer state / step
+# counter), so we continue from iter-550 with a fresh full anneal: iters 3300->2750 (the
+# remaining iters to ~3300 total) and the cosine decay length matched to 2750. save_every
+# 550->200 so a future crash loses <=200 iters. Recipe otherwise unchanged from v4.
+# History: scale 20 + lr 1e-4 + no warmup DIVERGED (loss 2.95->6.5 by iter 75). The stable
+# recipe is scale 10 with a warmup + cosine decay. v4 keeps scale 10 (proven) and gains
+# capacity via rank 16->24 (higher rank does not change the update scale in mlx-lm).
+# NOTE: train_mlx.py also passes --data and --adapter-path (ROOT-relative) so a moved
+# project never trains on stale paths; the values below are kept correct as a fallback.
+model: "/Users/surya/.lmstudio/models/lmstudio-community/Qwen2.5-14B-Instruct-MLX-8bit"
+data: "/Users/surya/dev/georgia-ev-finetune/training_project/data"
+train: true
+
+fine_tune_type: lora
+optimizer: adamw
+num_layers: -1                 # LoRA on all 48 layers (default keys = all 7 q/k/v/o/gate/up/down proj)
+lora_parameters:
+  rank: 24                     # was 16 — more capacity to memorize the exhaustive memberships
+  scale: 10.0                  # keep the proven-stable scale (do NOT raise — divergence history)
+  dropout: 0.05
+
+batch_size: 4
+max_seq_length: 1536           # covers p99 after mega-lists capped at 50 companies (max ~1.4k tok)
+mask_prompt: true              # completion-only loss (don't train on system+user prompt)
+grad_checkpoint: true
+clear_cache_threshold: 12000000000   # clear mlx allocator cache if reserved >12GB (defensive vs swap)
+
+# linear warmup 1e-7 -> 5e-5 over 80 steps, then cosine decay 5e-5 -> 5e-6 over the run.
+# The decay length MUST equal `iters` below for a clean anneal.
+lr_schedule:
+  name: cosine_decay
+  arguments: [5.0e-5, 2750, 5.0e-6]   # v5 resume: decay length = remaining iters (was 3300)
+  warmup: 80
+  warmup_init: 1.0e-7
+
+iters: 2750                    # v5 resume: 550 already done -> ~3300 total (~2.5 epochs, 5,635 ex)
+save_every: 200                # finer ckpts for crash-resilience + best-by-probe selection (was 550)
+steps_per_report: 25
+steps_per_eval: 275
+val_batches: 16
+adapter_path: "/Users/surya/dev/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx_v4"
+seed: 42

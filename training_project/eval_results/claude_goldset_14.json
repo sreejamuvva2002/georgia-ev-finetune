@@ -1,0 +1,16 @@
+[
+  {"id":"Q1","q":"What tier is Racemark International LLC, what is its EV supply chain role, and how many employees does it have?","claude_gold":"Tier 1; General Automotive; 120 employees (Gray, Jones County)"},
+  {"id":"Q2","q":"How many Tier 1 companies are in the dataset?","claude_gold":"77"},
+  {"id":"Q3","q":"List all companies located in Bartow County.","claude_gold":"5 distinct: Constellium Automotive USA, GSC Steel Stamping LLC, TI Fluid Systems, Vista Metals Corp., Voestalpine Automotive Body Parts Inc. (6 rows; TI Fluid twice)"},
+  {"id":"Q4","q":"Which companies in the dataset are located in Glynn County?","claude_gold":"None — no companies in Glynn County (should abstain)"},
+  {"id":"Q5","q":"List all companies located in Gwinnett County.","claude_gold":"11: Arising Industries, Big Tex Trailer Manufacturing, Carcoustics USA, Daesol Material Georgia, FOX Factory, IMS Gear Georgia, MAT Heavy Duty, Pak-Lite, Robert Bosch LLC, SungEel Recycling Park Georgia, WIKA USA"},
+  {"id":"Q6","q":"Which companies are classified under the 'Fabricated Metal Products' industry group?","claude_gold":"11: FOX Factory, FREYR Battery, Flambeau, Fouts Brothers Fire Equipment, Freudenberg-NOK, GEDIA Georgia, GLOVIS Georgia, Global Powertrain Systems, Goodyear Tire & Rubber, Great Dane LP, Great Dane Trailers"},
+  {"id":"Q7","q":"List every company in the dataset whose category is 'OEM'.","claude_gold":"12: Kia Georgia, Minebea AccessSolutions USA, Superior Essex, Suzuki Manufacturing of America, TCI Powder Coatings, TDK Components USA, TE Connectivity, TI Fluid Systems, Teklas USA, Textron Specialized Vehicles, Thermal Ceramics, Thomson Plastics"},
+  {"id":"Q8","q":"Which companies have an EV supply chain role of 'Vehicle Assembly'?","claude_gold":"10: Kia Georgia, Superior Essex, Suzuki Manufacturing of America, TCI Powder Coatings, TDK Components USA, TE Connectivity, Teklas USA, Textron Specialized Vehicles, Thermal Ceramics, Thomson Plastics"},
+  {"id":"H1","q":"How many Tier 1 companies are also flagged as directly EV/Battery relevant (EV/Battery Relevant = 'Yes')?","claude_gold":"exactly 1 — Racemark International LLC"},
+  {"id":"H2","q":"Among companies with a battery-related EV supply chain role (Battery Cell or Battery Pack), which has the most employees?","claude_gold":"Hitachi Astemo Americas Inc. (723 employees, Battery Cell)"},
+  {"id":"H3","q":"Which Tier 1 suppliers are located in the same county as the Kia Georgia assembly plant?","claude_gold":"7 in Troup County: Kyungshin America, Lear Corporation, Milliken & Co./Valway Plant, Mobis Alabama LLC, Seoyon E-HWA, Seoyon E-Hwa Interior Systems, Sewon America"},
+  {"id":"H4","q":"Which tier has the higher average facility employment: 'Tier 1' or 'Tier 1/2'?","claude_gold":"Tier 1 (mean ~291, n=77) > Tier 1/2 (mean ~264, n=18)"},
+  {"id":"H5","q":"Which company is the single largest employer in the dataset?","claude_gold":"WIKA USA 250,000 (caveat: global/parent figure, not GA site)"},
+  {"id":"H6","q":"Are there companies marked as directly EV/Battery relevant (='Yes') that are nonetheless assigned only the generic 'General Automotive' supply chain role? If so, name them.","claude_gold":"3 — Duckyang, Enchem America, Racemark International"}
+]

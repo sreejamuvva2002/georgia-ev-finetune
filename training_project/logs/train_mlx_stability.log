@@ -1,0 +1,16 @@
+Loading configuration file scripts/lora_14b.yaml
+Loading pretrained model
+Loading datasets
+Training
+Trainable parameters: 0.466% (68.813M/14770.034M)
+Starting training..., iters: 90
+Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]Calculating loss...:   8%|▊         | 1/12 [00:02<00:28,  2.61s/it]Calculating loss...:  17%|█▋        | 2/12 [00:12<01:07,  6.74s/it]Calculating loss...:  25%|██▌       | 3/12 [00:23<01:17,  8.58s/it]Calculating loss...:  33%|███▎      | 4/12 [00:27<00:55,  6.97s/it]Calculating loss...:  42%|████▏     | 5/12 [00:29<00:35,  5.07s/it]Calculating loss...:  50%|█████     | 6/12 [00:31<00:24,  4.11s/it]Calculating loss...:  58%|█████▊    | 7/12 [00:34<00:19,  3.86s/it]Calculating loss...:  67%|██████▋   | 8/12 [00:38<00:14,  3.71s/it]Calculating loss...:  75%|███████▌  | 9/12 [00:40<00:10,  3.43s/it]Calculating loss...:  83%|████████▎ | 10/12 [00:43<00:06,  3.06s/it]Calculating loss...:  92%|█████████▏| 11/12 [00:46<00:02,  2.99s/it]Calculating loss...: 100%|██████████| 12/12 [00:48<00:00,  2.76s/it]Calculating loss...: 100%|██████████| 12/12 [00:48<00:00,  4.03s/it]
+Iter 1: Val loss 3.259, Val took 48.317s
+Iter 10: Train loss 2.543, Learning Rate 7.585e-06, It/sec 0.095, Tokens/sec 21.612, Trained Tokens 2284, Peak mem 19.605 GB
+Iter 20: Train loss 1.360, Learning Rate 1.590e-05, It/sec 0.128, Tokens/sec 23.325, Trained Tokens 4102, Peak mem 19.605 GB
+Iter 30: Train loss 1.056, Learning Rate 2.422e-05, It/sec 0.116, Tokens/sec 24.847, Trained Tokens 6247, Peak mem 19.605 GB
+Iter 40: Train loss 1.046, Learning Rate 3.254e-05, It/sec 0.072, Tokens/sec 24.899, Trained Tokens 9707, Peak mem 23.317 GB
+Iter 50: Train loss 0.796, Learning Rate 4.085e-05, It/sec 0.082, Tokens/sec 22.837, Trained Tokens 12480, Peak mem 23.317 GB
+Iter 60: Train loss 0.778, Learning Rate 4.917e-05, It/sec 0.110, Tokens/sec 22.861, Trained Tokens 14566, Peak mem 23.317 GB
+/opt/homebrew/Cellar/python@3.13/3.13.13/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:400: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-76065-z_2n9o0w'}
+  warnings.warn(

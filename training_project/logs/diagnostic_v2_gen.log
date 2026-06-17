@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 6544.79it/s]
+[1/36] single_fact      qid=1 -> 190 chars
+[2/36] single_fact      qid=2 -> 185 chars
+[3/36] single_fact      qid=3 -> 256 chars
+[4/36] count            qid=4 -> 252 chars
+[5/36] count            qid=5 -> 102 chars
+[6/36] count            qid=6 -> 76 chars
+[7/36] count            qid=7 -> 78 chars
+[8/36] count            qid=8 -> 78 chars
+[9/36] count            qid=9 -> 73 chars
+[10/36] count            qid=10 -> 485 chars
+[11/36] count            qid=11 -> 86 chars
+[12/36] distribution     qid=12 -> 109 chars
+[13/36] distribution     qid=13 -> 1228 chars
+[14/36] multi_filter     qid=14 -> 438 chars
+[15/36] multi_filter     qid=15 -> 511 chars
+[16/36] multi_filter     qid=16 -> 312 chars
+[17/36] multi_filter     qid=17 -> 494 chars
+[18/36] multi_filter     qid=18 -> 1215 chars
+[19/36] multi_filter     qid=19 -> 404 chars
+[20/36] multi_filter     qid=20 -> 307 chars
+[21/36] superlative      qid=21 -> 143 chars
+[22/36] superlative      qid=22 -> 536 chars
+[23/36] superlative      qid=23 -> 135 chars
+[24/36] superlative      qid=24 -> 166 chars
+[25/36] aggregation      qid=25 -> 85 chars
+[26/36] aggregation      qid=26 -> 118 chars
+[27/36] aggregation      qid=27 -> 91 chars
+[28/36] setop_negation   qid=28 -> 705 chars
+[29/36] setop_negation   qid=29 -> 2388 chars
+[30/36] list_enum        qid=30 -> 1024 chars
+[31/36] list_enum        qid=31 -> 1137 chars
+[32/36] list_enum        qid=32 -> 443 chars
+[33/36] list_enum        qid=33 -> 515 chars
+[34/36] refusal          qid=34 -> 99 chars
+[35/36] refusal          qid=35 -> 71 chars
+[36/36] refusal          qid=36 -> 108 chars
+saved /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/eval_results/diagnostic_v2_answers.json

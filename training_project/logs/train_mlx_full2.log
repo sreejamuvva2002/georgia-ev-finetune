@@ -1,0 +1,71 @@
+Loading configuration file scripts/lora_14b.yaml
+Loading pretrained model
+Loading datasets
+Training
+Trainable parameters: 0.466% (68.813M/14770.034M)
+Starting training..., iters: 1200
+Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]Calculating loss...:   8%|▊         | 1/12 [00:05<00:58,  5.28s/it]Calculating loss...:  17%|█▋        | 2/12 [00:21<01:55, 11.60s/it]Calculating loss...:  25%|██▌       | 3/12 [00:39<02:10, 14.48s/it]Calculating loss...:  33%|███▎      | 4/12 [00:46<01:33, 11.63s/it]Calculating loss...:  42%|████▏     | 5/12 [00:49<00:58,  8.41s/it]Calculating loss...:  50%|█████     | 6/12 [00:52<00:40,  6.75s/it]Calculating loss...:  58%|█████▊    | 7/12 [00:58<00:31,  6.31s/it]Calculating loss...:  67%|██████▋   | 8/12 [01:03<00:24,  6.04s/it]Calculating loss...:  75%|███████▌  | 9/12 [01:08<00:16,  5.56s/it]Calculating loss...:  83%|████████▎ | 10/12 [01:11<00:09,  4.94s/it]Calculating loss...:  92%|█████████▏| 11/12 [01:16<00:04,  4.93s/it]Calculating loss...: 100%|██████████| 12/12 [01:20<00:00,  4.57s/it]Calculating loss...: 100%|██████████| 12/12 [01:20<00:00,  6.69s/it]
+Iter 1: Val loss 3.259, Val took 80.302s
+Iter 25: Train loss 1.797, Learning Rate 2.006e-05, It/sec 0.066, Tokens/sec 13.653, Trained Tokens 5184, Peak mem 19.605 GB
+Iter 50: Train loss 0.924, Learning Rate 4.085e-05, It/sec 0.035, Tokens/sec 10.324, Trained Tokens 12480, Peak mem 23.317 GB
+Iter 75: Train loss 0.734, Learning Rate 4.999e-05, It/sec 0.038, Tokens/sec 8.546, Trained Tokens 18156, Peak mem 23.317 GB
+Iter 100: Train loss 0.642, Learning Rate 4.989e-05, It/sec 0.028, Tokens/sec 8.306, Trained Tokens 25472, Peak mem 24.400 GB
+Iter 125: Train loss 0.546, Learning Rate 4.969e-05, It/sec 0.035, Tokens/sec 8.638, Trained Tokens 31639, Peak mem 24.400 GB
+Iter 150: Train loss 0.460, Learning Rate 4.941e-05, It/sec 0.033, Tokens/sec 8.076, Trained Tokens 37722, Peak mem 24.400 GB
+Iter 175: Train loss 0.488, Learning Rate 4.902e-05, It/sec 0.029, Tokens/sec 8.803, Trained Tokens 45414, Peak mem 24.400 GB
+Iter 200: Train loss 0.430, Learning Rate 4.855e-05, It/sec 0.029, Tokens/sec 8.680, Trained Tokens 52951, Peak mem 24.400 GB
+Iter 225: Train loss 0.352, Learning Rate 4.798e-05, It/sec 0.034, Tokens/sec 9.100, Trained Tokens 59681, Peak mem 24.400 GB
+Iter 250: Train loss 0.325, Learning Rate 4.733e-05, It/sec 0.027, Tokens/sec 8.602, Trained Tokens 67641, Peak mem 24.400 GB
+Iter 275: Train loss 0.318, Learning Rate 4.659e-05, It/sec 0.026, Tokens/sec 7.863, Trained Tokens 75132, Peak mem 24.400 GB
+[WARNING] Some sequences are longer than 1024 tokens. The longest sentence 1236 will be truncated to 1024. Consider pre-splitting your data to save memory.
+Iter 300: Train loss 0.255, Learning Rate 4.577e-05, It/sec 0.024, Tokens/sec 8.452, Trained Tokens 84087, Peak mem 24.487 GB
+Iter 300: Saved adapter weights to /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/adapters.safetensors and /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/0000300_adapters.safetensors.
+Iter 325: Train loss 0.322, Learning Rate 4.487e-05, It/sec 0.026, Tokens/sec 7.547, Trained Tokens 91280, Peak mem 24.676 GB
+Iter 350: Train loss 0.336, Learning Rate 4.390e-05, It/sec 0.021, Tokens/sec 5.561, Trained Tokens 97994, Peak mem 24.676 GB
+Iter 375: Train loss 0.255, Learning Rate 4.286e-05, It/sec 0.026, Tokens/sec 5.833, Trained Tokens 103683, Peak mem 24.676 GB
+Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]Calculating loss...:   8%|▊         | 1/12 [00:09<01:41,  9.24s/it]Calculating loss...:  17%|█▋        | 2/12 [00:20<01:42, 10.26s/it]Calculating loss...:  25%|██▌       | 3/12 [00:49<02:52, 19.13s/it]Calculating loss...:  33%|███▎      | 4/12 [00:56<01:54, 14.28s/it]Calculating loss...:  42%|████▏     | 5/12 [01:07<01:31, 13.13s/it]Calculating loss...:  50%|█████     | 6/12 [01:18<01:14, 12.43s/it]Calculating loss...:  58%|█████▊    | 7/12 [01:29<00:59, 11.86s/it]Calculating loss...:  67%|██████▋   | 8/12 [01:38<00:43, 10.94s/it]Calculating loss...:  75%|███████▌  | 9/12 [01:54<00:37, 12.44s/it]Calculating loss...:  83%|████████▎ | 10/12 [02:07<00:25, 12.74s/it]Calculating loss...:  92%|█████████▏| 11/12 [02:14<00:10, 10.94s/it]Calculating loss...: 100%|██████████| 12/12 [02:26<00:00, 11.18s/it]Calculating loss...: 100%|██████████| 12/12 [02:26<00:00, 12.19s/it]
+Iter 400: Val loss 0.262, Val took 146.297s
+Iter 400: Train loss 0.260, Learning Rate 4.175e-05, It/sec 0.022, Tokens/sec 6.049, Trained Tokens 110425, Peak mem 24.676 GB
+Iter 425: Train loss 0.244, Learning Rate 4.058e-05, It/sec 0.022, Tokens/sec 5.681, Trained Tokens 116994, Peak mem 24.676 GB
+Iter 450: Train loss 0.183, Learning Rate 3.936e-05, It/sec 0.022, Tokens/sec 6.508, Trained Tokens 124332, Peak mem 24.676 GB
+Iter 475: Train loss 0.169, Learning Rate 3.808e-05, It/sec 0.023, Tokens/sec 5.971, Trained Tokens 130827, Peak mem 24.676 GB
+Iter 500: Train loss 0.194, Learning Rate 3.676e-05, It/sec 0.020, Tokens/sec 5.405, Trained Tokens 137741, Peak mem 24.676 GB
+Iter 525: Train loss 0.163, Learning Rate 3.540e-05, It/sec 0.022, Tokens/sec 4.985, Trained Tokens 143349, Peak mem 24.676 GB
+Iter 550: Train loss 0.200, Learning Rate 3.400e-05, It/sec 0.024, Tokens/sec 5.983, Trained Tokens 149611, Peak mem 24.676 GB
+Iter 575: Train loss 0.155, Learning Rate 3.258e-05, It/sec 0.021, Tokens/sec 6.574, Trained Tokens 157530, Peak mem 24.676 GB
+Iter 600: Train loss 0.151, Learning Rate 3.114e-05, It/sec 0.026, Tokens/sec 7.130, Trained Tokens 164466, Peak mem 24.676 GB
+Iter 600: Saved adapter weights to /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/adapters.safetensors and /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/0000600_adapters.safetensors.
+[WARNING] Some sequences are longer than 1024 tokens. The longest sentence 1236 will be truncated to 1024. Consider pre-splitting your data to save memory.
+Iter 625: Train loss 0.152, Learning Rate 2.968e-05, It/sec 0.021, Tokens/sec 6.839, Trained Tokens 172739, Peak mem 24.762 GB
+Iter 650: Train loss 0.168, Learning Rate 2.821e-05, It/sec 0.033, Tokens/sec 7.705, Trained Tokens 178656, Peak mem 24.762 GB
+Iter 675: Train loss 0.116, Learning Rate 2.673e-05, It/sec 0.026, Tokens/sec 7.462, Trained Tokens 185713, Peak mem 24.762 GB
+Iter 700: Train loss 0.133, Learning Rate 2.527e-05, It/sec 0.040, Tokens/sec 9.500, Trained Tokens 191592, Peak mem 24.762 GB
+Iter 725: Train loss 0.132, Learning Rate 2.381e-05, It/sec 0.032, Tokens/sec 8.818, Trained Tokens 198520, Peak mem 24.762 GB
+Iter 750: Train loss 0.131, Learning Rate 2.236e-05, It/sec 0.043, Tokens/sec 8.073, Trained Tokens 203183, Peak mem 24.762 GB
+[WARNING] Some sequences are longer than 1024 tokens. The longest sentence 1236 will be truncated to 1024. Consider pre-splitting your data to save memory.
+Iter 775: Train loss 0.126, Learning Rate 2.094e-05, It/sec 0.029, Tokens/sec 9.385, Trained Tokens 211370, Peak mem 24.762 GB
+Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]Calculating loss...:   8%|▊         | 1/12 [00:09<01:43,  9.39s/it]Calculating loss...:  17%|█▋        | 2/12 [00:16<01:21,  8.17s/it]Calculating loss...:  25%|██▌       | 3/12 [00:25<01:17,  8.64s/it]Calculating loss...:  33%|███▎      | 4/12 [00:40<01:27, 10.93s/it]Calculating loss...:  42%|████▏     | 5/12 [00:49<01:11, 10.24s/it]Calculating loss...:  50%|█████     | 6/12 [00:56<00:55,  9.28s/it]Calculating loss...:  58%|█████▊    | 7/12 [01:05<00:46,  9.22s/it]Calculating loss...:  67%|██████▋   | 8/12 [01:30<00:56, 14.01s/it]Calculating loss...:  75%|███████▌  | 9/12 [01:35<00:33, 11.32s/it]Calculating loss...:  83%|████████▎ | 10/12 [01:42<00:20, 10.03s/it]Calculating loss...:  92%|█████████▏| 11/12 [01:50<00:09,  9.24s/it]Calculating loss...: 100%|██████████| 12/12 [02:01<00:00,  9.75s/it]Calculating loss...: 100%|██████████| 12/12 [02:01<00:00, 10.09s/it]
+Iter 800: Val loss 0.175, Val took 121.058s
+Iter 800: Train loss 0.111, Learning Rate 1.955e-05, It/sec 0.029, Tokens/sec 7.687, Trained Tokens 217985, Peak mem 24.762 GB
+Iter 825: Train loss 0.053, Learning Rate 1.819e-05, It/sec 0.035, Tokens/sec 8.057, Trained Tokens 223737, Peak mem 24.762 GB
+Iter 850: Train loss 0.080, Learning Rate 1.687e-05, It/sec 0.033, Tokens/sec 9.017, Trained Tokens 230591, Peak mem 24.762 GB
+Iter 875: Train loss 0.086, Learning Rate 1.559e-05, It/sec 0.022, Tokens/sec 6.378, Trained Tokens 237842, Peak mem 24.762 GB
+Iter 900: Train loss 0.065, Learning Rate 1.437e-05, It/sec 0.019, Tokens/sec 5.346, Trained Tokens 244876, Peak mem 24.762 GB
+Iter 900: Saved adapter weights to /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/adapters.safetensors and /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/0000900_adapters.safetensors.
+Iter 925: Train loss 0.041, Learning Rate 1.320e-05, It/sec 0.022, Tokens/sec 6.466, Trained Tokens 252203, Peak mem 24.762 GB
+Iter 950: Train loss 0.069, Learning Rate 1.210e-05, It/sec 0.017, Tokens/sec 5.553, Trained Tokens 260346, Peak mem 24.762 GB
+Iter 975: Train loss 0.074, Learning Rate 1.106e-05, It/sec 0.033, Tokens/sec 8.638, Trained Tokens 266975, Peak mem 24.762 GB
+Iter 1000: Train loss 0.049, Learning Rate 1.009e-05, It/sec 0.026, Tokens/sec 8.171, Trained Tokens 274861, Peak mem 24.762 GB
+Iter 1025: Train loss 0.052, Learning Rate 9.194e-06, It/sec 0.032, Tokens/sec 8.423, Trained Tokens 281417, Peak mem 24.762 GB
+[WARNING] Some sequences are longer than 1024 tokens. The longest sentence 1236 will be truncated to 1024. Consider pre-splitting your data to save memory.
+Iter 1050: Train loss 0.057, Learning Rate 8.377e-06, It/sec 0.026, Tokens/sec 7.695, Trained Tokens 288935, Peak mem 24.762 GB
+Iter 1075: Train loss 0.051, Learning Rate 7.643e-06, It/sec 0.029, Tokens/sec 9.163, Trained Tokens 296761, Peak mem 24.762 GB
+Iter 1100: Train loss 0.050, Learning Rate 6.993e-06, It/sec 0.025, Tokens/sec 5.849, Trained Tokens 302521, Peak mem 24.762 GB
+Iter 1125: Train loss 0.046, Learning Rate 6.432e-06, It/sec 0.024, Tokens/sec 5.763, Trained Tokens 308544, Peak mem 24.762 GB
+Iter 1150: Train loss 0.041, Learning Rate 5.960e-06, It/sec 0.026, Tokens/sec 7.974, Trained Tokens 316086, Peak mem 24.762 GB
+Iter 1175: Train loss 0.027, Learning Rate 5.581e-06, It/sec 0.019, Tokens/sec 6.486, Trained Tokens 324828, Peak mem 24.762 GB
+Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]Calculating loss...:   8%|▊         | 1/12 [00:08<01:31,  8.35s/it]Calculating loss...:  17%|█▋        | 2/12 [00:13<01:04,  6.48s/it]Calculating loss...:  25%|██▌       | 3/12 [00:17<00:48,  5.34s/it]Calculating loss...:  33%|███▎      | 4/12 [00:23<00:43,  5.44s/it]Calculating loss...:  42%|████▏     | 5/12 [00:29<00:41,  5.97s/it]Calculating loss...:  50%|█████     | 6/12 [00:41<00:46,  7.68s/it]Calculating loss...:  58%|█████▊    | 7/12 [00:44<00:31,  6.39s/it]Calculating loss...:  67%|██████▋   | 8/12 [01:11<00:51, 12.82s/it]Calculating loss...:  75%|███████▌  | 9/12 [01:15<00:29,  9.98s/it]Calculating loss...:  83%|████████▎ | 10/12 [01:24<00:19,  9.92s/it]Calculating loss...:  92%|█████████▏| 11/12 [01:30<00:08,  8.60s/it]Calculating loss...: 100%|██████████| 12/12 [01:37<00:00,  8.00s/it]Calculating loss...: 100%|██████████| 12/12 [01:37<00:00,  8.09s/it]
+Iter 1200: Val loss 0.158, Val took 97.102s
+Iter 1200: Train loss 0.056, Learning Rate 5.296e-06, It/sec 0.038, Tokens/sec 8.585, Trained Tokens 330439, Peak mem 24.762 GB
+Iter 1200: Saved adapter weights to /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/adapters.safetensors and /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/0001200_adapters.safetensors.
+Saved final weights to /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/adapters.safetensors.
