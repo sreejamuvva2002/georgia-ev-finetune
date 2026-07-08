@@ -1,0 +1,12 @@
+model:
+  model_id_slug: mistral-7b
+  name_or_path: mistralai/Mistral-7B-v0.1
+  model_family: mistral
+  model_size: 7b
+  model_type: causal_lm
+  trust_remote_code: true
+  torch_dtype: auto
+  attn_implementation: sdpa
+  use_cache: false
+  tokenizer_padding_side: right
+  tokenizer_pad_token_strategy: eos_if_missing

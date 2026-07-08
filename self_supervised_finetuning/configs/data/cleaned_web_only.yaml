@@ -1,0 +1,22 @@
+# Web-only, cleaned-text mode. Identical to web_only_source_split.yaml — kept as a separate,
+# explicitly-named variant so sweeps/experiments can reference "cleaned_web_only" directly
+# without implying anything about the split strategy used to produce it.
+data:
+  dataset_variant_slug: cleaned-web-only
+  source_type: web_corpus
+  input_path: null
+  split_strategy_slug: group-by-source
+  split_strategy: group_by_source
+  group_column: source_url
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  text_format: cleaned_web_text
+  max_seq_length: 2048
+  chunk_stride: 0
+  min_chars_per_doc: 200
+  deduplicate_exact_text: true
+  deduplicate_near_text: false
+  packing: true

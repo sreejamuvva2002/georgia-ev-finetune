@@ -1,0 +1,8 @@
+experiment:
+  experiment_name: qwen3b_qlora_kb_company_split
+  description: "Model-size comparison point: Qwen2.5-3B base + QLoRA r16 + KB company-split."
+  model_config: self_supervised_finetuning/configs/models/qwen2p5_3b_base.yaml
+  method_config: self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data_config: self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  seed: 42

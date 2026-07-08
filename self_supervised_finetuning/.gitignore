@@ -1,0 +1,37 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# --- Outputs (large / reproducible from configs + kb_full.jsonl) ---
+outputs/adapters/*/
+outputs/runs/*/
+outputs/metrics/*/
+outputs/reports/*/
+outputs/sweeps/*/
+!outputs/adapters/.gitkeep
+!outputs/runs/.gitkeep
+!outputs/metrics/.gitkeep
+!outputs/reports/.gitkeep
+!outputs/sweeps/.gitkeep
+
+# --- Processed / split data (reproducible from kb_full.jsonl) ---
+data/processed/*
+data/splits/*
+data/manifests/*
+!data/processed/.gitkeep
+!data/splits/.gitkeep
+!data/manifests/.gitkeep
+
+# --- Model weights / adapters ---
+*.safetensors
+*.gguf
+*.bin
+
+# --- Logs / tensorboard ---
+runs/
+*.tfevents.*
+
+# --- OS / editor ---
+.DS_Store

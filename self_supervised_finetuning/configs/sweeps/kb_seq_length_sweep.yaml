@@ -1,0 +1,22 @@
+sweep:
+  sweep_name: kb_seq_length_sweep
+  description: "Test max sequence length for canonical KB records."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  overrides:
+    data.max_seq_length:
+      - 512
+      - 1024
+      - 2048
+    training.num_train_epochs:
+      - 8
+    training.learning_rate:
+      - 0.00008
+  seeds:
+    - 42
+  max_runs: null

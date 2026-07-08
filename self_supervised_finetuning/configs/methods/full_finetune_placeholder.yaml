@@ -1,0 +1,12 @@
+# Placeholder for a future full-parameter (non-LoRA) fine-tune method. No adapter
+# is produced in this mode, so run_naming/output-path conventions built around an
+# "adapter/" subfolder do not apply as-is. lora_factory.py raises NotImplementedError
+# if this method is selected until that path is wired up.
+method:
+  method_id_slug: full-finetune-placeholder
+  name: full_finetune
+  status: not_implemented
+  quantization: null
+  gradient_checkpointing: true
+  prepare_model_for_kbit_training: false
+  lora: null

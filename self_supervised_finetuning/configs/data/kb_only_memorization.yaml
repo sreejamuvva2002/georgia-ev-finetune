@@ -1,0 +1,18 @@
+# Experiment 2: KB memorization.
+# Purpose: measure whether the model can absorb/memorize the tiny KB through self-supervised
+# continued pretraining. Trains on 100% of KB rows — this can test in-sample absorption but
+# CANNOT prove generalization. Every report generated from this config must say so explicitly.
+data:
+  dataset_variant_slug: kb-only-memorization
+  source_type: kb_jsonl
+  input_path: null
+  split_strategy_slug: train-all
+  split_strategy: train_all
+  seed: 42
+  text_format: kb_canonical_record
+  include_all_columns: true
+  missing_value_token: "Not specified"
+  add_record_boundaries: true
+  shuffle_train: true
+  max_seq_length: 1024
+  packing: false

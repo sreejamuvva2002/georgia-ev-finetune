@@ -1,0 +1,26 @@
+# Not literally listed in the user's sweep table above but named in the required file tree —
+# mirrors kb_epoch_sweep + kb_batch_sweep, applied to the web-only dataset now that the web
+# corpus exists (input_path must be supplied before this sweep can run).
+sweep:
+  sweep_name: web_epoch_batch_sweep
+  description: "Test epoch count and batch/grad-accum settings for web-only source-split training."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/web_only_source_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/web_default.yaml
+  overrides:
+    training.num_train_epochs:
+      - 1
+      - 2
+      - 3
+    training.gradient_accumulation_steps:
+      - 8
+      - 16
+    training.learning_rate:
+      - 0.00010
+  seeds:
+    - 42
+  max_runs: null

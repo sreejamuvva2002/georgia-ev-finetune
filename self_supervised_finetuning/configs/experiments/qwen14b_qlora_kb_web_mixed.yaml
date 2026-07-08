@@ -1,0 +1,8 @@
+experiment:
+  experiment_name: qwen14b_qlora_kb_web_mixed
+  description: "Qwen2.5-14B base + QLoRA r16 + KB+web mixed (30/70 sampling). Requires a web corpus (data.sources.web.input_path) to be supplied."
+  model_config: self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  method_config: self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data_config: self_supervised_finetuning/configs/data/kb_web_mixed.yaml
+  training_config: self_supervised_finetuning/configs/training/mixed_default.yaml
+  seed: 42

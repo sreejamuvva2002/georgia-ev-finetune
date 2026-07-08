@@ -1,0 +1,40 @@
+# Experiment 4: KB + web mixed.
+# Each source is split by its OWN group rule first (kb by Company, web by source_url), then
+# train combines with train, validation with validation, test with test. KB is sampled at 30%
+# by default so structured KB facts are not drowned out once web tokens dominate — configurable
+# via sampling_weights.
+data:
+  dataset_variant_slug: kb-web-mixed
+  source_type: mixed
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  sources:
+    kb:
+      source_type: kb_jsonl
+      input_path: null
+      split_strategy_slug: group-by-company
+      split_strategy: group_by_company
+      group_column: Company
+      text_format: kb_canonical_record
+      max_seq_length: 1024
+      packing: false
+    web:
+      source_type: web_corpus
+      input_path: null
+      split_strategy_slug: group-by-source
+      split_strategy: group_by_source
+      group_column: source_url
+      text_format: cleaned_web_text
+      max_seq_length: 2048
+      chunk_stride: 0
+      packing: true
+  sampling_weights:
+    kb: 0.30
+    web: 0.70
+  split_strategy: mixed_per_source_group
+  split_strategy_slug: mixed-per-source-group
+  max_seq_length: 2048
+  packing: true

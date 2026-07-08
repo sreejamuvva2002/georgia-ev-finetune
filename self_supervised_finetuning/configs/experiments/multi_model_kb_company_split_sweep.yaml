@@ -1,0 +1,26 @@
+# This is a sweep, not a single-run experiment — named in the experiments/ tree per the user's
+# spec, but its content is a sweep bundle. Use `ssft sweep --sweep-config <this file>`, not
+# `ssft train-experiment`. Delegates to configs/sweeps/multi_model_kb_sweep.yaml so the two
+# entry points (an experiments/ pointer and the canonical sweeps/ config) never drift apart.
+sweep:
+  sweep_name: multi_model_kb_company_split_sweep
+  description: "Experiments-folder pointer to the canonical multi-model KB company-split sweep."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_3b_base.yaml
+    - self_supervised_finetuning/configs/models/qwen2p5_7b_base.yaml
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  overrides:
+    training.num_train_epochs:
+      - 8
+    training.learning_rate:
+      - 0.00008
+    training.gradient_accumulation_steps:
+      - 16
+  seeds:
+    - 42
+  max_runs: null

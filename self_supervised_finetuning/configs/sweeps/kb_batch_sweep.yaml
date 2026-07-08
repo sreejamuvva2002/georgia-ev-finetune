@@ -1,0 +1,25 @@
+sweep:
+  sweep_name: kb_batch_sweep
+  description: "Test different physical and effective batch sizes for KB company-split training."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  overrides:
+    training.per_device_train_batch_size:
+      - 1
+      - 2
+    training.gradient_accumulation_steps:
+      - 8
+      - 16
+      - 32
+    training.num_train_epochs:
+      - 8
+    training.learning_rate:
+      - 0.00008
+  seeds:
+    - 42
+  max_runs: null

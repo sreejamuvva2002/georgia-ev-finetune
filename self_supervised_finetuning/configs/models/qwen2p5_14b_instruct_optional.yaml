@@ -1,0 +1,13 @@
+model:
+  model_id_slug: qwen2p5-14b-instruct
+  name_or_path: Qwen/Qwen2.5-14B-Instruct
+  model_family: qwen2.5
+  model_size: 14b
+  model_type: causal_lm
+  trust_remote_code: true
+  torch_dtype: auto
+  attn_implementation: sdpa
+  use_cache: false
+  tokenizer_padding_side: right
+  tokenizer_pad_token_strategy: eos_if_missing
+  warning: "This is an instruction model. Continued pretraining on tiny raw data may damage instruction-following behavior. Use only for comparison."

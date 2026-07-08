@@ -1,0 +1,8 @@
+experiment:
+  experiment_name: qwen14b_qlora_web_only
+  description: "Qwen2.5-14B base + QLoRA r16 + web-only source-split continued pretraining. Requires a web corpus (data.input_path) to be supplied."
+  model_config: self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  method_config: self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data_config: self_supervised_finetuning/configs/data/web_only_source_split.yaml
+  training_config: self_supervised_finetuning/configs/training/web_default.yaml
+  seed: 42

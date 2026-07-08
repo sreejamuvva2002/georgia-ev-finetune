@@ -1,0 +1,21 @@
+sweep:
+  sweep_name: multi_dataset_qwen14b_sweep
+  description: "Compare Qwen2.5-14B QLoRA adaptation across KB, web, and KB+web datasets."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+    - self_supervised_finetuning/configs/data/web_only_source_split.yaml
+    - self_supervised_finetuning/configs/data/kb_web_mixed.yaml
+  training_config_by_dataset:
+    kb-only-company-split: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+    web-only-source-split: self_supervised_finetuning/configs/training/web_default.yaml
+    kb-web-mixed: self_supervised_finetuning/configs/training/mixed_default.yaml
+  overrides:
+    training.learning_rate:
+      - 0.00008
+  seeds:
+    - 42
+  max_runs: null

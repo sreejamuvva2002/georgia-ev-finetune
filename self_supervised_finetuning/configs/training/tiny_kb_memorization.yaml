@@ -1,0 +1,33 @@
+# Intentionally tests memorization/absorption on 100% of KB rows (split_strategy: train_all).
+# eval here runs against the SAME train set (in-sample only, no held-out data) so the epoch
+# eval-loss curve tracks absorption, not generalization. Must not be used to claim generalization.
+training:
+  training_slug: ep20-bs1-ga16-ebs16-lr1e4-seq1024
+  output_root: self_supervised_finetuning/outputs
+  num_train_epochs: 20
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 0.00010
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 0.3
+  optim: paged_adamw_8bit
+  logging_strategy: steps
+  logging_steps: 1
+  eval_strategy: epoch
+  save_strategy: epoch
+  save_total_limit: 5
+  load_best_model_at_end: false
+  early_stopping:
+    enabled: false
+  fp16: auto
+  bf16: auto
+  gradient_checkpointing: true
+  report_to:
+    - tensorboard
+  seed: 42
+  data_seed: 42
+  dataloader_num_workers: 2
+  remove_unused_columns: false

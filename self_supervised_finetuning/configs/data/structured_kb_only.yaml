@@ -1,0 +1,26 @@
+# KB-only, structured-record mode. Identical to kb_only_company_split.yaml — kept as a
+# separate, explicitly-named variant so sweeps/experiments can reference "structured_kb_only"
+# directly to contrast against web-derived variants without implying a specific split strategy.
+data:
+  dataset_variant_slug: structured-kb-only
+  source_type: kb_jsonl
+  input_path: null
+  split_strategy_slug: group-by-company
+  split_strategy: group_by_company
+  group_column: Company
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  stratify_columns:
+    - EV / Battery Relevant
+    - Category
+    - Classification Method
+  text_format: kb_canonical_record
+  include_all_columns: true
+  missing_value_token: "Not specified"
+  add_record_boundaries: true
+  shuffle_train: true
+  max_seq_length: 1024
+  packing: false

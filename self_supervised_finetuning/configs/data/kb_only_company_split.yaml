@@ -1,0 +1,27 @@
+# Experiment 1: KB company-split generalization.
+# Purpose: measure whether continued pretraining learns reusable Georgia EV structured-record
+# patterns without leaking the same company into train/validation/test.
+# With 193 unique companies: train ~155, validation ~19, test ~19.
+data:
+  dataset_variant_slug: kb-only-company-split
+  source_type: kb_jsonl
+  input_path: null
+  split_strategy_slug: group-by-company
+  split_strategy: group_by_company
+  group_column: Company
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  stratify_columns:
+    - EV / Battery Relevant
+    - Category
+    - Classification Method
+  text_format: kb_canonical_record
+  include_all_columns: true
+  missing_value_token: "Not specified"
+  add_record_boundaries: true
+  shuffle_train: true
+  max_seq_length: 1024
+  packing: false

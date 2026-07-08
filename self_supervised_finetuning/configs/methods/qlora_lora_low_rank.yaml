@@ -1,0 +1,24 @@
+method:
+  method_id_slug: qlora-lora-r8-a16-d005
+  name: qlora_lora
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_compute_dtype: auto
+  gradient_checkpointing: true
+  prepare_model_for_kbit_training: true
+  lora:
+    r: 8
+    lora_alpha: 16
+    lora_dropout: 0.05
+    bias: none
+    task_type: CAUSAL_LM
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+      - gate_proj
+      - up_proj
+      - down_proj

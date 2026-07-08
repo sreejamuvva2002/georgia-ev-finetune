@@ -1,0 +1,24 @@
+sweep:
+  sweep_name: kb_learning_rate_sweep
+  description: "Test learning-rate sensitivity for tiny KB continued pretraining."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  overrides:
+    training.learning_rate:
+      - 0.00003
+      - 0.00005
+      - 0.00008
+      - 0.00010
+      - 0.00015
+    training.num_train_epochs:
+      - 8
+    training.gradient_accumulation_steps:
+      - 16
+  seeds:
+    - 42
+  max_runs: null

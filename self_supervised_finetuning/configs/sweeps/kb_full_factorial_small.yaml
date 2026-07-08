@@ -1,0 +1,25 @@
+sweep:
+  sweep_name: kb_full_factorial_small
+  description: "Small factorial search over epochs, learning rate, effective batch size, and LoRA rank."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_low_rank.yaml
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  overrides:
+    training.num_train_epochs:
+      - 3
+      - 8
+    training.learning_rate:
+      - 0.00005
+      - 0.00008
+      - 0.00010
+    training.gradient_accumulation_steps:
+      - 8
+      - 16
+  seeds:
+    - 42
+  max_runs: null

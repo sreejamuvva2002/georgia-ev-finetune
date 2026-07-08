@@ -1,0 +1,13 @@
+model:
+  model_id_slug: llama3p1-8b
+  name_or_path: meta-llama/Llama-3.1-8B
+  model_family: llama
+  model_size: 8b
+  model_type: causal_lm
+  trust_remote_code: true
+  torch_dtype: auto
+  attn_implementation: sdpa
+  use_cache: false
+  tokenizer_padding_side: right
+  tokenizer_pad_token_strategy: eos_if_missing
+  warning: "Template for the Llama family — gated on Hugging Face (requires accepting the license and an authenticated token). Verify target_modules and tokenizer pad-token behavior before use; not covered by this repo's tests."

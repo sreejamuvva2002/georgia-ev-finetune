@@ -1,0 +1,35 @@
+# Fast, tiny-footprint config for smoke-testing the pipeline (data loading, tokenization,
+# LoRA wiring, Trainer loop, artifact writing) without a full training run. `debug: true` is
+# read by ssft.train.model_loader.resolve_dtype() to allow a CPU/no-CUDA fallback instead of
+# the hard failure normal training configs get when no CUDA is present. Not intended to
+# produce a usable adapter — only to prove the mechanics work.
+training:
+  training_slug: ep1-bs1-ga1-ebs1-lr1e4-seq256-debug
+  output_root: self_supervised_finetuning/outputs
+  debug: true
+  max_train_samples: 8
+  max_eval_samples: 4
+  num_train_epochs: 1
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 1
+  learning_rate: 0.00010
+  lr_scheduler_type: constant
+  warmup_ratio: 0.0
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optim: adamw_torch
+  logging_strategy: steps
+  logging_steps: 1
+  eval_strategy: epoch
+  save_strategy: epoch
+  save_total_limit: 1
+  load_best_model_at_end: false
+  fp16: auto
+  bf16: auto
+  gradient_checkpointing: false
+  report_to: []
+  seed: 42
+  data_seed: 42
+  dataloader_num_workers: 0
+  remove_unused_columns: false

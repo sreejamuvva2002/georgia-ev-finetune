@@ -1,0 +1,12 @@
+model:
+  model_id_slug: qwen2p5-7b
+  name_or_path: Qwen/Qwen2.5-7B
+  model_family: qwen2.5
+  model_size: 7b
+  model_type: causal_lm
+  trust_remote_code: true
+  torch_dtype: auto
+  attn_implementation: sdpa
+  use_cache: false
+  tokenizer_padding_side: right
+  tokenizer_pad_token_strategy: eos_if_missing

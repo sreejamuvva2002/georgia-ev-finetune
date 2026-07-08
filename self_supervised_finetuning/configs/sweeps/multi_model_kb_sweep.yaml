@@ -1,0 +1,22 @@
+sweep:
+  sweep_name: multi_model_kb_sweep
+  description: "Compare self-supervised KB adaptation across multiple base models."
+  models:
+    - self_supervised_finetuning/configs/models/qwen2p5_3b_base.yaml
+    - self_supervised_finetuning/configs/models/qwen2p5_7b_base.yaml
+    - self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  methods:
+    - self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data:
+    - self_supervised_finetuning/configs/data/kb_only_company_split.yaml
+  base_training_config: self_supervised_finetuning/configs/training/tiny_kb_conservative.yaml
+  overrides:
+    training.num_train_epochs:
+      - 8
+    training.learning_rate:
+      - 0.00008
+    training.gradient_accumulation_steps:
+      - 16
+  seeds:
+    - 42
+  max_runs: null

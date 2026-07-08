@@ -1,0 +1,8 @@
+experiment:
+  experiment_name: qwen14b_qlora_kb_memorization
+  description: "Qwen2.5-14B base + QLoRA r16 + KB memorization (100% train, no generalization claim)."
+  model_config: self_supervised_finetuning/configs/models/qwen2p5_14b_base.yaml
+  method_config: self_supervised_finetuning/configs/methods/qlora_lora_default.yaml
+  data_config: self_supervised_finetuning/configs/data/kb_only_memorization.yaml
+  training_config: self_supervised_finetuning/configs/training/tiny_kb_memorization.yaml
+  seed: 42

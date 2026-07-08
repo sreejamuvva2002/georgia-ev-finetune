@@ -1,0 +1,23 @@
+# No quantization — full fp16/bf16 base model + LoRA adapters. Needs more VRAM than
+# qlora_lora_* (no 4-bit compression) but avoids bitsandbytes quantization noise;
+# useful as a quality baseline for small models (3B/7B) where VRAM allows it.
+method:
+  method_id_slug: lora-fp16-r16-a32-d005
+  name: lora_fp16
+  quantization: null
+  gradient_checkpointing: true
+  prepare_model_for_kbit_training: false
+  lora:
+    r: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+    bias: none
+    task_type: CAUSAL_LM
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+      - gate_proj
+      - up_proj
+      - down_proj

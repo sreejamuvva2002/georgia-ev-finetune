@@ -1,0 +1,17 @@
+# Self-supervised (causal-LM) continued-pretraining framework — dependencies.
+# Lower bounds only; no upper pins. Installed separately from the rest of the repo
+# (training_project/ uses mlx-lm on Apple Silicon and has its own, unrelated deps).
+
+torch>=2.2
+transformers>=4.45
+datasets>=2.19
+accelerate>=0.30
+peft>=0.11
+bitsandbytes>=0.43
+sentencepiece>=0.2
+pyyaml>=6.0
+pandas>=2.2
+scikit-learn>=1.4
+tensorboard>=2.16
+tqdm>=4.66
+numpy>=1.26

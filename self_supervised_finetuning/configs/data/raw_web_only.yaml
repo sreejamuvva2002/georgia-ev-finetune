@@ -1,0 +1,23 @@
+# Web-only, RAW JSON text mode — the one explicitly-allowed exception to "always convert to
+# canonical formatted text": trains directly on the raw JSON string of each web record instead
+# of a cleaned/reformatted version. Use only when you deliberately want the model to see the
+# source JSON structure; prefer cleaned_web_only.yaml otherwise.
+data:
+  dataset_variant_slug: raw-web-only
+  source_type: web_corpus
+  input_path: null
+  split_strategy_slug: group-by-source
+  split_strategy: group_by_source
+  group_column: source_url
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  text_format: raw_json
+  max_seq_length: 2048
+  chunk_stride: 0
+  min_chars_per_doc: 200
+  deduplicate_exact_text: true
+  deduplicate_near_text: false
+  packing: true
