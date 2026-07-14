@@ -1,0 +1,25 @@
+# bf16 base (NO quantization) + LoRA. Removes the bitsandbytes quantization noise floor
+# entirely — the cleanest path to the lowest possible train_loss. bf16 14B base ~28GB, which
+# fits a single 51GB RTX A6000 comfortably (infeasible on the 24GB card the plan originally
+# assumed; feasible here). Same high-rank + rsLoRA + zero-dropout recipe as the 4-bit variant.
+method:
+  method_id_slug: lora-bf16-r64-a128-d0-rslora
+  name: lora_bf16
+  quantization: null
+  gradient_checkpointing: true
+  prepare_model_for_kbit_training: false
+  lora:
+    r: 64
+    lora_alpha: 128
+    lora_dropout: 0.0
+    use_rslora: true
+    bias: none
+    task_type: CAUSAL_LM
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+      - gate_proj
+      - up_proj
+      - down_proj

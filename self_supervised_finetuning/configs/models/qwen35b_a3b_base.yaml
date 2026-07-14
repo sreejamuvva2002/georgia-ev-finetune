@@ -1,0 +1,14 @@
+# Qwen3.5-35B-A3B-Base — a 35B-total / 3B-active MoE (256 experts, 8 active, 40 layers).
+# NOTE: this is a multimodal (vision-language) checkpoint; AutoModelForCausalLM loads the TEXT
+# backbone (Qwen3_5MoeForCausalLM) and ignores the vision tower — expect "unused weights"
+# warnings for the vision params at load, which is fine for text-only continued pretraining.
+model:
+  model_id_slug: qwen35b-a3b
+  name_or_path: Qwen/Qwen3.5-35B-A3B-Base
+  model_family: qwen3.5-moe
+  model_size: 35b-a3b
+  model_type: causal_lm
+  trust_remote_code: true
+  torch_dtype: auto
+  attn_implementation: sdpa
+  use_cache: false

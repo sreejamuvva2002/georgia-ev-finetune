@@ -1,0 +1,17 @@
+# Qwen3-30B-A3B-Base — text-only Mixture-of-Experts (30B total / ~3B active, 128 experts,
+# 48 layers). model_type qwen3_moe -> Qwen3MoeForCausalLM (native text CausalLM, NOT multimodal),
+# vocab 151936 matching the tokenizer. Trains/evaluates exactly like the dense Qwen2.5-14B.
+model:
+  model_id_slug: qwen3-30b-a3b
+  name_or_path: Qwen/Qwen3-30B-A3B-Base
+  model_family: qwen3-moe
+  model_size: 30b-a3b
+  model_type: causal_lm
+  trust_remote_code: true
+  torch_dtype: auto
+  attn_implementation: sdpa
+  use_cache: false
+  # This MoE's expert layers do NOT 4-bit-quantize in bitsandbytes (stay bf16), so the model is
+  # ~55GB and must be sharded across GPUs. device_map: auto spreads it (model-parallel); run with
+  # all 4 GPUs visible. Single-GPU does not fit.
+  device_map: auto

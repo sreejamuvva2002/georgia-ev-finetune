@@ -1,0 +1,27 @@
+# The winning 14B recipe (4-bit r64 + rsLoRA, zero dropout) adapted for a MoE base.
+# Targets ATTENTION ONLY (q/k/v/o_proj): the model has 256 experts, so LoRA on per-expert
+# gate/up/down_proj would create billions of adapter params — infeasible. Attention-only LoRA
+# is the standard, tractable MoE-LoRA approach. validate_target_modules fails loud if these
+# suffixes don't match the loaded model.
+method:
+  method_id_slug: qlora-lora-r64-a128-d0-rslora-attn
+  name: qlora_lora
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_compute_dtype: auto
+  gradient_checkpointing: true
+  prepare_model_for_kbit_training: true
+  lora:
+    r: 64
+    lora_alpha: 128
+    lora_dropout: 0.0
+    use_rslora: true
+    bias: none
+    task_type: CAUSAL_LM
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj

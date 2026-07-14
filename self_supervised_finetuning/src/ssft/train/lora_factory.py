@@ -47,6 +47,10 @@ def build_lora_config(method_cfg: dict):
         bias=lora_cfg.get("bias", "none"),
         task_type=lora_cfg.get("task_type", "CAUSAL_LM"),
         target_modules=list(lora_cfg["target_modules"]),
+        # rsLoRA (alpha/sqrt(r) scaling — keeps gradients from collapsing at high rank) and
+        # DoRA are opt-in per method config; default False so existing configs are unchanged.
+        use_rslora=lora_cfg.get("use_rslora", False),
+        use_dora=lora_cfg.get("use_dora", False),
     )
 
 

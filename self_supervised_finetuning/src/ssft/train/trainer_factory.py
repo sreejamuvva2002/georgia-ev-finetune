@@ -17,6 +17,38 @@ def build_data_collator(tokenizer):
     return DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 
 
+def _make_clm_trainer_class():
+    """Trainer subclass that computes the causal-LM loss explicitly, on the logits' own device
+    with the full logits vocab width. The model's built-in loss path, under naive model-parallel
+    (device_map spread across GPUs), computes cross-entropy on the wrong device / mis-sized target
+    and crashes with a spurious `nll_loss t < n_classes` assertion — even though the logits are a
+    correct (…, vocab) tensor. Computing loss here (never passing labels into the model) sidesteps
+    that. On a single GPU this is numerically equivalent to the model's own CLM loss."""
+    from transformers import Trainer
+
+    class CLMTrainer(Trainer):
+        def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+            import torch.nn.functional as F
+
+            labels = inputs.pop("labels", None)
+            outputs = model(**inputs)
+            logits = outputs.logits
+            if labels is None:
+                loss = outputs.loss
+            else:
+                labels = labels.to(logits.device)
+                shift_logits = logits[..., :-1, :].contiguous()
+                shift_labels = labels[..., 1:].contiguous()
+                loss = F.cross_entropy(
+                    shift_logits.view(-1, shift_logits.size(-1)).float(),
+                    shift_labels.view(-1),
+                    ignore_index=-100,
+                )
+            return (loss, outputs) if return_outputs else loss
+
+    return CLMTrainer
+
+
 def _bool_or_auto(value, auto_default: bool) -> bool:
     if value == "auto":
         return auto_default
@@ -100,7 +132,8 @@ def build_callbacks(resolved, output_dir: Path, has_eval: bool = True):
 
 def build_trainer(model, tokenizer, datasets: dict, resolved, output_dir: Path, resume: bool = False):
     from datasets import Dataset
-    from transformers import Trainer
+
+    Trainer = _make_clm_trainer_class()
 
     train_examples = datasets.get("train") or []
     if not train_examples:

@@ -1,0 +1,25 @@
+# Same LoRA recipe as qlora_lora_r64_rslora_memorize.yaml but 8-bit base instead of 4-bit NF4.
+# Purpose: remove the 4-bit quantization noise floor to see how much lower train_loss can go.
+# 8-bit 14B base ~15GB — fits 24GB with r64 LoRA + gradient checkpointing (tighter than 4-bit).
+method:
+  method_id_slug: lora8bit-r64-a128-d0-rslora
+  name: lora8bit
+  quantization:
+    load_in_8bit: true
+  gradient_checkpointing: true
+  prepare_model_for_kbit_training: true
+  lora:
+    r: 64
+    lora_alpha: 128
+    lora_dropout: 0.0
+    use_rslora: true
+    bias: none
+    task_type: CAUSAL_LM
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+      - gate_proj
+      - up_proj
+      - down_proj

@@ -84,9 +84,19 @@ def score_long_field(pred: str, gold: str) -> dict:
 def _aggregate(rows: list[dict], key: str) -> dict:
     if not rows:
         return {}
+    # Short-field and long-field probes produce different score keys (exact_match vs token_f1),
+    # so aggregate each metric only over the rows that actually have it instead of assuming a
+    # uniform schema from rows[0].
+    all_keys: list = []
+    for r in rows:
+        for sk in r[key].keys():
+            if sk not in all_keys:
+                all_keys.append(sk)
     agg = {}
-    for score_key in rows[0][key].keys():
-        vals = [r[key][score_key] for r in rows]
+    for score_key in all_keys:
+        vals = [r[key][score_key] for r in rows if score_key in r[key]]
+        if not vals:
+            continue
         agg[score_key] = (sum(1 for v in vals if v) / len(vals)) if isinstance(vals[0], bool) else (sum(vals) / len(vals))
     return agg
 
@@ -135,7 +145,10 @@ def run_cloze_eval(run_dir: Path, probes_path: Optional[Path] = None, max_new_to
 
     rows = []
     for p in probes:
-        base_pred = _generate(base_model, tokenizer, p.prompt, max_new_tokens)
+        # base_model is the same object as adapter_model (adapter attached in place), so get the
+        # true base prediction with the adapter disabled rather than from base_model directly.
+        with adapter_model.disable_adapter():
+            base_pred = _generate(adapter_model, tokenizer, p.prompt, max_new_tokens)
         adapter_pred = _generate(adapter_model, tokenizer, p.prompt, max_new_tokens)
         scorer = score_long_field if p.field_type == "long" else score_short_field
         rows.append({

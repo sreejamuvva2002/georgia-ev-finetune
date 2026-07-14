@@ -79,7 +79,11 @@ def run_perplexity_eval(run_dir: Path) -> dict:
     if resolved.data_cfg.get("split_strategy") == "train_all" and not datasets.get("validation"):
         datasets["validation"] = list(datasets["train"])
 
-    base_metrics = compute_split_losses(base_model, tokenizer, datasets)
+    # PeftModel.from_pretrained wraps base_model IN PLACE, so base_model and adapter_model are
+    # the same underlying module with the adapter attached. Measure the true base with the
+    # adapter disabled, not by trusting the (now adapter-carrying) base_model reference.
+    with adapter_model.disable_adapter():
+        base_metrics = compute_split_losses(adapter_model, tokenizer, datasets)
     adapter_metrics = compute_split_losses(adapter_model, tokenizer, datasets)
 
     delta = {}

@@ -1,0 +1,35 @@
+# Aggressive memorization schedule for the "train_loss < 0.1" experiment. Deliberately
+# over-trains 100% of the 205 KB rows (use with data/kb_only_memorization.yaml). NOT a
+# generalization run — no held-out split, no early stopping, weight_decay 0. The `training_slug`
+# here is documentation only; run_naming.build_training_slug recomputes it live from the numbers
+# below, so this file composes with any method config without path collisions.
+training:
+  training_slug: ep50-bs1-ga16-ebs16-lr2e4-seq1024
+  output_root: self_supervised_finetuning/outputs
+  num_train_epochs: 50
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 0.0002
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optim: paged_adamw_8bit
+  logging_strategy: steps
+  logging_steps: 1
+  eval_strategy: epoch
+  save_strategy: epoch
+  save_total_limit: 2
+  load_best_model_at_end: false
+  early_stopping:
+    enabled: false
+  fp16: auto
+  bf16: auto
+  gradient_checkpointing: true
+  report_to:
+    - tensorboard
+  seed: 42
+  data_seed: 42
+  dataloader_num_workers: 2
+  remove_unused_columns: false
