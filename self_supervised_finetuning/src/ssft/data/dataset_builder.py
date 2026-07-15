@@ -157,7 +157,11 @@ def build_datasets(
     if len(sources) > 1:
         sampling_weights = data_cfg.get("sampling_weights", {name: 1.0 for name in sources})
         seed = data_cfg.get("seed", 42)
-        mixed = mix_datasets(per_source_tokenized, sampling_weights, seed)
+        # Exposure-control mode: if train_presentations is set, present every example of
+        # each source that many times (all web once + each KB record 50x) instead of the
+        # fixed-epoch weighted sampling. Decouples per-source exposure from token ratio.
+        train_presentations = data_cfg.get("train_presentations")
+        mixed = mix_datasets(per_source_tokenized, sampling_weights, seed, train_presentations=train_presentations)
     else:
         mixed = next(iter(per_source_tokenized.values()))
 

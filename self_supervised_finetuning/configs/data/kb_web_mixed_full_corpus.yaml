@@ -1,0 +1,52 @@
+# Experiment 4 (FULL-CORPUS, exposure-controlled): KB + the ENTIRE web corpus.
+# Instead of a fixed-size weighted epoch (which forces a token ratio and drops most web
+# pages), we control per-source PRESENTATIONS directly (train_presentations):
+#   - kb:  50 presentations/record  -> matches the KB-only memorization baseline (~50x),
+#          so the retention comparison is exposure-matched and clean.
+#   - web: 1  presentation/chunk     -> the ENTIRE web training corpus is learned once
+#          (all ~7,760 train pages / ~2,197 packed chunks enter effective training).
+# The run is defined by presentations + optimizer steps, NOT by a token ratio (which is
+# incidentally web-heavy because web is ~30x the KB by tokens — that's expected and fine;
+# exposure is the controlled variable). Train for num_train_epochs=1 (exposures are baked
+# into the materialized set). GNEM-Web questions may be drawn from ANY web train page,
+# since all are now proven-in-training.
+data:
+  dataset_variant_slug: kb-web-mixed-full-corpus-kb50-web1
+  source_type: mixed
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  sources:
+    kb:
+      source_type: kb_jsonl
+      input_path: /home/sreeja/georgia-ev-finetune/kb_full.jsonl
+      split_strategy_slug: train-all
+      split_strategy: train_all
+      group_column: Company
+      text_format: kb_canonical_record
+      max_seq_length: 1024
+      packing: false
+    web:
+      source_type: web_corpus
+      input_path: /home/sreeja/georgia-ev-finetune/self_supervised_finetuning/data/raw/web_corpus.jsonl
+      split_strategy_slug: group-by-source
+      split_strategy: group_by_source
+      group_column: source_url
+      text_format: cleaned_web_text
+      max_seq_length: 2048
+      chunk_stride: 0
+      packing: true
+  # Exposure control (overrides weighted sampling for the TRAIN split):
+  train_presentations:
+    kb: 50
+    web: 1
+  # sampling_weights kept only as a documented fallback (unused when train_presentations set).
+  sampling_weights:
+    kb: 0.92
+    web: 0.08
+  split_strategy: mixed_per_source_group
+  split_strategy_slug: mixed-per-source-group
+  max_seq_length: 2048
+  packing: true

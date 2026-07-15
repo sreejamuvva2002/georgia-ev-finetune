@@ -1,0 +1,34 @@
+# Token-balanced KB+web training schedule. Gentler than the 50-epoch KB-only
+# memorization run: the mixed corpus should NOT be memorized 50x, so we use 5 epochs.
+# Early stopping / load_best_model_at_end are OFF so the final adapter reflects the
+# full schedule (the KB comparison is on cloze recall, not on a best-eval-loss
+# checkpoint). eval_strategy=epoch evaluates on the (web-only) val split just for a
+# loss curve; it does not gate anything.
+training:
+  training_slug: ep5-bs1-ga16-ebs16-lr1e4-seqmixed
+  output_root: self_supervised_finetuning/outputs
+  num_train_epochs: 5
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 0.0001
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optim: paged_adamw_8bit
+  logging_strategy: steps
+  logging_steps: 10
+  eval_strategy: epoch
+  save_strategy: epoch
+  save_total_limit: 2
+  load_best_model_at_end: false
+  fp16: auto
+  bf16: auto
+  gradient_checkpointing: true
+  report_to:
+    - tensorboard
+  seed: 42
+  data_seed: 42
+  dataloader_num_workers: 2
+  remove_unused_columns: false

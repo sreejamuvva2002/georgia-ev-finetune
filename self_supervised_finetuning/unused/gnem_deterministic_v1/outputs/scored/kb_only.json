@@ -1,0 +1,1718 @@
+{
+  "label": "kb_only",
+  "gold_file": "self_supervised_finetuning/benchmarks/gnem_bench_v1/questions_gold_v1.json",
+  "benchmark_sha256": "d26f80122835862ff4d66e20ac0d75f0f5ce98c102fcc688e19719614375b55c",
+  "aggregates": {
+    "by_section": {
+      "kb": {
+        "n_scored": 40,
+        "correct": 1,
+        "accuracy": 0.025,
+        "wilson95": [
+          0.0044,
+          0.1288
+        ]
+      },
+      "web": {
+        "n_scored": 18,
+        "correct": 1,
+        "accuracy": 0.0556,
+        "wilson95": [
+          0.0099,
+          0.2576
+        ]
+      }
+    },
+    "by_subset": {
+      "deterministic": {
+        "n_scored": 31,
+        "correct": 1,
+        "accuracy": 0.0323,
+        "wilson95": [
+          0.0057,
+          0.1619
+        ]
+      },
+      "judgment": {
+        "n_scored": 9,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.2992
+        ]
+      },
+      "web_absorption": {
+        "n_scored": 18,
+        "correct": 1,
+        "accuracy": 0.0556,
+        "wilson95": [
+          0.0099,
+          0.2576
+        ]
+      }
+    },
+    "by_category": {
+      "count": {
+        "n_scored": 2,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.6576
+        ]
+      },
+      "direct_lookup": {
+        "n_scored": 2,
+        "correct": 1,
+        "accuracy": 0.5,
+        "wilson95": [
+          0.0945,
+          0.9055
+        ]
+      },
+      "geographic_aggregation": {
+        "n_scored": 2,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.6576
+        ]
+      },
+      "judgment": {
+        "n_scored": 9,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.2992
+        ]
+      },
+      "max_min": {
+        "n_scored": 1,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.7935
+        ]
+      },
+      "multi_filter_list": {
+        "n_scored": 22,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.1487
+        ]
+      },
+      "top_k_ranking": {
+        "n_scored": 2,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.6576
+        ]
+      },
+      "web_fact": {
+        "n_scored": 18,
+        "correct": 1,
+        "accuracy": 0.0556,
+        "wilson95": [
+          0.0099,
+          0.2576
+        ]
+      }
+    },
+    "by_operation_count": {
+      "1": {
+        "n_scored": 41,
+        "correct": 2,
+        "accuracy": 0.0488,
+        "wilson95": [
+          0.0135,
+          0.1614
+        ]
+      },
+      "2": {
+        "n_scored": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.5615
+        ]
+      },
+      "3": {
+        "n_scored": 4,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.4899
+        ]
+      },
+      "4": {
+        "n_scored": 1,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.7935
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "question_id": "kb_q01",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Sort by Company.\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 18,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q02",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Battery cells are the heart of electric mobility, and companies like Hyundai Kia are leading the pack.\nCompany: Lark United Manufacturing Inc.\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Dublin, Johnson County\nAddress: 200 Industrial Blvd, Dublin, GA 31021\nLatitude: 32.5320682\nLongitude: -82.950167\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Battery Pack\nPrimary OEMs: Hyundai Kia\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 700\nProduct or Service: Battery cells for electric mobility\nEV or Battery Relevant: Yes\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>",
+      "parsed": {
+        "entities": [
+          "lark united"
+        ],
+        "hallucinated_typeA": [
+          "Johnson Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 7,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q03",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Indicate which suppliers are automotive supply chain participants.\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 170\nProduct or Service: Stamped blanks Flexible metal hoses for exhaust systems, thermal compensators, among other automotive\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 5,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q04",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "This list is part of the 2021 Electric Vehicle Supply Chain Report.\nRow ID: 123\nCompany: NIFCO KTW America Corp.\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Toccoa, Franklin County\nAddress: 100 Nifco Way, Toccoa, GA 30577\nLatitude: 34.5179964289089\nLongitude: -83.2222868993427\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 300\nProduct or Service: Inventory management for Kia\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>",
+      "parsed": {
+        "entities": [
+          "nifco ktw"
+        ],
+        "hallucinated_typeA": [
+          "Franklin Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 4,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q05",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "To answer these questions, we will analyze the companies listed in the table below:\n\nCompany: Haering Precision USA LP\nCategory: Tier 2/3\nIndustry Group: Machinery Except Electrical\nLocation: Buford, Hall County\nAddress: 5000 Frontage Rd, Buford, GA 30518\nLatitude: 34.2328208\nLongitude: -83.8634499\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 200\nProduct or Service: Tools and dies for automotive industry\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>",
+      "parsed": {
+        "entities": [
+          "haering precision"
+        ],
+        "hallucinated_typeA": [
+          "Hall Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 10,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q06",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "direct_lookup",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Additionally, what EV Supply Chain Role does each location play?\nCompany: Novelis Inc.\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Atlanta, Fulton County\nAddress: 3560 Lenox Rd NE, Suite 2000, Atlanta, GA 30326\nLatitude: 33.8541642345505\nLongitude: -84.3628202675058\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Thermal Management\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 200\nProduct or Service: Acoustic and thermally effective automotive components\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>",
+      "parsed": {
+        "entities": [
+          "novelis"
+        ],
+        "hallucinated_typeA": [
+          "Fulton Co"
+        ]
+      },
+      "scores": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "completeness": 1.0,
+        "n_pred": 1,
+        "n_gold": 1,
+        "n_correct": 1
+      },
+      "primary_correct": 1
+    },
+    {
+      "question_id": "kb_q07",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "max_min",
+      "operation_count": 2,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: ZF Gainesville LLC\nCategory: OEM Supply Chain\nIndustry Group: Automotive systems and components\nLocation: Gainesville, Hall County\nAddress: 1261 Palmour Dr SW, Gainesville, GA 30501\nLatitude: 34.2647050791808\nLongitude: -83.8326067899608\nPrimary Facility Type: Manufacturing\nEV Supply Chain Role: EV body, powertrain, and thermal components\nPrimary OEMs: Not specified\nSupplier or Affiliation Type: Not specified\nEmployment: 170000\nProduct or Service: Contract manufacturing & automotive systems (body, chassis, powertrain, e-drive)\nEV or Battery Relevant: Yes\nClassification Method: Public OEM footprint / supplier listing\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [
+          "zf gainesville"
+        ],
+        "hallucinated_typeA": [
+          "Hall Co"
+        ]
+      },
+      "scores": {
+        "entity_correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q08",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "geographic_aggregation",
+      "operation_count": 4,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Supplier or Affiliation Type: Automotive supply chain participant\nEmployment: 400\nProduct or Service: All terrain vehicles\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</",
+      "parsed": {
+        "county": null,
+        "value": 400,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "county_correct": false,
+        "value_correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q09",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "geographic_aggregation",
+      "operation_count": 3,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "To determine the county with the highest total employment across all companies, we need to look at the combined employment numbers. Here are the top 10 counties:\n\n1. Fulton County: 1000+ employees\n2. DeKalb County: 800+ employees\n3. Gwinnett County: 700+ employees\n4. Rockdale County: 600+ employees\n5. Tucker, Gwinnett County: 500+ employees\n6. Henry County: 400+ employees\n7. Clayton County: 300+ employees\n8. Cobb International Blvd NW, Tucker, GA 30084\n9. Stone Mountain, Rockdale County: 200+ employees\n10. Tucker, Gwinnett County: 180+ employees\n\nIndustry Group: Transportation Equipment\nLocation: Tucker, Gwinnett County\nAddress: 1000 New Horizons Way, Tucker, GA 30084\nLatitude: 33.760895\nLongitude: -84.232369\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEM",
+      "parsed": {
+        "county": "fulton",
+        "value": 10,
+        "hallucinated_typeA": [
+          "Clayton Co",
+          "Fulton Co",
+          "Gwinnett Co",
+          "Henry Co",
+          "Rockdale Co"
+        ]
+      },
+      "scores": {
+        "county_correct": false,
+        "value_correct": null
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q10",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Also, provide the address and Latitude/Longitude for each location.\nRow ID: 12\nCompany: Aspen Aerogels\nCategory: Tier 2/3\nIndustry Group: Rubber and Miscellaneous Plastic Products\nLocation: Statesboro, Bulloch County\nAddress: Statesboro, GA (planned plant—construction canceled)\nLatitude: Not specified\nLongitude: Not specified\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 414\nProduct or Service: Gaskets, plastic precision moldings, oil seals and valve steam seals\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>",
+      "parsed": {
+        "entities": [
+          "aspen aerogels"
+        ],
+        "hallucinated_typeA": [
+          "Bulloch Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 17,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q11",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "direct_lookup",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Include the LaGrange, Troup County locations.\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 80\nProduct or Service: Automotive aftermarket parts\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": [
+          "Troup Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 1,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q12",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Include company names, categories, and locations.\nCompany: Flambeau Inc.\nCategory: Tier 2/3\nIndustry Group: Fabricated Metal Products\nLocation: Madison, Morgan County\nAddress: 1330 Atlanta Highway, Madison, GA 30650\nLatitude: 33.5804884\nLongitude: -83.4853334\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 700\nProduct or Service: Door locks, ignition locks, side mirrors, and door handles\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [
+          "flambeau",
+          "morgan"
+        ],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 2,
+        "n_gold": 3,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q13",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "The network includes OEMs, suppliers, and employment figures.\nRow ID: 173\nCompany: TCI Powder Coatings\nCategory: OEM\nIndustry Group: Transportation Equipment\nLocation: Ellaville, Schley County\nAddress: 610 Dixon Dr, Ellaville, GA 31806\nLatitude: 32.2336427\nLongitude: -84.2945469\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Vehicle Assembly\nPrimary OEMs: Kia Georgia Inc.\nSupplier or Affiliation Type: Original Equipment Manufacturer\nEmployment: 3000\nProduct or Service: Automotive assembly plant\nEV or Battery Relevant: Indirect\nClassification Method: Direct Manufacturer\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [
+          "kia georgia",
+          "tci powder coatings"
+        ],
+        "hallucinated_typeA": [
+          "Schley Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 2,
+        "n_gold": 6,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q14",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Also, list the supplier or Affiliation Type: Automotive supply chain participant.\nEmployment: 165700\nProduct or Service: Vehicle power & data solutions; wiring harnesses and connectors\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 2,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q15",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "List the companies, their locations, and the primary Facility Type: Manufacturing Plant.\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "completeness": null
+      },
+      "primary_correct": null
+    },
+    {
+      "question_id": "kb_q16",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "These companies are part of the supply chain for electric mobility.\nCompany: Flambeau Inc.\nCategory: Tier 2/3\nIndustry Group: Fabricated Metal Products\nLocation: Madison, Morgan County\nAddress: 1330 Atlanta Highway, Madison, GA 30650\nLatitude: 33.5804884\nLongitude: -83.4853334\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 700\nProduct or Service: Door locks, ignition locks, side mirrors and door handles\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [
+          "flambeau",
+          "morgan"
+        ],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 2,
+        "n_gold": 1,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q17",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "If so, what are the specific OEMs and supplier or Affiliation Type: Automotive supply chain participant?\nEmployment: 200\nProduct or Service: Automotive plastic parts\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "completeness": null
+      },
+      "primary_correct": null
+    },
+    {
+      "question_id": "kb_q18",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "1: OEM; 2: Tier 1; 3: Automotive supply chain participant\nCompany: Continental Automotive\nCategory: Tier 2/3\nIndustry Group: Rubber and Miscellaneous Plastic Products\nLocation: Fairburn, Fayette County\nAddress: 7310 Oakley Industrial Blvd, Fairburn, GA 30213\nLatitude: 33.5496124\nLongitude: -84.5424686\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 160\nProduct or Service: Rubber silicone molded components for medical, automotive, and industrial use\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>",
+      "parsed": {
+        "entities": [
+          "continental automotive"
+        ],
+        "hallucinated_typeA": [
+          "Fayette Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 5,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q19",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: DAS Corp.\nCategory: Tier 2/3\nIndustry Group: Rubber and Miscellaneous Plastic Products\nLocation: Metter, Emanuel County\nAddress: 730 Fortner Rd, Metter, GA 30439\nLatitude: 32.3838336\nLongitude: -82.0753462\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 85\nProduct or Service: Automotive plastic coatings\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</",
+      "parsed": {
+        "entities": [
+          "das"
+        ],
+        "hallucinated_typeA": [
+          "Emanuel Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 1,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q20",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "The supplier or Affiliation Type: Automotive supply chain participant.\nEmployment: 400\nProduct or Service: Battery cells for electric mobility\nEV or Battery Relevant: Yes\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 7,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q21",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "These suppliers are part of the automotive supply chain and play a role in the transition to electric vehicles.\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 350\nProduct or Service: Automatic transmissions\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 5,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q22",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Sort the companies by location.\nCompany: Fanello Industries Inc.\nCategory: Tier 2/3\nIndustry Group: Primary Metal Industries\nLocation: Lavonia, Franklin County\nAddress: 50 E Main Street, Lavonia, GA 30553\nLatitude: 34.4200267\nLongitude: -83.0970583\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 100\nProduct or Service: Chrome and stainless steel balls\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [
+          "fanello"
+        ],
+        "hallucinated_typeA": [
+          "Franklin Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 2,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q23",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "count",
+      "operation_count": 3,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "If so, which company is it?\nYes, there is a single company that serves multiple roles in the EV supply chain. This company is not specified.\n</record>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "value": null,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "exact": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q24",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Yes\nRow ID: 123\nCompany: NIFCO KTW America Corp.\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Toccoa, Franklin County\nAddress: 100 Nifco Way, Toccoa, GA 30577\nLatitude: 34.5179964289089\nLongitude: -83.2222868993427\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 300\nProduct or Service: Inventory management for Kia\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [
+          "nifco ktw"
+        ],
+        "hallucinated_typeA": [
+          "Franklin Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 7,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q25",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "count",
+      "operation_count": 2,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the total number of employees in the supplier or Affiliation Type: Automotive supply chain participant\nProduct or Service: Automotive components\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>",
+      "parsed": {
+        "value": null,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "exact": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q26",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "List: 139\nCompany: Peerless-Winsmith Inc.\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Flowery Branch, Hall County\nAddress: 4510 Cantrell Road, Flowery Branch, GA 30542\nLatitude: 34.1933557356756\nLongitude: -83.9074650474823\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Thermal Management\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 160\nProduct or Service: Thermal solutions\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</",
+      "parsed": {
+        "entities": [
+          "peerless winsmith"
+        ],
+        "hallucinated_typeA": [
+          "Hall Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 2,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q27",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: Continental Automotive\nCategory: Tier 2/3\nIndustry Group: Rubber and Miscellaneous Plastic Products\nLocation: Fairburn, Fayette County\nAddress: 7310 Oakley Industrial Blvd, Fairburn, GA 30213\nLatitude: 33.5496124\nLongitude: -84.5424686\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 160\nProduct or Service: Rubber silicone molded components for medical, automotive, and industrial use\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [
+          "continental automotive"
+        ],
+        "hallucinated_typeA": [
+          "Fayette Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 11,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q28",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "List: 165\nCompany: Jefferson Southern Corp.\nCategory: Tier 1/2\nIndustry Group: Electronic and Other Electrical Equipment and Components\nLocation: Commerce, Forsyth County\nAddress: 1 Jefferson Southern Dr, Commerce, GA 30529\nLatitude: 34.197573\nLongitude: -84.0452959\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 50\nProduct or Service: High current switches and resistors for automotive HVAC systems\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "entities": [
+          "jefferson southern"
+        ],
+        "hallucinated_typeA": [
+          "Forsyth Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 3,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q29",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "If so, list them.\nCompany: GSC Steel Stamping LLC\nCategory: Tier 2/3\nIndustry Group: Machinery Except Electrical\nLocation: Adairsville, Bartow County\nAddress: 104 International Pkwy, Adairsville, GA 30103\nLatitude: 34.3845755\nLongitude: -84.9241385\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Power Electronics\nPrimary OEMs: Hyundai Kia Rivian\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 350\nProduct or Service: Deep grove ball bearings Toyota Industries Electric Systems North 255 DC-to-DC converters Jackson America, Inc.*\nEV or Battery Relevant: Yes\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [
+          "gsc steel stamping"
+        ],
+        "hallucinated_typeA": [
+          "Bartow Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 20,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q30",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "top_k_ranking",
+      "operation_count": 3,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "?\nRow ID: 100\nCompany: Lear Corporation\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Hammond Industrial Park, Troup County\nAddress: 100 Lear Dr, Hammond Industrial Park, GA 30240\nLatitude: 33.051868\nLongitude: -85.035353\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Battery Pack\nPrimary OEMs: Hyundai Kia\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 590\nProduct or Service: Pressed parts in the body-in-white segment and structural components\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>",
+      "parsed": {
+        "entities": [
+          "lear"
+        ],
+        "hallucinated_typeA": [
+          "Troup Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 10,
+        "n_correct": 0,
+        "rank1_correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q31",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "If so, what is the supplier or Affiliation Type: Automotive supply chain participant\nEmployment: 170\nProduct or Service: Lightweight structural automotive parts\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 7,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q32",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 2,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 1,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q33",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Yes, these companies are part of the broader automotive supply chain and could play a significant role in the future of EVs.\nAnswer: Yes\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 3,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q34",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "top_k_ranking",
+      "operation_count": 3,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "1. Daesol Ausys 2. First American Resources 3. Ajin Georgia 4. Neaton Rome Inc.\nCompany: Daesol Ausys\nCategory: Tier 2/3\nIndustry Group: Rubber and Miscellaneous Plastic Products\nLocation: Smyrna, Cobb County\nAddress: 2100 Lake Park Dr SE, Smyrna, GA 30080\nLatitude: 33.8962818\nLongitude: -84.4884631\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 97\nProduct or Service: High-precision engineered plastic products for the automotive industry\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n</>",
+      "parsed": {
+        "entities": [
+          "ajin georgia",
+          "daesol ausys",
+          "first american resources",
+          "neaton rome"
+        ],
+        "hallucinated_typeA": [
+          "Cobb Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 4,
+        "n_gold": 4,
+        "n_correct": 0,
+        "rank1_correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q35",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "163\nCompany: SK Battery America\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Ellabell, Bryan County\nAddress: 700 Hyundai Blvd, Ellabell, GA 31308\nLatitude: 32.159233\nLongitude: -81.502963\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 75\nProduct or Service: Engineered steel systems mounted in motor vehicles\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>",
+      "parsed": {
+        "entities": [
+          "sk battery"
+        ],
+        "hallucinated_typeA": [
+          "Bryan Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 5,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q36",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Yes\nIndustry Group: Electronic and Other Electrical Equipment and Components\nLocation: Carrollton, Carroll County\nAddress: 109 Carcoustics Dr, Carrollton, GA 30117\nLatitude: 33.601430192463\nLongitude: -85.1053708775212\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 225\nProduct or Service: Tires for light trucks, SUVs and commercial vehicles\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>",
+      "parsed": {
+        "entities": [
+          "carcoustics"
+        ],
+        "hallucinated_typeA": [
+          "Carroll Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 11,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q37",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the supplier or Affiliation Type: Automotive supply chain participant\nEmployment: 200\nProduct or Service: Stamped blanks Flexible metal hoses for exhaust systems, thermal compensators, among other automotive\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 5,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q38",
+      "section": "kb",
+      "subset": "deterministic",
+      "category": "multi_filter_list",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What are their roles and how do they contribute to sustainability?\nCompany: Dinex Emissions Inc.\nCategory: Tier 2/3\nIndustry Group: Primary Metal Industries\nLocation: Dublin, Johnson County\nAddress: 2020 Waldrep Industrial Blvd., Dublin, GA 31021\nLatitude: 32.5138588\nLongitude: -82.9469249\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 500\nProduct or Service: Aluminum sheet for automotive bodies\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>",
+      "parsed": {
+        "entities": [
+          "dinex emissions"
+        ],
+        "hallucinated_typeA": [
+          "Johnson Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 2,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q39",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "If so, what is the supplier or Affiliation Type: Automotive supply chain participant\nEmployment: 807\nProduct or Service: Automotive seating and E‑systems\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 1,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q40",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Yes\nEmployment: 300\nProduct or Service: Automotive seating and interior electronics\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>",
+      "parsed": {
+        "entities": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 0,
+        "n_gold": 5,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q41",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: ZF Gainesville LLC\nCategory: OEM Supply Chain\nIndustry Group: Automotive thermal and electronics systems\nLocation: Gainesville, Hall County\nAddress: 1261 Palmour Dr SW, Gainesville, GA 30501\nLatitude: 34.2647050791808\nLongitude: -83.8326067899608\nPrimary Facility Type: Manufacturing\nEV Supply Chain Role: EV thermal management and power electronics\nPrimary OEMs: Not specified\nSupplier or Affiliation Type: Not specified\nEmployment: 17500\nProduct or Service: Automotive supplier footprint (electrification, thermal, powertrain, ADAS components)\nEV or Battery Relevant: Yes\nClassification Method: Public OEM footprint / supplier listing\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</",
+      "parsed": {
+        "entities": [
+          "zf gainesville"
+        ],
+        "hallucinated_typeA": [
+          "Hall Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 3,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "kb_q42",
+      "section": "kb",
+      "subset": "judgment",
+      "category": "judgment",
+      "operation_count": null,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "(EV Supply Chain)\nCompany: Bosch (Automotive Division)\nCategory: Tier 2/3\nIndustry Group: Rubber and Miscellaneous Plastic Products\nLocation: Toccoa, Franklin County\nAddress: 1241 Meadowbrook Dr, Toccoa, GA 30577\nLatitude: 34.5288916\nLongitude: -83.2825339\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 250\nProduct or Service: Custom injection molded plastic products for the automotive industry and other industries\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>",
+      "parsed": {
+        "entities": [
+          "bosch automotive division"
+        ],
+        "hallucinated_typeA": [
+          "Franklin Co"
+        ]
+      },
+      "scores": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "completeness": 0.0,
+        "n_pred": 1,
+        "n_gold": 1,
+        "n_correct": 0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q01",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: SK Battery America\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Cartersville, Bartow County\nAddress: 2157 Centennial Pkwy NE, Cartersville, GA 30120\nLatitude: 34.181471\nLongitude: -84.738305\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 750\nProduct or Service: Engineered steel systems mounted in motor vehicles\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>",
+      "parsed": {
+        "match_hits": [],
+        "hallucinated_typeA": [
+          "Bartow Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q02",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the primary OEM footprint of this supplier or Affiliation Type: Automotive supply chain participant\nEmployment: 82\nProduct or Service: Molded injection auto parts\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "match_hits": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q03",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the location of its U.S. manufacturing plant?\nCompany: SK Battery America\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Ellabell, Bryan County\nAddress: 700 Hyundai Blvd, Ellabell, GA 31308\nLatitude: 32.159233\nLongitude: -81.502963\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 75\nProduct or Service: Engineered steel systems mounted in motor vehicles\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>",
+      "parsed": {
+        "match_hits": [],
+        "hallucinated_typeA": [
+          "Bryan Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q04",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "How does this compare to the supplier or Affiliation Type: Automotive supply chain participant\nEmployment: 250\nProduct or Service: High-quality electrodeposited (ED) copper foil for electric vehicles\nEV or Battery Relevant: Yes\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "match_hits": [],
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false,
+        "partial": 0.0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q05",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: Mercedes-Benz USA LLC\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Sandy Springs, Fulton County\nAddress: 1 Mercedes-Benz Dr, Sandy Springs, GA 30328\nLatitude: 33.9345221674192\nLongitude: -84.3634150192005\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 400\nProduct or Service: Assembles motor vehicle chassis, automotive stamping\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>",
+      "parsed": {
+        "match_hits": [],
+        "hallucinated_typeA": [
+          "Fulton Co"
+        ]
+      },
+      "scores": {
+        "correct": false,
+        "partial": 0.0
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q06",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the expected completion date for the project?\nA: $400,000\nB: $800,000\nC: $1,200,000\nD: $1,600,000\nE: $2,000,000\nAnswer: C\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>",
+      "parsed": {
+        "value": 400000,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q07",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the projected completion date for this investment?\nA: $100\nB: $150\nC: $200\nD: $250\nE: $300\nAnswer: C\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "value": 100,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q08",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the timeline for this expansion?\nAnswer: $400,000\nCompany: Duracell Manufacturing\nCategory: Tier 2/3\nIndustry Group: Primary Metal Industries\nLocation: Augusta, Richmond County\nAddress: 1614 Douglas Rd, Augusta, GA 30906\nLatitude: 33.4579269\nLongitude: -81.9963887\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 800\nProduct or Service: Aluminum sheet for automotive bodies\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>",
+      "parsed": {
+        "value": 400000,
+        "hallucinated_typeA": [
+          "Richmond Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q09",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the address' address?\nAnswer: $800\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "value": 800,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q10",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "The complex includes manufacturing, R&D, and corporate operations.\nAnswer: $1.9 billion\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>",
+      "parsed": {
+        "value": 1900000000,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q11",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the timeline for construction and when is the planned opening date?\nCompany: Rivian Automotive\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Atlanta, Fulton County\nAddress: 1090 Roberts Dr NW, Atlanta, GA 30318\nLatitude: 33.720227\nLongitude: -84.370567\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 105\nProduct or Service: Custom metal components\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</",
+      "parsed": {
+        "value": 1,
+        "hallucinated_typeA": [
+          "Fulton Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q12",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the timeline for this investment?\nAnswer:\n$110 million\nTimeline: 2021-2022\nCompany: FREYR Battery\nCategory: Tier 2/3\nIndustry Group: Fabricated Metal Products\nLocation: Atlanta, Cobb County\nAddress: 601 10th St NW, Suite 400, Atlanta, GA 30318\nLatitude: 33.7817149\nLongitude: -84.4078083\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: General Automotive\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 110\nProduct or Service: Decorative and functional coating systems\nEV or Battery Relevant: No\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "value": 110000000,
+        "hallucinated_typeA": [
+          "Cobb Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q13",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is the GF Metalsmiths' Rome, Floyd County project expected to create? What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is the GSC Steel Stamping LLC Rome, Floyd County project expected to create? What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is the GSC Steel Stamping LLC Rome, Floyd County project expected to create? What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is the GSC Steel Stamping LLC Rome, Floyd County project expected to create? What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is the GSC Steel Stamping LLC Rome, Floyd County project expected to create? What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is the GSC Steel Stamping LLC Rome, Floyd County project expected to create? What is the estimated investment for this project?\nAnswer: 100\nQuestion: How many new jobs is",
+      "parsed": {
+        "value": 100,
+        "hallucinated_typeA": [
+          "Floyd Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q14",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "What is the product or service? Tools and dies for automotive industry\nEV Supply Chain Role: General Automotive\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>",
+      "parsed": {
+        "value": null,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q15",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "8100\nCompany: Hyundai Motor Group\nCategory: Tier 1/2\nIndustry Group: Electronic and Other Electrical Equipment and Components\nLocation: Ellabell, Bryan County\nAddress: 700 Hyundai Blvd, Ellabell, GA 31308\nLatitude: 32.159233\nLongitude: -81.502963\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Battery Pack\nPrimary OEMs: Hyundai Kia\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 164\nProduct or Service: Battery parts for electric vehicles\nEV or Battery Relevant: Yes\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>\n>\n</>\n>",
+      "parsed": {
+        "value": 8100,
+        "hallucinated_typeA": [
+          "Bryan Co"
+        ]
+      },
+      "scores": {
+        "correct": true
+      },
+      "primary_correct": 1
+    },
+    {
+      "question_id": "web_q16",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "A: 300\nB: 723\nC: 7500\nD: 8100\nAnswer: C\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>\n>\n>\n</>\n>",
+      "parsed": {
+        "value": 300,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q17",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "The approximate annual capacity is 250,000 cells.",
+      "parsed": {
+        "value": null,
+        "hallucinated_typeA": []
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    },
+    {
+      "question_id": "web_q18",
+      "section": "web",
+      "subset": "web_absorption",
+      "category": "web_fact",
+      "operation_count": 1,
+      "raw_output_ref": {
+        "file": "self_supervised_finetuning/outputs/question_eval/raw_outputs/kb_only.json",
+        "sha": "fb50e9ae9aea0a14a20fd1dab1e8b8dc506ab978f860c148669cb8340539328c"
+      },
+      "output": "Company: SK Battery America\nCategory: Tier 1\nIndustry Group: Transportation Equipment\nLocation: Ellabell, Bryan County\nAddress: 700 Hyundai Blvd, Ellabell, GA 31308\nLatitude: 32.159233\nLongitude: -81.502963\nPrimary Facility Type: Manufacturing Plant\nEV Supply Chain Role: Materials\nPrimary OEMs: Multiple OEMs\nSupplier or Affiliation Type: Automotive supply chain participant\nEmployment: 75\nProduct or Service: Engineered steel systems mounted in motor vehicles\nEV or Battery Relevant: Indirect\nClassification Method: Supplier\n</record>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</>\n>\n>\n>\n>\n</",
+      "parsed": {
+        "value": null,
+        "hallucinated_typeA": [
+          "Bryan Co"
+        ]
+      },
+      "scores": {
+        "correct": false
+      },
+      "primary_correct": 0
+    }
+  ]
+}

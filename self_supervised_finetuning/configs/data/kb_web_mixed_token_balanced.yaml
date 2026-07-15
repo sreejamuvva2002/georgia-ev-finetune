@@ -1,0 +1,48 @@
+# Experiment 4 (TOKEN-BALANCED): KB + web mixed, ~50/50 by TRAINING TOKENS.
+# The mixer weights the train split per-EXAMPLE, but KB records are short (~170 tok)
+# and web is packed to 2048 tok, so per-example weights != per-token share. A
+# pre-training mixture check (scripts/report_mixture_stats.py) showed kb:0.7/web:0.3
+# is actually 84% WEB by tokens — not KB-dominant at all. We therefore set weights so
+# the EFFECTIVE TRAIN TOKEN ratio is ~50/50, which is the number that governs learning:
+#   kb:0.92 / web:0.08  ->  ~50% KB / ~50% web tokens; each of the 205 KB records seen
+#   ~54x over 5 epochs (strong retention) while ~190 web chunks (~675 pages) enter the
+#   effective training set (enough to support the GNEM-Web-18 absorption benchmark).
+#   - KB uses train_all -> all 205 companies in train (comparable to the KB-only winner);
+#     val/test come from WEB's held-out split only.
+# GNEM-Web-18 must be authored ONLY from web content proven to be in the sampled
+# effective training set (report_mixture_stats.py emits that pool).
+data:
+  dataset_variant_slug: kb-web-mixed-token-balanced
+  source_type: mixed
+  seed: 42
+  split_ratios:
+    train: 0.80
+    validation: 0.10
+    test: 0.10
+  sources:
+    kb:
+      source_type: kb_jsonl
+      input_path: /home/sreeja/georgia-ev-finetune/kb_full.jsonl
+      split_strategy_slug: train-all
+      split_strategy: train_all
+      group_column: Company
+      text_format: kb_canonical_record
+      max_seq_length: 1024
+      packing: false
+    web:
+      source_type: web_corpus
+      input_path: /home/sreeja/georgia-ev-finetune/self_supervised_finetuning/data/raw/web_corpus.jsonl
+      split_strategy_slug: group-by-source
+      split_strategy: group_by_source
+      group_column: source_url
+      text_format: cleaned_web_text
+      max_seq_length: 2048
+      chunk_stride: 0
+      packing: true
+  sampling_weights:
+    kb: 0.92
+    web: 0.08
+  split_strategy: mixed_per_source_group
+  split_strategy_slug: mixed-per-source-group
+  max_seq_length: 2048
+  packing: true

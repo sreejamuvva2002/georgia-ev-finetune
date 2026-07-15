@@ -1,0 +1,34 @@
+==============================================================================
+PER-SOURCE EXAMPLE + TOKEN COUNTS
+==============================================================================
+  kb   train      :    205 ex      34938 tok  avg   170.4 tok/ex
+  kb   validation :      0 ex          0 tok  avg     0.0 tok/ex
+  kb   test       :      0 ex          0 tok  avg     0.0 tok/ex
+  web  train      :   2197 ex    4499456 tok  avg  2048.0 tok/ex
+  web  validation :    272 ex     557056 tok  avg  2048.0 tok/ex
+  web  test       :    275 ex     563200 tok  avg  2048.0 tok/ex
+
+==============================================================================
+EFFECTIVE MATERIALIZED TRAIN (train_presentations={'kb': 50, 'web': 1})
+==============================================================================
+  kb  :   10250 example-presentations     1746900 tokens
+  web :    2197 example-presentations     4499456 tokens
+  total materialized train examples: 12447  (optimizer steps/epoch @ ebs16 = 777)
+  --- effective TRAIN TOKEN ratio ---
+      kb  :  28.0% of train tokens
+      web :  72.0% of train tokens
+
+==============================================================================
+KB-RECORD EXPOSURE
+==============================================================================
+  KB pool: 205 records; presentations in materialized train: 10250
+  -> each KB record seen ~50.0x per epoch, ~50.0x over 1 epoch(s)
+  WEB pool: 2197 chunks; presentations: 2197 (ALL chunks) -> ~1.0x per epoch
+
+==============================================================================
+WEB RECORDS kept after exact-text dedup: 9702
+==============================================================================
+
+==============================================================================
+SUMMARY (is KB drowned?): compare KB vs web effective TRAIN TOKEN % above.
+==============================================================================

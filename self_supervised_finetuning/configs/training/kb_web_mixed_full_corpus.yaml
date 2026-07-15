@@ -1,0 +1,33 @@
+# Full-corpus KB+web schedule. Per-source exposure is baked into the materialized train
+# set via train_presentations (KB 50x/record, web 1x/chunk), so we train num_train_epochs=1
+# — each KB record is seen ~50x (matching the KB-only baseline) and every web chunk once.
+# Define the run by presentations + optimizer steps, not epochs. Early stopping /
+# load_best_model_at_end OFF so the final adapter reflects the full schedule.
+training:
+  training_slug: pres-kb50-web1-bs1-ga16-ebs16-lr1e4-seqmixed
+  output_root: self_supervised_finetuning/outputs
+  num_train_epochs: 1
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 0.0001
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optim: paged_adamw_8bit
+  logging_strategy: steps
+  logging_steps: 20
+  eval_strategy: epoch
+  save_strategy: epoch
+  save_total_limit: 1
+  load_best_model_at_end: false
+  fp16: auto
+  bf16: auto
+  gradient_checkpointing: true
+  report_to:
+    - tensorboard
+  seed: 42
+  data_seed: 42
+  dataloader_num_workers: 2
+  remove_unused_columns: false

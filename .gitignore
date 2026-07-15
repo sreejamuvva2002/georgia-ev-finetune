@@ -8,6 +8,13 @@ venv/
 # --- OS / editor ---
 .DS_Store
 
+# --- Session transcripts (not source) ---
+Chat*.txt
+
+# --- Web corpus (LLM-wiki pages; data, not code — 9.7k files, reproducible) ---
+self_supervised_finetuning/data/raw/llm_wiki_pages/
+self_supervised_finetuning/data/raw/web_corpus.jsonl
+
 # --- Model weights & adapters (too large for git; reproducible from training) ---
 training_project/adapters/
 releases/

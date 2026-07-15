@@ -42,16 +42,42 @@ def mix_split(
     return mixed
 
 
+def mix_by_presentations(
+    per_source_train: dict[str, list],
+    presentations: dict[str, int],
+    seed: int,
+) -> list:
+    """Deterministic exposure control: include EVERY example of each source exactly
+    `presentations[source]` times (default 1), then shuffle. Unlike weighted sampling
+    this never drops any source's examples and never depends on a fixed epoch size —
+    it lets you present, e.g., all web chunks once while presenting each KB record 50x
+    (matching the KB-only baseline). Sources absent from `presentations` default to 1.
+    """
+    rng = random.Random(seed)
+    combined: list = []
+    for src in sorted(per_source_train.keys()):
+        reps = int(presentations.get(src, 1))
+        pool = per_source_train[src]
+        for _ in range(max(0, reps)):
+            combined.extend(pool)
+    rng.shuffle(combined)
+    return combined
+
+
 def mix_datasets(
     per_source_split_datasets: dict[str, dict[str, list]],
     sampling_weights: dict[str, float],
     seed: int,
+    train_presentations: dict[str, int] | None = None,
 ) -> dict[str, list]:
     mixed: dict[str, list] = {}
     for split_name in SPLIT_NAMES:
         per_source = {src: sds.get(split_name, []) for src, sds in per_source_split_datasets.items()}
         if split_name == "train":
-            mixed[split_name] = mix_split(per_source, sampling_weights, seed)
+            if train_presentations:
+                mixed[split_name] = mix_by_presentations(per_source, train_presentations, seed)
+            else:
+                mixed[split_name] = mix_split(per_source, sampling_weights, seed)
         else:
             combined = []
             for src in sorted(per_source.keys()):

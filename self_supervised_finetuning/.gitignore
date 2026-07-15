@@ -35,3 +35,11 @@ runs/
 
 # --- OS / editor ---
 .DS_Store
+external/LLM_Context/
+
+# --- Large / regenerable eval artifacts (reproducible via report_mixture_stats.py) ---
+outputs/question_eval/effective_web_text.txt
+outputs/question_eval/web_effective_pages.json
+outputs/question_eval/web_train_pages.json
+data/raw/llm_wiki_pages/
+data/raw/web_corpus.jsonl

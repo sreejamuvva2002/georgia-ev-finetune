@@ -1,0 +1,4 @@
+arm,model_name,answers_judged,mean_factual_faithfulness,mean_completeness,mean_correctness,mean_evidence_grounding,mean_company_grounding,mean_usefulness,mean_deepeval_mean,mean_judge_seconds,partial_error_answers,rank_by_deepeval_mean
+direct_context,kb_web,42,0.0238,0.0,0.0071,0.0,0.5595,0.1167,0.1179,23.96,0,1
+direct_context,base,42,0.0548,0.0,0.0,0.0,0.4524,0.1381,0.1075,24.14,0,2
+direct_context,kb_only,42,0.0833,0.0048,0.0095,0.019,0.4524,0.069,0.1064,23.87,0,3

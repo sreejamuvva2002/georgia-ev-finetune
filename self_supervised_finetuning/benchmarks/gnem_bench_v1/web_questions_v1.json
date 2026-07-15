@@ -1,0 +1,546 @@
+{
+  "benchmark": "GNEM-Web-18",
+  "version": "draft-2",
+  "n": 18,
+  "questions": [
+    {
+      "question_id": "web_q01",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, which automaker is SK On working with on a battery joint-venture plant in Cartersville, Georgia?",
+      "answer_type": "company",
+      "gold": {
+        "answer_text": "Hyundai",
+        "value": null,
+        "entities": [],
+        "ordered": [],
+        "stages": null,
+        "match": [
+          "hyundai"
+        ]
+      },
+      "source_url": "https://www.globalatlanta.com/sk-battery-cuts-nearly-1000-georgia-jobs-amid-declining-ev-demand/",
+      "source_date": "2026-03-06",
+      "source_title": "SK Battery America",
+      "evidence_phrase": "SK On is working with Hyundai on a $5 billion battery joint-venture plant in Cartersville",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q02",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, what battery material does Anovion Technologies manufacture at its Georgia facility?",
+      "answer_type": "product",
+      "gold": {
+        "answer_text": "synthetic graphite anode materials",
+        "value": null,
+        "entities": [],
+        "ordered": [],
+        "stages": null,
+        "match": [
+          "synthetic graphite"
+        ]
+      },
+      "source_url": "https://gov.georgia.gov/press-releases/2023-05-15/gov-kemp-anovion-technologies-create-over-400-jobs-bainbridge-invest-800m",
+      "source_date": "2023-05-15",
+      "source_title": "Anovion Technologies",
+      "evidence_phrase": "Anovion Technologies is a supplier of premium synthetic graphite anode materials for lithium-ion batteries",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 3,
+      "exposure_over_run": 3,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q03",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, what is the parent company of SK Battery America?",
+      "answer_type": "company",
+      "gold": {
+        "answer_text": "SK On",
+        "value": null,
+        "entities": [],
+        "ordered": [],
+        "stages": null,
+        "match": [
+          "sk on"
+        ]
+      },
+      "source_url": "https://gov.georgia.gov/press-releases/2023-01-30/gov-kemp-sk-battery-america-exceeds-hiring-goal-track-reach-3000-workers",
+      "source_date": "2023-01-30",
+      "source_title": "SK Battery America",
+      "evidence_phrase": "SK On is the parent company of SK Battery America",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 4,
+      "exposure_over_run": 4,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q04",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, what products does Duckyang supply to SK Battery America?",
+      "answer_type": "product",
+      "gold": {
+        "answer_text": "automotive battery modules and energy storage systems",
+        "value": null,
+        "entities": [],
+        "ordered": [],
+        "stages": null,
+        "match": [
+          "battery modules",
+          "energy storage"
+        ]
+      },
+      "source_url": "https://gov.georgia.gov/press-releases/2021-05-20/gov-kemp-announces-korean-automotive-manufacturer-duckyang-open-companys",
+      "source_date": "2021-05-20",
+      "source_title": "Duckyang Industrial Co. Ltd.",
+      "evidence_phrase": "supplier of automotive battery modules and energy storage systems to SK Battery America",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 8,
+      "exposure_over_run": 8,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q05",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, the batteries SK Battery America produces in Georgia supply which two electric vehicles?",
+      "answer_type": "product_list",
+      "gold": {
+        "answer_text": "Ford F-150 Lightning and Volkswagen ID.4",
+        "value": null,
+        "entities": [],
+        "ordered": [],
+        "stages": null,
+        "match": [
+          "f-150 lightning",
+          "id.4"
+        ]
+      },
+      "source_url": "https://gov.georgia.gov/press-releases/2023-01-30/gov-kemp-sk-battery-america-exceeds-hiring-goal-track-reach-3000-workers",
+      "source_date": "2023-01-30",
+      "source_title": "SK Battery America",
+      "evidence_phrase": "including the Ford F-150 Lightning and the Volkswagen ID.4",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 5,
+      "exposure_over_run": 5,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q06",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how much will GF Casting Solutions AG invest in its new Augusta facility?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "over $184 million",
+        "value": 184000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.wsbtv.com/news/local/gov-kemp-announces-hundreds-e-mobility-manufacturing-jobs-coming-east-central-georgia/BDEAANEFOVF3TO7CT4NIF2ZETI/",
+      "source_date": "2024-05-04",
+      "source_title": "GF Casting Solutions AG",
+      "evidence_phrase": "GF Casting Solutions AG will invest over $184 million for a new facility in Augusta",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q07",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how much will Hanon Systems invest in its Bulloch County manufacturing facility?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "more than $40 million",
+        "value": 40000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.savannahnow.com/story/business/economy/2023/05/24/hanon-systems-to-bring-160-jobs-to-bulloch-county/70248955007/",
+      "source_date": "2023-05-24",
+      "source_title": "Hanon Systems",
+      "evidence_phrase": "Hanon Systems will invest more than $40 million for a manufacturing facility in Bulloch County",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 2,
+      "exposure_over_run": 2,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q08",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how much will Duracell Manufacturing invest to expand its battery component manufacturing operations?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "$25 million",
+        "value": 25000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.therogersvillereview.com/business/article_9b3e42e8-d7cf-11ed-8aec-4f5656fa92e1.html",
+      "source_date": "2023-04-15",
+      "source_title": "Duracell Manufacturing",
+      "evidence_phrase": "Duracell Manufacturing officials announced last week the company will invest $25 million",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q09",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how much did Hyundai confirm it would invest to open its facility at the Bryan County Megasite?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "$5.54 billion",
+        "value": 5540000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://fox28savannah.com/news/local/hyundai-bringing-5-billion-electric-vehicle-and-battery-manufacturing-plant-to-bryan-co",
+      "source_date": "2022-05-20",
+      "source_title": "Hyundai Motor Group",
+      "evidence_phrase": "Hyundai Executive Chairman Euisun Chung confirmed the company will invest $5.54 billion",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q10",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, what is the total value of the complex that the HL-GA battery plant is part of?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "$7.6 billion",
+        "value": 7600000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.ttnews.com/articles/georgia-hyundai-kemp-factory",
+      "source_date": "2025-09-10",
+      "source_title": "HL-GA Battery Co.",
+      "evidence_phrase": "The battery plant is part of a $7.6 billion complex planned to eventually employ 8,500 people",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q11",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how much will Rivian invest into building its Georgia facility?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "$5 billion",
+        "value": 5000000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.teslarati.com/rivian-approved-5-billion-plant-georgia/",
+      "source_date": "2026-07-03",
+      "source_title": "Rivian",
+      "evidence_phrase": "Rivian will invest $5 billion into building the facility",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q12",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how much does FREYR plan to invest in the first phase of Giga America?",
+      "answer_type": "currency",
+      "gold": {
+        "answer_text": "some $1.7 billion",
+        "value": 1700000000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://chargedevs.com/newswire/freyr-battery-to-build-giga-america-battery-plant-in-georgia/",
+      "source_date": "2022-11-30",
+      "source_title": "Giga America",
+      "evidence_phrase": "FREYR plans to invest some $1.7 billion in the first phase of Giga America",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q13",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how many new jobs is GF Casting Solutions' Richmond County project expected to create?",
+      "answer_type": "count",
+      "gold": {
+        "answer_text": "350 new jobs",
+        "value": 350,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.wsbtv.com/news/local/gov-kemp-announces-hundreds-e-mobility-manufacturing-jobs-coming-east-central-georgia/BDEAANEFOVF3TO7CT4NIF2ZETI/",
+      "source_date": "2024-05-04",
+      "source_title": "GF Casting Solutions AG",
+      "evidence_phrase": "The project is expected to create 350 new jobs in Richmond County",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q14",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, how many new jobs will Norma Precision's $60 million project create?",
+      "answer_type": "count",
+      "gold": {
+        "answer_text": "600 new jobs",
+        "value": 600,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://allongeorgia.com/georgia-business/norma-precision-inc-to-create-600-jobs-invest-60-million-in-bryan-county/",
+      "source_date": "2022-11-10",
+      "source_title": "Norma Precision Inc.",
+      "evidence_phrase": "The $60 million project will create 600 new jobs",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q15",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, about how many new jobs is Hyundai Motor Group's Bryan County project expected to create?",
+      "answer_type": "count",
+      "gold": {
+        "answer_text": "about 8,100 new jobs",
+        "value": 8100,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.hyundai.com/worldwide/en/newsroom/detail/hyundai-motor-group-to-establish-first-dedicated-ev-plant-and-battery-manufacturing-facility-in-the-u.s.-0000000068",
+      "source_date": "2022-05-20",
+      "source_title": "Hyundai Motor Group",
+      "evidence_phrase": "The project is expected to create about 8,100 new jobs",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 4,
+      "exposure_over_run": 4,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q16",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, approximately how many jobs is SK Battery cutting at its Commerce plant?",
+      "answer_type": "count",
+      "gold": {
+        "answer_text": "nearly 1,000 jobs",
+        "value": 1000,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://www.globalatlanta.com/sk-battery-cuts-nearly-1000-georgia-jobs-amid-declining-ev-demand/",
+      "source_date": "2026-03-06",
+      "source_title": "SK Battery America",
+      "evidence_phrase": "SK Battery is cutting nearly 1,000 jobs at its Commerce plant",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q17",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, what is the approximate annual capacity of the first-phase cell production module at Giga America?",
+      "answer_type": "capacity_gwh",
+      "gold": {
+        "answer_text": "approximately 34 GWh",
+        "value": 34,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://chargedevs.com/newswire/freyr-battery-to-build-giga-america-battery-plant-in-georgia/",
+      "source_date": "2022-11-30",
+      "source_title": "Giga America",
+      "evidence_phrase": "The first phase will be a cell production module with an annual capacity of approximately 34 GWh",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    },
+    {
+      "question_id": "web_q18",
+      "section": "web",
+      "category": "web_fact",
+      "operations": [
+        "recall"
+      ],
+      "operation_count": 1,
+      "question": "According to the collected web corpus, what combined annual battery-cell capacity will SK Battery America have in Georgia?",
+      "answer_type": "capacity_gwh",
+      "gold": {
+        "answer_text": "22 GWh a year",
+        "value": 22,
+        "entities": [],
+        "ordered": [],
+        "stages": null
+      },
+      "source_url": "https://gov.georgia.gov/press-releases/2023-01-26/gov-kemp-sk-battery-america-open-us-it-center-create-200-high-tech-jobs",
+      "source_date": "2023-01-26",
+      "source_title": "SK Battery America",
+      "evidence_phrase": "The company will have a combined capacity to make 22 GWh of battery cells a year",
+      "proven_in_effective_training": true,
+      "exact_answer_occurrences": 1,
+      "exposure_over_run": 1,
+      "absent_from_structured_kb": true,
+      "kb_overlap_check": {
+        "answer_in_kb": false
+      }
+    }
+  ]
+}

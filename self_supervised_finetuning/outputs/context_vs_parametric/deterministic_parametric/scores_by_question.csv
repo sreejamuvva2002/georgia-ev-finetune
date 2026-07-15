@@ -1,0 +1,43 @@
+question_number,question_type,judge_recommended,gold_count,gold_company_count,mean_entity_f1,models_with_count_match,models_scored_for_count,best_model_by_entity_f1,question
+1,list_multi_filter,False,18,18,0.0,0,0,direct_context::base,"Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service."
+2,list_or_lookup,False,6,6,0.0,0,0,direct_context::base,"Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?"
+3,list_multi_filter,False,5,5,0.0,0,0,direct_context::base,Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.
+4,list_or_lookup,False,4,4,0.0,0,3,direct_context::base,"List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size."
+5,list_multi_filter,False,,11,0.0,0,0,direct_context::base,"Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?"
+7,aggregation_ranking,False,,1,0.0,0,0,direct_context::base,"In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?"
+9,aggregation_ranking,False,,0,0.0,0,0,direct_context::base,"Which county has the highest total employment across all companies, and what is the combined employment in that county?"
+10,list_multi_filter,False,10,10,0.0,0,1,direct_context::base,Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.
+12,list_multi_filter,False,3,3,0.0,0,0,direct_context::base,List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.
+13,list_or_lookup,False,,6,0.0,0,0,direct_context::base,"Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role."
+14,list_multi_filter,False,2,2,0.0,0,0,direct_context::base,Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.
+16,list_multi_filter_judge_recommended,True,1,1,0.0,0,1,direct_context::kb_only,Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.
+18,list_or_lookup,False,5,5,0.0,0,0,direct_context::base,"Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components and what tier is each assigned?"
+19,list_or_lookup,False,1,1,0.0,0,0,direct_context::base,"Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?"
+20,list_or_lookup,False,6,6,0.0,0,0,direct_context::base,"Which Georgia companies are classified under Battery Cell/Battery Pack roles or battery-related products and are Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to."
+21,list_multi_filter,False,5,5,0.0,0,1,direct_context::base,Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.
+22,list_or_lookup,False,2,2,0.0,0,0,direct_context::base,Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.
+23,list_or_lookup_judge_recommended,True,28,25,0.0,0,1,direct_context::kb_only,"Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?"
+24,list_or_lookup_judge_recommended,True,6,6,0.0,0,1,direct_context::base,"Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?"
+25,count_judge_recommended,True,6,6,0.0,0,0,direct_context::base,"For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?"
+26,list_or_lookup,False,2,2,0.0,0,1,direct_context::base,Identify Georgia Tier 2/3 suppliers that are EV Relevant and classified as General Automotive.
+27,list_multi_filter,False,11,11,0.0,0,1,direct_context::kb_only,Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').
+28,list_or_lookup,False,3,3,0.0,0,1,direct_context::base,Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.
+30,aggregation_ranking_judge_recommended,True,10,10,0.0,1,2,direct_context::base,"Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?"
+31,list_or_lookup,False,7,7,0.0,0,0,direct_context::base,Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are ev relevant or indirectly ev relevant?
+32,list_or_lookup,False,1,1,0.0,0,0,direct_context::base,"Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' — these signal EV powertrain electronics growth."
+33,list_or_lookup_judge_recommended,True,3,3,0.0,0,0,direct_context::base,"Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?"
+35,list_multi_filter,False,5,5,0.0,0,1,direct_context::base,"Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?"
+36,list_or_lookup,False,11,11,0.0,0,0,direct_context::base,Which Tier 1/2 Georgia companies listed under General Automotive?
+37,list_or_lookup,False,5,5,0.0,0,0,direct_context::base,How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?
+38,list_or_lookup_judge_recommended,True,2,2,0.0,0,0,direct_context::base,"Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?"
+39,list_or_lookup_judge_recommended,True,1,1,0.0,0,0,direct_context::base,"Which Georgia supplier appears to play an innovation-stage role through research, development, or prototyping activity?"
+40,list_or_lookup_judge_recommended,True,5,5,0.0,0,1,direct_context::base,"Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?"
+41,lookup,False,2,2,0.0,0,0,direct_context::base,"For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?"
+42,list_or_lookup_judge_recommended,True,1,1,0.0,0,0,direct_context::base,"Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?"
+29,list_or_lookup,False,23,23,0.0267,0,0,direct_context::kb_only,Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?
+34,aggregation_ranking,False,4,4,0.0833,1,1,direct_context::kb_web,"Which four Georgia companies have the largest employment in EV thermal management, and how many employees does each have?"
+8,aggregation_ranking,False,,0,0.3333,0,0,direct_context::kb_web,Which county have the highest total Employment among Tier 1 suppliers only?
+11,list_or_lookup,False,3,1,0.6667,0,0,direct_context::base,Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.
+6,list_or_lookup,False,3,1,1.0,0,1,direct_context::kb_only,"What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?"
+15,list_or_lookup_judge_recommended,True,0,0,1.0,0,0,direct_context::base,Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.
+17,list_or_lookup,False,,0,,0,0,,"Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?"

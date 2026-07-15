@@ -1,0 +1,634 @@
+{
+  "label": "kb_web",
+  "mode": "adapter",
+  "run_dir": "self_supervised_finetuning/outputs/adapters/qwen2p5-14b/qlora-lora-r64-a128-d0-rslora/kb-web-mixed-full-corpus-kb50-web1/mixed-per-source-group/ep1-bs1-ga16-ebs16-lr1e4-seqmixed/seed42/20260714_195323_749ad79f",
+  "benchmark_file": "self_supervised_finetuning/benchmarks/gnem_bench_v1/questions_gold_v1.json",
+  "benchmark_sha256": "d26f80122835862ff4d66e20ac0d75f0f5ce98c102fcc688e19719614375b55c",
+  "generation_config": {
+    "model_name_or_path": "Qwen/Qwen2.5-14B",
+    "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+    "tokenizer": "Qwen/Qwen2.5-14B",
+    "quantization": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "bnb_4bit_compute_dtype": "auto"
+    },
+    "do_sample": false,
+    "temperature": null,
+    "top_p": null,
+    "max_new_tokens": 256,
+    "seed": 42,
+    "torch_dtype": "torch.bfloat16",
+    "pad_token_id": 151643,
+    "transformers_version": "5.13.1",
+    "torch_version": "2.13.0+cu130",
+    "peft_version": "0.19.1",
+    "bitsandbytes_version": "0.49.2"
+  },
+  "generation_config_sha256": "341fb632992eb2a8e76410636da8f4e94f9700e4d26f86496364e36789218ba3",
+  "n_questions": 60,
+  "results": [
+    {
+      "question_id": "kb_q01",
+      "section": "kb",
+      "question": "Show all \"Tier 1/2\" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.",
+      "output": "## Facts - Georgia has 100 Tier 1/2 suppliers in the EV supply chain. - Suppliers are categorized by their role in the supply chain: Battery Pack, Battery Cell, General Automotive, or Materials. - SK Battery America is located in Commerce, GA, with an EV Supply Chain Role of Battery Cell and a Product / Service of Battery cells for electric mobility. - Ascend Elements is located in Covington, GA, with an EV Supply Chain Role of Materials and a Product / Service of Lithium-ion battery recycling and engineered precursor production. - Aurubis is located in Augusta, GA, with an EV Supply Chain Role of Materials and a Product / Service of Copper, nickel, tin, and other precious metals. - Aurubis Richmond is located in Augusta, GA, with an EV Supply Chain Role of Materials and a Product / Service of Copper, nickel, tin, and other precious metals. - Aurubis Richmond Recycling is located in Augusta, GA, with an EV Supply Chain Role of Materials and a Product / Service of Copper, nickel, tin, and other precious metals. - Aurubis Richmond Recycling Augusta is located in Augusta, GA, with an EV Supply Chain Role of Materials and a Product / Service of Copper, nickel,",
+      "generated_tokens": 256,
+      "generation_time": 21.181,
+      "tokens_per_sec": 12.09,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q02",
+      "section": "kb",
+      "question": "Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?",
+      "output": "- Ascend Elements is a Tier 2/3 company located in Covington, GA. - Ascend Elements is classified under Battery Cell and Battery Pack roles. - Ascend Elements is a battery recycling company that processes spent lithium-ion batteries and manufacturing scrap to recover critical metals. - Ascend Elements produces sustainable, high-quality battery materials for new lithium-ion batteries. - Ascend Elements is a leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements is a global leader in lithium-ion battery recycling and sustainable battery materials. - Ascend Elements",
+      "generated_tokens": 256,
+      "generation_time": 19.532,
+      "tokens_per_sec": 13.11,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q03",
+      "section": "kb",
+      "question": "Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.",
+      "output": "- Map all Thermal Management suppliers in Georgia and show which Tier 1 suppliers they are linked to. - Map all Thermal Management suppliers in Georgia and show which Tier 2/3 suppliers they are linked to. - Map all Thermal Management suppliers in Georgia and show which Competitors they are linked to. - Map all Thermal Management suppliers in Georgia and show which Affiliation Group they are linked to. - Map all Thermal Management suppliers in Georgia and show which OEMs they are linked to. - Map all Thermal Management suppliers in Georgia and show which Tier 1 suppliers they are linked to. - Map all Thermal Management suppliers in Georgia and show which Tier 2/3 suppliers they are linked to. - Map all Thermal Management suppliers in Georgia and show which Competitors they are linked to. - Map all Thermal Management suppliers in Georgia and show which Affiliation Group they are linked to. - Map all Thermal Management suppliers in Georgia and show which OEMs they are linked to. - Map all Thermal Management suppliers in Georgia and show which Tier 1 suppliers they are linked to. - Map all Thermal Management suppliers in Georgia and show which Tier 2/3 suppliers they are linked to. - Map all Thermal Management suppliers in Georgia and show which Competitors they are linked to. - Map",
+      "generated_tokens": 256,
+      "generation_time": 19.591,
+      "tokens_per_sec": 13.07,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q04",
+      "section": "kb",
+      "question": "List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.",
+      "output": "- The page lists 10 companies in Georgia under Power Electronics or Charging Infrastructure. - The page lists 10 companies in Georgia under Battery Cell. - The page lists 10 companies in Georgia under Battery Pack. - The page lists 10 companies in Georgia under Battery Management System. - The page lists 10 companies in Georgia under Battery Recycling. - The page lists 10 companies in Georgia under Battery Materials. - The page lists 10 companies in Georgia under Battery Electrolyte. - The page lists 10 companies in Georgia under Battery Separator. - The page lists 10 companies in Georgia under Battery Cathode. - The page lists 10 companies in Georgia under Battery Anode. - The page lists 10 companies in Georgia under Battery Electrode. - The page lists 10 companies in Georgia under Battery Binder. - The page lists 10 companies in Georgia under Battery Binder Solvent. - The page lists 10 companies in Georgia under Battery Binder Additive. - The page lists 10 companies in Georgia under Battery Binder Dispersant. - The page lists 10 companies in Georgia under Battery Binder Polymer. - The page lists 10 companies in Georgia under Battery Binder Resin",
+      "generated_tokens": 256,
+      "generation_time": 19.552,
+      "tokens_per_sec": 13.09,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q05",
+      "section": "kb",
+      "question": "Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?",
+      "output": "- Aspen Aerogels is classified as a Direct Manufacturer and covers the Materials role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Thermal Management role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Pack role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Cell role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Module role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Pack role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Cell role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Module role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Pack role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Cell role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Module role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Pack role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Cell role. - Aspen Aerogels is classified as a Direct Manufacturer and covers the Battery Module role. - Aspen Aerogels",
+      "generated_tokens": 256,
+      "generation_time": 19.478,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q06",
+      "section": "kb",
+      "question": "What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?",
+      "output": "- Novelis Inc. operates in 10 locations across the United States, Canada, and the United Kingdom. - The primary facility types associated with each location include Manufacturing Plant, R&D Center, and Headquarters. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis Inc. operates a Manufacturing Plant in Atlanta, GA. - Novelis",
+      "generated_tokens": 256,
+      "generation_time": 19.559,
+      "tokens_per_sec": 13.09,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q07",
+      "section": "kb",
+      "question": "In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?",
+      "output": "- In Gwinnett County, Hyundai Mobis has the highest Employment with 1,700 employees. - Hyundai Mobis is a Tier 1 supplier for Hyundai Motor Group Metaplant America (HMGMA). - Hyundai Mobis manufactures electric powertrains, including battery systems and electric motors. - Hyundai Mobis is a key player in the EV supply chain for the Hyundai Motor Group Metaplant America (HMGMA) project. - The company's operations are critical to the success of the HMGMA project and the broader EV ecosystem in Georgia. - Hyundai Mobis is a global automotive supplier with a strong focus on electrification and advanced technologies. - The company's presence in Georgia underscores its commitment to supporting the growth of the EV industry in the region. - Hyundai Mobis's operations in Georgia are part of a larger strategy to expand its manufacturing footprint and strengthen its position in the North American market. - The company's investment in Georgia reflects a long-term commitment to the region and a recognition of the state's strategic importance in the EV supply chain. - Hyundai Mobis's operations in Georgia are expected to create significant economic benefits for the local community and contribute to the growth of the state's automotive industry. - The company's presence in Georgia is",
+      "generated_tokens": 256,
+      "generation_time": 19.452,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q08",
+      "section": "kb",
+      "question": "Which county have the highest total Employment among Tier 1 suppliers only?",
+      "output": "- The county with the highest total employment among Tier 1 suppliers only is Troup County with 1,700 employees. - Troup County is located in the Central region of Georgia. - Troup County is home to the Kia Georgia plant. - Troup County is home to the Mercedes-Benz USA headquarters. - Troup County is home to the Georgia Power headquarters. - Troup County is home to the Georgia Department of Public Safety headquarters. - Troup County is home to the Georgia Department of Transportation headquarters. - Troup County is home to the Georgia Department of Education headquarters. - Troup County is home to the Georgia Department of Human Services headquarters. - Troup County is home to the Georgia Department of Community Affairs headquarters. - Troup County is home to the Georgia Department of Economic Development headquarters. - Troup County is home to the Georgia Department of Labor headquarters. - Troup County is home to the Georgia Department of Corrections headquarters. - Troup County is home to the Georgia Department of Juvenile Justice headquarters. - Troup County is home to the Georgia Department of Public Health headquarters. - Troup County is home to the Georgia Department of Revenue headquarters. - Troup County is home to the Georgia Department of Transportation headquarters. - Troup County",
+      "generated_tokens": 256,
+      "generation_time": 19.462,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q09",
+      "section": "kb",
+      "question": "Which county has the highest total employment across all companies, and what is the combined employment in that county?",
+      "output": "## Facts - The top county by total employment is Fulton County with 1,000,000 employees. - The second highest county by total employment is Gwinnett County with 500,000 employees. - The third highest county by total employment is Cobb County with 250,000 employees. - The fourth highest county by total employment is DeKalb County with 150,000 employees. - The fifth highest county by total employment is Clayton County with 100,000 employees. - The combined employment in Fulton County is 1,000,000 employees. - The combined employment in Gwinnett County is 500,000 employees. - The combined employment in Cobb County is 250,000 employees. - The combined employment in DeKalb County is 150,000 employees. - The combined employment in Clayton County is 100,000 employees. - The combined employment in all counties is 2,000,000 employees. ## Links - https://www.100bestplaces.com/ — Source for employment data\n## Links -",
+      "generated_tokens": 256,
+      "generation_time": 19.397,
+      "tokens_per_sec": 13.2,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q10",
+      "section": "kb",
+      "question": "Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.",
+      "output": "- Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility. - Identify all Vehicle Assembly facilities in Georgia and",
+      "generated_tokens": 256,
+      "generation_time": 19.45,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q11",
+      "section": "kb",
+      "question": "Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.",
+      "output": "- Sewon America Inc. operates a facility located at 100 Sewon Dr, LaGrange, GA 30240. - The LaGrange, GA facility primarily manufactures automotive body parts and components. - The LaGrange, GA facility also manufactures automotive chassis and frame components. - The LaGrange, GA facility manufactures automotive suspension and steering components. - The LaGrange, GA facility manufactures automotive brake components. - The LaGrange, GA facility manufactures automotive transmission components. - The LaGrange, GA facility manufactures automotive engine components. - The LaGrange, GA facility manufactures automotive electronics and sensors. - The LaGrange, GA facility manufactures automotive lighting and signaling components. - The LaGrange, GA facility manufactures automotive interior components. - The LaGrange, GA facility manufactures automotive exterior components. - The LaGrange, GA facility manufactures automotive safety components. - The LaGrange, GA facility manufactures automotive seating components. - The LaGrange, GA facility manufactures automotive HVAC components. - The LaGrange, GA facility manufactures automotive powertrain components. - The LaGrange, GA facility manufactures automotive fuel system components. - The LaGrange, GA facility manufactures automotive exhaust system components. - The La",
+      "generated_tokens": 256,
+      "generation_time": 19.512,
+      "tokens_per_sec": 13.12,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q12",
+      "section": "kb",
+      "question": "List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.",
+      "output": "- The list includes companies like Ascend Elements, Aurubis AG, Aurubis Richmond, Inc., Battery Resourcers, Inc., Blue Bird Corporation, Bonnell Aluminum, Carcoustics USA, Celgard, LLC, Ceres Nanosciences, Inc., Cirba Solutions, Inc., Clariant, Inc., Clariant Catalysts, LLC, Clariant Polyolefins, LLC, Clariant Specialty Additives, LLC, Clariant Specialty Chemicals, Inc., Clariant Titanium Dioxide, LLC, Clariant USA, Inc., Clariant USA, LLC, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP, Clariant USA, LP",
+      "generated_tokens": 256,
+      "generation_time": 19.476,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q13",
+      "section": "kb",
+      "question": "Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.",
+      "output": "- Rivian Automotive is a Tier 1 supplier to itself. - Rivian Automotive is a Tier 1 supplier to Hyundai Motor Group. - Rivian Automotive is a Tier 1 supplier to Kia Georgia. - Rivian Automotive is a Tier 1 supplier to Mercedes-Benz USA. - Rivian Automotive is a Tier 1 supplier to Porsche Cars North America. - Rivian Automotive is a Tier 1 supplier to Volkswagen Group of America. - Rivian Automotive is a Tier 1 supplier to Volvo Cars USA. - Rivian Automotive is a Tier 1 supplier to BMW Group. - Rivian Automotive is a Tier 1 supplier to Ford Motor Company. - Rivian Automotive is a Tier 1 supplier to General Motors. - Rivian Automotive is a Tier 1 supplier to Honda Motor Co. - Rivian Automotive is a Tier 1 supplier to Nissan Motor Co. - Rivian Automotive is a Tier 1 supplier to Toyota Motor Co. - Rivian Automotive is a Tier 1 supplier to Stellantis. - Rivian Automotive is a Tier 1 supplier to Daimler Truck North America. - Rivian Automotive is a Tier 1 supplier to Daimler Truck. - Rivian Automotive is a Tier 1 supplier to Daimler Truck",
+      "generated_tokens": 256,
+      "generation_time": 19.45,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q14",
+      "section": "kb",
+      "question": "Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.",
+      "output": "## Links - https://www.georgia.org/georgia-electric-vehicle-ecosystem — Georgia EV ecosystem information\n## Facts - Georgia is home to more than 500 automotive-related facilities. - Georgia's automotive industry employs more than 50,000 Georgians. - Georgia's automotive industry generates $2.5 billion in annual wages. - Georgia's automotive industry generates $14.3 billion in annual economic output. - Georgia's automotive industry generates $1.3 billion in annual tax revenue. - Georgia's automotive industry is supported by a skilled workforce, including 10,000-plus engineers. - Georgia's automotive industry is supported by a robust logistics network. - Georgia's automotive industry is supported by a strong supplier network. - Georgia's automotive industry is supported by a diverse OEM presence. - Georgia's automotive industry is supported by a strong research and development ecosystem. - Georgia's automotive industry is supported by a strong manufacturing base. - Georgia's automotive industry is supported by a strong automotive parts manufacturing base. - Georgia's automotive industry is supported by a strong automotive wiring harness manufacturing base. - Georgia's automotive industry is supported by a strong automotive electrical distribution system (EEDS) manufacturing base. - Georgia's automotive industry",
+      "generated_tokens": 256,
+      "generation_time": 19.452,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q15",
+      "section": "kb",
+      "question": "Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.",
+      "output": "- Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV power electronics. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV battery components. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV charging components. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV sensors. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV lighting. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV infotainment systems. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV connectivity systems. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment and Components industry group that could be upgraded to supply EV cybersecurity systems. - Identify Georgia Tier 2/3 companies in the Electronic and Other Electrical Equipment",
+      "generated_tokens": 256,
+      "generation_time": 19.425,
+      "tokens_per_sec": 13.18,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q16",
+      "section": "kb",
+      "question": "Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.",
+      "output": "- The search should include companies that produce copper foil for printed circuit board (PCB) applications. - The search should include companies that produce copper foil for lithium-ion battery applications. - The search should include companies that produce copper foil for other electronic applications. - The search should include companies that produce copper foil for automotive applications. - The search should include companies that produce copper foil for aerospace applications. - The search should include companies that produce copper foil for military applications. - The search should include companies that produce copper foil for medical applications. - The search should include companies that produce copper foil for industrial applications. - The search should include companies that produce copper foil for consumer electronics applications. - The search should include companies that produce copper foil for telecommunications applications. - The search should include companies that produce copper foil for energy storage applications. - The search should include companies that produce copper foil for solar panel applications. - The search should include companies that produce copper foil for wind turbine applications. - The search should include companies that produce copper foil for electric vehicle applications. - The search should include companies that produce copper foil for hybrid vehicle applications. - The search should include companies that produce copper foil for fuel cell applications. - The search should include companies that produce copper foil for battery applications. - The",
+      "generated_tokens": 256,
+      "generation_time": 19.445,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q17",
+      "section": "kb",
+      "question": "Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?",
+      "output": "- The Georgia Department of Economic Development (GDEcD) maintains a list of Tier 1/2 companies in Georgia. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. - The list includes companies that produce engineered plastics, polymers, or",
+      "generated_tokens": 256,
+      "generation_time": 19.484,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q18",
+      "section": "kb",
+      "question": "Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components and what tier is each assigned?",
+      "output": "- Georgia is home to a diverse range of companies producing DC-to-DC converters, capacitors, and power electronics components. - These companies are categorized into Tier 1, Tier 2/3, and Tier 4/5 based on their role in the automotive supply chain. - Tier 1 companies are directly involved in the assembly of vehicles and are typically the largest and most well-known. - Tier 2/3 companies supply components to Tier 1 companies and are often smaller and more specialized. - Tier 4/5 companies are the smallest and most specialized, often supplying raw materials or components to Tier 2/3 companies. - The table lists companies by tier and provides links to their websites for more information. - The table includes the company name, tier, location, and a brief description of the products or services they provide. - The table is not exhaustive and is intended to provide a snapshot of the types of companies operating in Georgia's automotive supply chain. - The table is intended to help readers understand the role of each company in the supply chain and how they contribute to the production of electric vehicles and other automotive products. - The table is intended to help readers understand the diversity of companies operating in Georgia's automotive supply chain and the range of products and",
+      "generated_tokens": 256,
+      "generation_time": 19.536,
+      "tokens_per_sec": 13.1,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q19",
+      "section": "kb",
+      "question": "Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?",
+      "output": "- The Georgia Powder Coating Alliance (GPCA) is a non-profit organization that promotes the use of powder coating in the state of Georgia. - The GPCA maintains a list of member companies that provide powder coating-related products or services. - The list includes companies classified as Tier 1, Tier 2/3, and OEMs. - Tier 1 companies are those that supply directly to the end product manufacturer. - Tier 2/3 companies are those that supply to Tier 1 companies. - OEMs are the original equipment manufacturers that produce the end product. - The list is updated as new companies join the GPCA. - The GPCA is a non-profit organization that promotes the use of powder coating in the state of Georgia. - The GPCA maintains a list of member companies that provide powder coating-related products or services. - The list includes companies classified as Tier 1, Tier 2/3, and OEMs. - Tier 1 companies are those that supply directly to the end product manufacturer. - Tier 2/3 companies are those that supply to Tier 1 companies. - OEMs are the original equipment manufacturers that produce the end product. - The list is updated as new companies join the GPCA.\n## Links - www.pow",
+      "generated_tokens": 256,
+      "generation_time": 19.436,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q20",
+      "section": "kb",
+      "question": "Which Georgia companies are classified under Battery Cell/Battery Pack roles or battery-related products and are Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.",
+      "output": "- The table lists companies by role, location, and primary OEMs. - The table includes columns for Battery Cell/Battery Pack, Battery Pack Assembly, Battery Pack Materials, Battery Pack Testing, Battery Pack Recycling, Battery Pack Logistics, Battery Pack Software, Battery Pack Services, Battery Pack OEMs, Battery Pack Suppliers, Battery Pack Affiliation, Battery Pack Role, Battery Pack Location, Battery Pack Primary OEMs, Battery Pack Secondary OEMs, Battery Pack Tiers, Battery Pack Industry Group, Battery Pack NAICS Code, Battery Pack SIC Code, Battery Pack CAGE Code, Battery Pack D-U-N-S Number, Battery Pack Legal Name, Battery Pack Trade Name, Battery Pack Address, Battery Pack Phone, Battery Pack Fax, Battery Pack Email, Battery Pack Website, Battery Pack Latitude, Battery Pack Longitude, Battery Pack Primary Facility Type, Battery Pack Secondary Facility Type, Battery Pack Facility Role, Battery Pack Facility Location, Battery Pack Facility Primary OEMs, Battery Pack Facility Secondary OEMs, Battery Pack Facility Tiers, Battery Pack Facility Industry Group, Battery Pack Facility NAICS Code, Battery Pack Facility SIC Code, Battery Pack Facility CAGE Code, Battery Pack Facility D-U-N-S Number, Battery Pack Facility Legal Name, Battery Pack Facility Trade Name, Battery Pack Facility",
+      "generated_tokens": 256,
+      "generation_time": 19.468,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q21",
+      "section": "kb",
+      "question": "Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.",
+      "output": "- Suppliers must be located in Georgia and have employment over 300. - Suppliers must be classified as General Automotive but produce components transferable to EV platforms. - Suppliers must be located in the United States. - Suppliers must be classified as Tier 2/3. - Suppliers must be classified as Automotive. - Suppliers must be classified as General Automotive. - Suppliers must be classified as Automotive Components. - Suppliers must be classified as Automotive Parts. - Suppliers must be classified as Automotive Supplies. - Suppliers must be classified as Automotive Systems. - Suppliers must be classified as Automotive Technology. - Suppliers must be classified as Automotive Tools. - Suppliers must be classified as Automotive Equipment. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessory. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must be classified as Automotive Accessories. - Suppliers must",
+      "generated_tokens": 256,
+      "generation_time": 19.426,
+      "tokens_per_sec": 13.18,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q22",
+      "section": "kb",
+      "question": "Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.",
+      "output": "- Identify Georgia Tier 2/3 companies in the Rubber and Miscellaneous Plastic Products industry group and list their products. - Identify Georgia Tier 2/3 companies in the Primary Metal Industries industry group and list their products. - Identify Georgia Tier 2/3 companies in the Fabricated Metal Products industry group and list their products. - Identify Georgia Tier 2/3 companies in the Machinery Except Electrical industry group and list their products. - Identify Georgia Tier 2/3 companies in the Electrical Equipment and Components industry group and list their products. - Identify Georgia Tier 2/3 companies in the Transportation Equipment industry group and list their products. - Identify Georgia Tier 2/3 companies in the Primary Metal Industries industry group and list their products. - Identify Georgia Tier 2/3 companies in the Fabricated Metal Products industry group and list their products. - Identify Georgia Tier 2/3 companies in the Machinery Except Electrical industry group and list their products. - Identify Georgia Tier 2/3 companies in the Electrical Equipment and Components industry group and list their products. - Identify Georgia Tier 2/3 companies in the Transportation Equipment industry group and list their products. - Identify Georgia Tier 2/3 companies in the Primary Metal Industries industry group and list their products.",
+      "generated_tokens": 256,
+      "generation_time": 19.438,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q23",
+      "section": "kb",
+      "question": "Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?",
+      "output": "- The state of Georgia has attracted a significant number of electric vehicle (EV) supply chain companies, including battery manufacturers, EV component suppliers, and EV recyclers. - The state's EV ecosystem is heavily reliant on a few key players, with some roles being served by only a single company. - This concentration of supply chain roles in the hands of a single company creates a single-point-of-failure risk for the state's EV ecosystem. - If any of these single-source companies were to face operational challenges, financial difficulties, or regulatory issues, it could have a cascading effect on the entire EV supply chain in Georgia. - The state's EV ecosystem is heavily reliant on a few key players, with some roles being served by only a single company. - This concentration of supply chain roles in the hands of a single company creates a single-point-of-failure risk for the state's EV ecosystem. - If any of these single-source companies were to face operational challenges, financial difficulties, or regulatory issues, it could have a cascading effect on the entire EV supply chain in Georgia. - The state's EV ecosystem is heavily reliant on a few key players, with some roles being served by only a single company. - This concentration of supply chain roles in the hands of a single",
+      "generated_tokens": 256,
+      "generation_time": 19.522,
+      "tokens_per_sec": 13.11,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q24",
+      "section": "kb",
+      "question": "Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?",
+      "output": "- Ascend Elements - Aurubis - Aurubis Richmond - Aurubis Richmond Recycling - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurubis Richmond Recycling (Georgia) - Aurub",
+      "generated_tokens": 256,
+      "generation_time": 19.502,
+      "tokens_per_sec": 13.13,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q25",
+      "section": "kb",
+      "question": "For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?",
+      "output": "- What is the average annual wage for Hyundai Metaplant's suppliers compared to the state average? - How many Hyundai Metaplant suppliers are located in counties outside the Savannah MSA, and what does this imply for regional economic integration? - What is the average commute time for workers at Hyundai Metaplant and its suppliers, and how does this compare to the state average? - How many Hyundai Metaplant suppliers have been in operation for less than five years, and what does this suggest about the stability of the supplier network? - What is the average number of employees per supplier at Hyundai Metaplant, and how does this compare to the state average? - How many Hyundai Metaplant suppliers are located in counties with a population of less than 50,000, and what does this imply for labor market flexibility? - What is the average annual wage for Hyundai Metaplant's suppliers compared to the state average? - How many Hyundai Metaplant suppliers have fewer than 200 employees, flagging potential capacity fragility? - How many Hyundai Metaplant suppliers are located in counties outside the Savannah MSA, and what does this imply for regional economic integration? - What is the average commute time for workers at Hyundai Metaplant and",
+      "generated_tokens": 256,
+      "generation_time": 19.47,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q26",
+      "section": "kb",
+      "question": "Identify Georgia Tier 2/3 suppliers that are EV Relevant and classified as General Automotive.",
+      "output": "- The supplier list includes companies like Adient, which is a Tier 1 supplier of automotive seating systems. - The supplier list includes companies like Arising Industries, which is a Tier 2/3 supplier of specialty chemicals for automotive applications. - The supplier list includes companies like Bonnell Aluminum, which is a Tier 2/3 supplier of aluminum extrusions for automotive components. - The supplier list includes companies like Constellium Automotive USA, which is a Tier 2/3 supplier of aluminum sheet for automotive body parts. - The supplier list includes companies like DAS Corp., which is a Tier 2/3 supplier of plastic injection molded components for automotive interiors. - The supplier list includes companies like DAS Corp., which is a Tier 2/3 supplier of plastic injection molded components for automotive exteriors. - The supplier list includes companies like DAS Corp., which is a Tier 2/3 supplier of plastic injection molded components for automotive powertrain. - The supplier list includes companies like DAS Corp., which is a Tier 2/3 supplier of plastic injection molded components for automotive electronics. - The supplier list includes companies like DAS Corp., which is a Tier 2/3 supplier of plastic injection molded components for automotive safety. - The",
+      "generated_tokens": 256,
+      "generation_time": 19.434,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q27",
+      "section": "kb",
+      "question": "Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').",
+      "output": "- Include suppliers with a focus on battery components, charging infrastructure, and energy storage systems. - Include suppliers with a focus on electric vehicle (EV) thermal management solutions. - Include suppliers with a focus on power electronics and inverters. - Include suppliers with a focus on lightweight materials and structural components. - Include suppliers with a focus on advanced driver-assistance systems (ADAS) and autonomous driving technologies. - Include suppliers with a focus on connectivity and infotainment systems. - Include suppliers with a focus on sustainable and recyclable materials. - Include suppliers with a focus on manufacturing automation and robotics. - Include suppliers with a focus on artificial intelligence and machine learning applications in automotive systems. - Include suppliers with a focus on cybersecurity solutions for automotive systems. - Include suppliers with a focus on smart city and urban mobility solutions. - Include suppliers with a focus on hydrogen fuel cell technologies. - Include suppliers with a focus on advanced manufacturing processes and materials. - Include suppliers with a focus on electric vehicle (EV) charging infrastructure. - Include suppliers with a focus on electric vehicle (EV) battery components. - Include suppliers with a focus on electric vehicle (EV) thermal management solutions. - Include suppliers with a focus on electric vehicle (EV) power electronics and inverters. - Include suppliers",
+      "generated_tokens": 256,
+      "generation_time": 19.463,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q28",
+      "section": "kb",
+      "question": "Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.",
+      "output": "- Identify Georgia companies in the Thermal Management or Power Electronics role with more than 200 employees - their larger scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with more than 200 employees - their larger scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with more than 200 employees - their larger scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with more than 200 employees - their larger scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity. - Identify Georgia companies in the Thermal Management or Power Electronics role with more than",
+      "generated_tokens": 256,
+      "generation_time": 19.449,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q29",
+      "section": "kb",
+      "question": "Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?",
+      "output": "- Identify any EV-relevant Georgia companies classified as Battery Pack? - Identify any EV-relevant Georgia companies classified as Battery Pack Materials? - Identify any EV-relevant Georgia companies classified as Battery Pack Components? - Identify any EV-relevant Georgia companies classified as Battery Pack Assembly? - Identify any EV-relevant Georgia companies classified as Battery Pack Testing? - Identify any EV-relevant Georgia companies classified as Battery Pack Recycling? - Identify any EV-relevant Georgia companies classified as Battery Pack Disassembly? - Identify any EV-relevant Georgia companies classified as Battery Pack Logistics? - Identify any EV-relevant Georgia companies classified as Battery Pack Quality Control? - Identify any EV-relevant Georgia companies classified as Battery Pack Engineering? - Identify any EV-relevant Georgia companies classified as Battery Pack Research and Development? - Identify any EV-relevant Georgia companies classified as Battery Pack Manufacturing? - Identify any EV-relevant Georgia companies classified as Battery Pack Sales and Marketing? - Identify any EV-relevant Georgia companies classified as Battery Pack Finance and Accounting? - Identify any EV-relevant Georgia companies classified as Battery Pack Human Resources? - Identify any EV-relevant Georgia companies classified as Battery Pack Information Technology? - Identify any EV-relevant Georgia companies classified as Battery Pack Procurement? - Identify any EV-relevant Georgia companies",
+      "generated_tokens": 256,
+      "generation_time": 19.388,
+      "tokens_per_sec": 13.2,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q30",
+      "section": "kb",
+      "question": "Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?",
+      "output": "- Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness? - Top 10 Georgia",
+      "generated_tokens": 256,
+      "generation_time": 19.47,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q31",
+      "section": "kb",
+      "question": "Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are ev relevant or indirectly ev relevant?",
+      "output": "- Novelis Inc. is a Tier 1 supplier that produces lightweight aluminum products for the automotive industry. - Novelis Inc. is located in Atlanta, Georgia. - Novelis Inc. is indirectly EV relevant. - Novelis Inc. is a subsidiary of Hindalco Industries Limited. - Novelis Inc. is the world's largest recycler of aluminum. - Novelis Inc. is a leading producer of flat-rolled aluminum products. - Novelis Inc. is a leading producer of aluminum beverage cans. - Novelis Inc. is a leading producer of aluminum automotive sheet. - Novelis Inc. is a leading producer of aluminum foil. - Novelis Inc. is a leading producer of aluminum packaging. - Novelis Inc. is a leading producer of aluminum extrusions. - Novelis Inc. is a leading producer of aluminum building and construction products. - Novelis Inc. is a leading producer of aluminum aerospace products. - Novelis Inc. is a leading producer of aluminum automotive products. - Novelis Inc. is a leading producer of aluminum industrial products. - Novelis Inc. is a leading producer of aluminum consumer products. - Novelis Inc. is a leading producer of aluminum automotive body parts. - Novelis Inc. is a leading producer of aluminum automotive",
+      "generated_tokens": 256,
+      "generation_time": 19.392,
+      "tokens_per_sec": 13.2,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q32",
+      "section": "kb",
+      "question": "Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' — these signal EV powertrain electronics growth.",
+      "output": "- Identify Georgia companies whose product descriptions include 'battery pack', 'battery management system', 'cell-to-pack', or 'thermal management' — these signal EV battery pack assembly and management growth. - Identify Georgia companies whose product descriptions include 'charging infrastructure', 'DC fast charging', 'Level 2 charging', or 'smart charging' — these signal EV charging station manufacturing and installation growth. - Identify Georgia companies whose product descriptions include 'recycling', 'lithium recovery', 'cathode precursor', or 'anode material' — these signal EV battery materials and recycling growth. - Identify Georgia companies whose product descriptions include 'vehicle-to-grid', 'V2G', 'energy storage', or 'grid services' — these signal EVs as grid assets growth. - Identify Georgia companies whose product descriptions include 'autonomous driving', 'ADAS', 'sensors', 'LiDAR', 'radar', or 'camera systems' — these signal EV software and hardware integration growth. - Identify Georgia companies whose product descriptions include 'electrification', 'EV infrastructure', 'charging networks', 'fleet electrification', or 'public transportation' — these signal EV adoption and infrastructure growth. - Identify Georgia companies whose product descriptions include 'sustainability', 'carbon reduction', '",
+      "generated_tokens": 256,
+      "generation_time": 19.489,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q33",
+      "section": "kb",
+      "question": "Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only \"Indirectly Relevant\" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?",
+      "output": "- The Georgia Department of Economic Development (GDEcD) maintains a comprehensive database of automotive companies operating in the state. - The GDEcD database categorizes companies based on their direct or indirect relevance to the electric vehicle (EV) supply chain. - Companies categorized as \"Indirectly Relevant\" are those that support the broader automotive industry but do not directly manufacture EV components. - These indirectly relevant companies often have large workforces and could be strategically positioned to pivot into the EV sector with minimal adjustments. - The GDEcD database provides detailed information on company locations, workforce sizes, and specific roles within the automotive industry. - Companies like Kia Georgia, Hyundai Motor Group, and Rivian are categorized as \"Directly Relevant\" due to their direct involvement in EV manufacturing. - Companies like Mercedes-Benz USA, BMW Group, and Porsche Cars North America are categorized as \"Indirectly Relevant\" because they primarily focus on sales, marketing, and distribution rather than manufacturing. - These indirectly relevant companies often have large headquarters or regional offices in Georgia that employ thousands of workers. - The GDEcD database allows users to filter companies by location, industry category, and workforce size. - By filtering the database for companies with over 1,000 employees and",
+      "generated_tokens": 256,
+      "generation_time": 19.45,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q34",
+      "section": "kb",
+      "question": "Which four Georgia companies have the largest employment in EV thermal management, and how many employees does each have?",
+      "output": "- Aspen Aerogels has 100 employees. - Freudenberg-NOK has 100 employees. - Hanon Systems has 100 employees. - Magna International has 100 employees. - These four companies have the largest employment in EV thermal management in Georgia. - Aspen Aerogels is located in Statesboro, Georgia. - Freudenberg-NOK is located in LaGrange, Georgia. - Hanon Systems is located in LaGrange, Georgia. - Magna International is located in Carrollton, Georgia. - Aspen Aerogels is a manufacturer of aerogel insulation products for the automotive industry. - Freudenberg-NOK is a manufacturer of thermal management products for the automotive industry. - Hanon Systems is a manufacturer of thermal management products for the automotive industry. - Magna International is a manufacturer of automotive components, including thermal management products. - The total employment for these four companies is 400 employees. - The total employment for all EV thermal management companies in Georgia is 400 employees. - The total employment for all EV companies in Georgia is 1,000 employees. - The total employment for all automotive companies in Georgia is 10,000 employees. - The",
+      "generated_tokens": 256,
+      "generation_time": 19.48,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q35",
+      "section": "kb",
+      "question": "Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?",
+      "output": "- Aspen Aerogels is a manufacturer of aerogel insulation products for thermal management applications. - Aspen Aerogels operates a manufacturing facility in East Providence, RI. - Aspen Aerogels is associated with the Thermal Management category. - Aspen Aerogels is associated with the Manufacturing category. - Aspen Aerogels is associated with the Manufacturing Plant category. - Aspen Aerogels is associated with the Manufacturing Facility category. - Aspen Aerogels is associated with the Manufacturing Plant Facility category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with the Manufacturing Plant Facility Type category. - Aspen Aerogels is associated with",
+      "generated_tokens": 256,
+      "generation_time": 19.548,
+      "tokens_per_sec": 13.1,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q36",
+      "section": "kb",
+      "question": "Which Tier 1/2 Georgia companies listed under General Automotive?",
+      "output": "- Aurubis AG - Aurubis Richmond - Aurubis Richmond Recycling - Aurubis Richmond Smelter - Aurubis Richmond Technical Center - Aurubis Richmond Warehouse - Aurubis Richmond Warehouse 2 - Aurubis Richmond Warehouse 3 - Aurubis Richmond Warehouse 4 - Aurubis Richmond Warehouse 5 - Aurubis Richmond Warehouse 6 - Aurubis Richmond Warehouse 7 - Aurubis Richmond Warehouse 8 - Aurubis Richmond Warehouse 9 - Aurubis Richmond Warehouse 10 - Aurubis Richmond Warehouse 11 - Aurubis Richmond Warehouse 12 - Aurubis Richmond Warehouse 13 - Aurubis Richmond Warehouse 14 - Aurubis Richmond Warehouse 15 - Aurubis Richmond Warehouse 16 - Aurubis Richmond Warehouse 17 - Aurubis Richmond Warehouse 18 - Aurubis Richmond Warehouse 19 - Aurubis Richmond Warehouse 20 - Aurubis Richmond Warehouse 21 - Aurubis Richmond Warehouse 22 - Aurubis Richmond Warehouse 23 - Aurubis Richmond Warehouse 24 - Aurubis Richmond Warehouse 25 - Aurubis Richmond Warehouse 26 - Aurub",
+      "generated_tokens": 256,
+      "generation_time": 19.51,
+      "tokens_per_sec": 13.12,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q37",
+      "section": "kb",
+      "question": "How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?",
+      "output": "- Georgia has 100 Thermal Management suppliers. - The employment size of Georgia Thermal Management suppliers ranges from 1 to 100. - The employment size of Georgia Thermal Management suppliers ranges from 100 to 500. - The employment size of Georgia Thermal Management suppliers ranges from 500 to 1,000. - The employment size of Georgia Thermal Management suppliers ranges from 1,000 to 5,000. - The employment size of Georgia Thermal Management suppliers ranges from 5,000 to 10,000. - The employment size of Georgia Thermal Management suppliers ranges from 10,000 to 50,000. - The employment size of Georgia Thermal Management suppliers ranges from 50,000 to 100,000. - The employment size of Georgia Thermal Management suppliers ranges from 100,000 to 500,000. - The employment size of Georgia Thermal Management suppliers ranges from 500,000 to 1,000,000. - The employment size of Georgia Thermal Management suppliers ranges from 1,00",
+      "generated_tokens": 256,
+      "generation_time": 19.51,
+      "tokens_per_sec": 13.12,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q38",
+      "section": "kb",
+      "question": "Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?",
+      "output": "- Ascend Elements is a battery recycling company that has a facility in Covington, Georgia. - Ascend Elements is building a second facility in Hopkinsville, Kentucky. - Ascend Elements is building a third facility in Hopkinsville, Kentucky. - Ascend Elements is building a fourth facility in Hopkinsville, Kentucky. - Ascend Elements is building a fifth facility in Hopkinsville, Kentucky. - Ascend Elements is building a sixth facility in Hopkinsville, Kentucky. - Ascend Elements is building a seventh facility in Hopkinsville, Kentucky. - Ascend Elements is building an eighth facility in Hopkinsville, Kentucky. - Ascend Elements is building a ninth facility in Hopkinsville, Kentucky. - Ascend Elements is building a tenth facility in Hopkinsville, Kentucky. - Ascend Elements is building an eleventh facility in Hopkinsville, Kentucky. - Ascend Elements is building a twelfth facility in Hopkinsville, Kentucky. - Ascend Elements is building a thirteenth facility in Hopkinsville, Kentucky. - Ascend Elements is building a fourteenth facility in Hopkinsville, Kentucky. - Ascend Elements is building a fifteenth facility in Hopkinsville, Kentucky. - Ascend Elements is building a sixteenth facility in Hopkinsville, Kentucky. - Ascend Elements is",
+      "generated_tokens": 256,
+      "generation_time": 19.384,
+      "tokens_per_sec": 13.21,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q39",
+      "section": "kb",
+      "question": "Which Georgia supplier appears to play an innovation-stage role through research, development, or prototyping activity?",
+      "output": "- Novelis Inc. - Hyundai Mobis - Hyundai Transys - Hyundai Steel - Hyundai Glovis - Hyundai Motor Group Metaplant America - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center - Hyundai Motor Group Innovation Center",
+      "generated_tokens": 256,
+      "generation_time": 19.428,
+      "tokens_per_sec": 13.18,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q40",
+      "section": "kb",
+      "question": "Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?",
+      "output": "- The Georgia automotive industry is a $20 billion industry with more than 500 suppliers. - The state has a diverse mix of traditional OEMs and EV-native OEMs. - Georgia’s automotive industry is positioned to support the transition to electric vehicles. - The state has a strong foundation of traditional automotive suppliers that can adapt to EV supply chains. - Georgia’s automotive industry is well-positioned to support the transition to electric vehicles. - The state has a diverse mix of traditional OEMs and EV-native OEMs. - Georgia’s automotive industry is a $20 billion industry with more than 500 suppliers. - The state has a strong foundation of traditional automotive suppliers that can adapt to EV supply chains. - Georgia’s automotive industry is positioned to support the transition to electric vehicles. - The state has a diverse mix of traditional OEMs and EV-native OEMs. - Georgia’s automotive industry is a $20 billion industry with more than 500 suppliers. - The state has a strong foundation of traditional automotive suppliers that can adapt to EV supply chains. - Georgia’s automotive industry is positioned to support the transition to electric vehicles. - The state has a diverse mix of traditional OEMs and EV-native OEMs. - Georgia’s automotive industry is",
+      "generated_tokens": 256,
+      "generation_time": 19.489,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q41",
+      "section": "kb",
+      "question": "For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?",
+      "output": "- The company is seeking a location in Georgia for its new manufacturing facility. - The company is seeking a location in Georgia for its new R&D facility. - The company is seeking a location in Georgia for its new headquarters. - The company is seeking a location in Georgia for its new distribution center. - The company is seeking a location in Georgia for its new training center. - The company is seeking a location in Georgia for its new logistics center. - The company is seeking a location in Georgia for its new customer service center. - The company is seeking a location in Georgia for its new marketing center. - The company is seeking a location in Georgia for its new sales center. - The company is seeking a location in Georgia for its new finance center. - The company is seeking a location in Georgia for its new IT center. - The company is seeking a location in Georgia for its new HR center. - The company is seeking a location in Georgia for its new legal center. - The company is seeking a location in Georgia for its new procurement center. - The company is seeking a location in Georgia for its new quality control center. - The company is seeking a location in Georgia for its new production control center. - The company is seeking a location in Georgia for its new supply",
+      "generated_tokens": 256,
+      "generation_time": 19.468,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "kb_q42",
+      "section": "kb",
+      "question": "Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?",
+      "output": "- The automotive sector in Georgia includes R&D facility types in the following areas: Atlanta, Columbus, Dalton, Gainesville, Macon, Savannah, and Statesboro. - These areas are suitable for establishing EV technology development centers due to their existing innovation infrastructure. - The state's automotive sector is supported by a strong network of suppliers and a skilled workforce. - Georgia's automotive sector is poised for growth as the industry transitions to electric vehicles. - The state's automotive sector is supported by a strong network of suppliers and a skilled workforce. - Georgia's automotive sector is poised for growth as the industry transitions to electric vehicles. - The state's automotive sector is supported by a strong network of suppliers and a skilled workforce. - Georgia's automotive sector is poised for growth as the industry transitions to electric vehicles. - The state's automotive sector is supported by a strong network of suppliers and a skilled workforce. - Georgia's automotive sector is poised for growth as the industry transitions to electric vehicles. - The state's automotive sector is supported by a strong network of suppliers and a skilled workforce. - Georgia's automotive sector is poised for growth as the industry transitions to electric vehicles. - The state's automotive sector is supported by a strong network of suppliers and a skilled workforce. - Georgia's automotive sector",
+      "generated_tokens": 256,
+      "generation_time": 19.484,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q01",
+      "section": "web",
+      "question": "According to the collected web corpus, which automaker is SK On working with on a battery joint-venture plant in Cartersville, Georgia?",
+      "output": "- SK On is working with Hyundai Motor Group on a battery joint-venture plant in Cartersville, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located in Bartow County, Georgia. - The plant is located",
+      "generated_tokens": 256,
+      "generation_time": 19.501,
+      "tokens_per_sec": 13.13,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q02",
+      "section": "web",
+      "question": "According to the collected web corpus, what battery material does Anovion Technologies manufacture at its Georgia facility?",
+      "output": "- Anovion Technologies manufactures synthetic graphite anode material at its Georgia facility. - The facility is located in Bainbridge, Georgia. - The facility is Anovion's first commercial-scale manufacturing plant. - The facility is located in Decatur County. - The facility is located in Southwest Georgia. - The facility is located in the Southeastern United States. - The facility is located in the United States. - The facility is located in North America. - The facility is located in the Western Hemisphere. - The facility is located in the Northern Hemisphere. - The facility is located in the Earth's Northern Temperate Zone. - The facility is located in the Earth's Western Hemisphere. - The facility is located in the Earth's Northern Hemisphere. - The facility is located in the Earth's Western Hemisphere. - The facility is located in the Earth's Northern Hemisphere. - The facility is located in the Earth's Western Hemisphere. - The facility is located in the Earth's Northern Hemisphere. - The facility is located in the Earth's Western Hemisphere. - The facility is located in the Earth's Northern Hemisphere. - The facility is located in the Earth's Western Hemisphere. - The facility is located in the Earth's Northern Hemisphere. - The facility is located in the Earth's Western Hemisphere",
+      "generated_tokens": 256,
+      "generation_time": 19.421,
+      "tokens_per_sec": 13.18,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q03",
+      "section": "web",
+      "question": "According to the collected web corpus, what is the parent company of SK Battery America?",
+      "output": "- SK Battery America is a subsidiary of SK On. - SK On is a subsidiary of SK Group. - SK Group is a South Korean conglomerate with interests in energy, chemicals, and information technology. - SK Battery America is a leading manufacturer of lithium-ion batteries for electric vehicles. - The company operates a state-of-the-art manufacturing facility in Commerce, Georgia. - The facility is located approximately 50 miles northeast of Atlanta. - The facility spans 2.6 million square feet. - The facility employs over 2,000 workers. - The facility produces batteries for major automakers including Hyundai, Kia, and Ford. - The facility has a production capacity of 22 gigawatt-hours (GWh) per year. - The facility is capable of producing up to 200,000 battery packs annually. - The facility utilizes advanced manufacturing processes and automation to ensure high-quality output. - The facility adheres to rigorous safety standards and environmental regulations. - The facility is equipped with a comprehensive training program for employees. - The facility is supported by a robust supply chain network. - The facility is located in a region with a skilled workforce and strong infrastructure. - The facility is strategically positioned to serve the growing demand for electric vehicles in",
+      "generated_tokens": 256,
+      "generation_time": 19.438,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q04",
+      "section": "web",
+      "question": "According to the collected web corpus, what products does Duckyang supply to SK Battery America?",
+      "output": "- Duckyang supplies battery modules and battery packs to SK Battery America. - Duckyang supplies battery modules and battery packs to Hyundai Motor Group. - Duckyang supplies battery modules and battery packs to LG Energy Solution. - Duckyang supplies battery modules and battery packs to Samsung SDI. - Duckyang supplies battery modules and battery packs to Envision AESC. - Duckyang supplies battery modules and battery packs to CATL. - Duckyang supplies battery modules and battery packs to Panasonic. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to BYD. - Duckyang supplies battery modules and battery packs to LG Chem. - Duckyang supplies battery modules and battery packs to SK On. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to AESC. - Duckyang supplies battery modules and battery packs to AESC",
+      "generated_tokens": 256,
+      "generation_time": 19.443,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q05",
+      "section": "web",
+      "question": "According to the collected web corpus, the batteries SK Battery America produces in Georgia supply which two electric vehicles?",
+      "output": "- Hyundai IONIQ 5 - Hyundai IONIQ 6 - Kia EV6 - Kia EV9 - Hyundai IONIQ 9 - Hyundai IONIQ 7 - Hyundai IONIQ 8 - Hyundai IONIQ 3 - Hyundai IONIQ 4 - Hyundai IONIQ 10 - Hyundai IONIQ 11 - Hyundai IONIQ 12 - Hyundai IONIQ 13 - Hyundai IONIQ 14 - Hyundai IONIQ 15 - Hyundai IONIQ 16 - Hyundai IONIQ 17 - Hyundai IONIQ 18 - Hyundai IONIQ 19 - Hyundai IONIQ 20 - Hyundai IONIQ 21 - Hyundai IONIQ 22 - Hyundai IONIQ 23 - Hyundai IONIQ 24 - Hyundai IONIQ 25 - Hyundai IONIQ 26 - Hyundai IONIQ 27 - Hyundai IONIQ 28 - Hyundai IONIQ 29 - Hyundai IONIQ 30 - Hyundai IONIQ 31 - Hyundai IONIQ 32 - Hyundai IONIQ 33 - Hyundai IONIQ 3",
+      "generated_tokens": 256,
+      "generation_time": 19.458,
+      "tokens_per_sec": 13.16,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q06",
+      "section": "web",
+      "question": "According to the collected web corpus, how much will GF Casting Solutions AG invest in its new Augusta facility?",
+      "output": "- GF Casting Solutions AG will invest $100 million in a new facility in Augusta, Georgia. - The new facility will create 100 jobs. - The facility will produce aluminum components for the automotive industry. - The facility will be located at the Augusta Corporate Park. - The facility will be the first of its kind in the United States. - The facility will be the first greenfield investment in the company's 160-year history. - The facility will be the first casting facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The facility will be the first facility in the United States for the company. - The",
+      "generated_tokens": 256,
+      "generation_time": 19.442,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q07",
+      "section": "web",
+      "question": "According to the collected web corpus, how much will Hanon Systems invest in its Bulloch County manufacturing facility?",
+      "output": "- Hanon Systems will invest $200 million in a new manufacturing facility in Bulloch County. - The facility will create 160 new jobs. - The facility will produce electric compressors for automotive HVAC systems. - The facility will be located at Gateway Regional Industrial Park. - The facility will be the first Hanon Systems facility in the Southeast. - The facility will be the second Hanon Systems facility in Georgia. - The facility will be the first new automotive supplier to locate in Bulloch County. - The facility will be the first new automotive supplier to locate in the Gateway Regional Industrial Park. - The facility will be the first new automotive supplier to locate in the Savannah Harbor-Interstate 16 Corridor Joint Development Authority (JDA) area. - The facility will be the first new automotive supplier to locate in the Savannah Harbor-Interstate 16 Corridor Joint Development Authority (JDA) area since 2009. - The facility will be the first new automotive supplier to locate in the Savannah Harbor-Interstate 16 Corridor Joint Development Authority (JDA) area since 2009. - The facility will be the first new automotive supplier to locate in the Savannah Harbor-Interstate",
+      "generated_tokens": 256,
+      "generation_time": 19.489,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q08",
+      "section": "web",
+      "question": "According to the collected web corpus, how much will Duracell Manufacturing invest to expand its battery component manufacturing operations?",
+      "output": "- Duracell Manufacturing will invest $100 million to expand its battery component manufacturing operations. - The expansion will create 100 new jobs. - The expansion will add 100,000 square feet to the company’s existing facility in LaGrange, Georgia. - The expansion will increase the facility’s total size to 400,000 square feet. - The expansion will increase the facility’s production capacity by 50 percent. - The expansion will increase the facility’s production capacity to 1.5 billion batteries per year. - The expansion will increase the facility’s production capacity to 1.5 billion batteries annually. - The expansion will increase the facility’s production capacity to 1.5 billion batteries a year. - The expansion will increase the facility’s production capacity to 1.5 billion batteries per annum. - The expansion will increase the facility’s production capacity to 1.5 billion batteries yearly. - The expansion will increase the facility’s production capacity to 1.5 billion batteries every year. - The expansion will increase the facility’s production capacity to 1.5 billion batteries each year. - The expansion will increase the facility’s production capacity to 1.5 billion batteries every twelve months",
+      "generated_tokens": 256,
+      "generation_time": 19.516,
+      "tokens_per_sec": 13.12,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q09",
+      "section": "web",
+      "question": "According to the collected web corpus, how much did Hyundai confirm it would invest to open its facility at the Bryan County Megasite?",
+      "output": "- Hyundai confirmed it would invest $5.54 billion to open its facility at the Bryan County Megasite. - The facility will be the largest economic development project in Georgia’s history. - The facility will create 8,100 jobs. - The facility will produce electric vehicles and batteries. - The facility will be located in Bryan County, Georgia. - The facility is expected to begin production in 2025. - The facility will be Hyundai’s first fully dedicated EV plant in the U.S. - The facility will be Hyundai’s first fully dedicated EV plant in North America. - The facility will be Hyundai’s first fully dedicated EV plant in the Western Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Southern Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Eastern Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Northern Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Western Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Southern Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Eastern Hemisphere. - The facility will be Hyundai’s first fully dedicated EV plant in the Northern",
+      "generated_tokens": 256,
+      "generation_time": 19.437,
+      "tokens_per_sec": 13.17,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q10",
+      "section": "web",
+      "question": "According to the collected web corpus, what is the total value of the complex that the HL-GA battery plant is part of?",
+      "output": "- The HL-GA battery plant is part of a $7.6 billion complex. - The complex includes a Hyundai Motor Group Metaplant America (HMGMA) assembly plant. - The complex includes a Hyundai Mobis plant. - The complex includes a Hyundai Glovis plant. - The complex includes a Hyundai Steel plant. - The complex includes a Hyundai Transys plant. - The complex includes a Hyundai Motor Group Innovation Center. - The complex includes a Hyundai Motor Group Training Center. - The complex includes a Hyundai Motor Group Research and Development Center. - The complex includes a Hyundai Motor Group Logistics Center. - The complex includes a Hyundai Motor Group Parts Center. - The complex includes a Hyundai Motor Group Service Center. - The complex includes a Hyundai Motor Group Sales Center. - The complex includes a Hyundai Motor Group Finance Center. - The complex includes a Hyundai Motor Group Information Technology Center. - The complex includes a Hyundai Motor Group Human Resources Center. - The complex includes a Hyundai Motor Group Procurement Center. - The complex includes a Hyundai Motor Group Quality Control Center. - The complex includes a Hyundai Motor Group Environmental Control Center. - The complex includes a Hyundai Motor Group Safety Control Center. - The complex includes a Hyundai Motor Group Security Control Center. - The complex includes a",
+      "generated_tokens": 256,
+      "generation_time": 19.68,
+      "tokens_per_sec": 13.01,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q11",
+      "section": "web",
+      "question": "According to the collected web corpus, how much will Rivian invest into building its Georgia facility?",
+      "output": "- Rivian will invest $5 billion into building its Georgia facility. - The facility is expected to create 7,500 jobs. - The facility is expected to produce up to 400,000 vehicles per year. - The facility is expected to produce up to 400,000 battery packs per year. - The facility is expected to produce up to 400,000 electric motors per year. - The facility is expected to produce up to 400,000 inverters per year. - The facility is expected to produce up to 400,000 power electronics per year. - The facility is expected to produce up to 400,000 thermal management components per year. - The facility is expected to produce up to 400,000 suspension components per year. - The facility is expected to produce up to 400,000 steering components per year. - The facility is expected to produce up to 400,000 braking components per year. - The facility is expected to produce up to 400,000 charging components per year. - The facility is expected to produce",
+      "generated_tokens": 256,
+      "generation_time": 19.415,
+      "tokens_per_sec": 13.19,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q12",
+      "section": "web",
+      "question": "According to the collected web corpus, how much does FREYR plan to invest in the first phase of Giga America?",
+      "output": "- FREYR plans to invest $1.7 billion in the first phase of Giga America. - The company plans to invest $2.6 billion in the second phase of Giga America. - The company plans to invest $3.8 billion in the third phase of Giga America. - The company plans to invest $5.1 billion in the fourth phase of Giga America. - The company plans to invest $6.5 billion in the fifth phase of Giga America. - The company plans to invest $7.9 billion in the sixth phase of Giga America. - The company plans to invest $9.3 billion in the seventh phase of Giga America. - The company plans to invest $10.7 billion in the eighth phase of Giga America. - The company plans to invest $12.1 billion in the ninth phase of Giga America. - The company plans to invest $13.5 billion in the tenth phase of Giga America. - The company plans to invest $14.9 billion in the eleventh phase of Giga America. - The company plans to invest $16.3 billion in the twelfth phase of Giga America. - The company plans to invest $1",
+      "generated_tokens": 256,
+      "generation_time": 19.485,
+      "tokens_per_sec": 13.14,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q13",
+      "section": "web",
+      "question": "According to the collected web corpus, how many new jobs is GF Casting Solutions' Richmond County project expected to create?",
+      "output": "- The Richmond County project is expected to create 100 new jobs. - The project is expected to bring $100 million in investment to the area. - The project is expected to be completed by 2026. - The project is expected to be completed by 2027. - The project is expected to be completed by 2028. - The project is expected to be completed by 2029. - The project is expected to be completed by 2030. - The project is expected to be completed by 2031. - The project is expected to be completed by 2032. - The project is expected to be completed by 2033. - The project is expected to be completed by 2034. - The project is expected to be completed by 2035. - The project is expected to be completed by 2036. - The project is expected to be completed by 2037. - The project is expected to be completed by 2038. - The project is expected to be completed by 2039. - The project is expected to be completed by 20",
+      "generated_tokens": 256,
+      "generation_time": 19.47,
+      "tokens_per_sec": 13.15,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q14",
+      "section": "web",
+      "question": "According to the collected web corpus, how many new jobs will Norma Precision's $60 million project create?",
+      "output": "- The project will create 150 new jobs. - The project will bring $60 million in investment to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will bring 150 new jobs to the region. - The project will",
+      "generated_tokens": 256,
+      "generation_time": 19.412,
+      "tokens_per_sec": 13.19,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q15",
+      "section": "web",
+      "question": "According to the collected web corpus, about how many new jobs is Hyundai Motor Group's Bryan County project expected to create?",
+      "output": "- The Bryan County project is expected to create 8,500 new jobs. - The project is expected to generate $7.6 billion in investment. - The project is expected to generate $4.5 billion in wages. - The project is expected to generate $1.8 billion in tax revenue. - The project is expected to generate $1.3 billion in sales tax revenue. - The project is expected to generate $1.1 billion in property tax revenue. - The project is expected to generate $1.1 billion in income tax revenue. - The project is expected to generate $1.1 billion in payroll tax revenue. - The project is expected to generate $1.1 billion in sales tax revenue. - The project is expected to generate $1.1 billion in property tax revenue. - The project is expected to generate $1.1 billion in income tax revenue. - The project is expected to generate $1.1 billion in payroll tax revenue. - The project is expected to generate $1.1 billion in sales tax revenue. - The project is expected to generate $1.1 billion in property tax revenue. - The project is expected to generate $1.1 billion in income tax revenue. - The project is expected",
+      "generated_tokens": 256,
+      "generation_time": 19.424,
+      "tokens_per_sec": 13.18,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q16",
+      "section": "web",
+      "question": "According to the collected web corpus, approximately how many jobs is SK Battery cutting at its Commerce plant?",
+      "output": "- SK Battery is cutting 958 jobs at its Commerce plant. - The job cuts are part of a broader restructuring plan to reduce costs and improve profitability. - The company is shifting its focus to more profitable business areas. - The job cuts are expected to take effect by the end of 2026. - The job cuts are part of a broader restructuring plan to reduce costs and improve profitability. - The company is shifting its focus to more profitable business areas. - The job cuts are expected to take effect by the end of 2026. - The job cuts are part of a broader restructuring plan to reduce costs and improve profitability. - The company is shifting its focus to more profitable business areas. - The job cuts are expected to take effect by the end of 2026. - The job cuts are part of a broader restructuring plan to reduce costs and improve profitability. - The company is shifting its focus to more profitable business areas. - The job cuts are expected to take effect by the end of 2026. - The job cuts are part of a broader restructuring plan to reduce costs and improve profitability. - The company is shifting its focus to more profitable business areas. - The job cuts are expected to take effect by",
+      "generated_tokens": 256,
+      "generation_time": 19.377,
+      "tokens_per_sec": 13.21,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q17",
+      "section": "web",
+      "question": "According to the collected web corpus, what is the approximate annual capacity of the first-phase cell production module at Giga America?",
+      "output": "- The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual capacity of 30 GWh. - The first-phase cell production module at Giga America has an annual",
+      "generated_tokens": 256,
+      "generation_time": 19.416,
+      "tokens_per_sec": 13.19,
+      "hit_max_new_tokens": true
+    },
+    {
+      "question_id": "web_q18",
+      "section": "web",
+      "question": "According to the collected web corpus, what combined annual battery-cell capacity will SK Battery America have in Georgia?",
+      "output": "- SK Battery America will have a combined annual battery-cell capacity of 22 gigawatt-hours in Georgia. - The company is investing $2.6 billion in two plants in Commerce, Georgia. - The company is investing $940 million in a plant in Jackson County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1.67 billion in a plant in Bartow County, Georgia. - The company is investing $1",
+      "generated_tokens": 256,
+      "generation_time": 19.542,
+      "tokens_per_sec": 13.1,
+      "hit_max_new_tokens": true
+    }
+  ],
+  "raw_output_sha256": "00d75d6e9c3305169db0211012e92afa3d389941b7d5bf4e0a574da8b720e4d4"
+}
