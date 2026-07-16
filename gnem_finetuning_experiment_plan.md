@@ -6,18 +6,18 @@
 **Scope:** Fine-tuning only; RAG and tool-use experiments are excluded  
 **Training approach:** Full-parameter fine-tuning on 4 × RTX A6000 (192 GiB total, PCIe-only), DeepSpeed ZeRO-3 with 8-bit AdamW  
 **Execution:** Two phases — E0 + E4 pilot, then 5 more runs only if the §10.1 gate opens  
-**Current status:** Planned — Phase A unblocked (NVML fixed, §0.1); DeepSpeed install is the last setup step
+**Current status:** Planned — Phase A unblocked: NVML fixed (§0.1), DeepSpeed verified (§0.6); artifact routing (§0.5) is the last setup step
 
 ---
 
 ## 0. Preconditions
 
-Three preconditions gate the first training run (E4 — see §10). One is resolved; two remain.
+Three preconditions gate the first training run (E4 — see §10). Two are resolved; storage routing (§0.3, §0.5) remains.
 
 1. **GPU driver / NVML.** **RESOLVED — see §0.1.** Fixed without root; verified by real training
    steps.
 2. **Storage routing.** Not a "free up space" problem — a *which disk* problem. See below.
-3. **DeepSpeed.** Not installed. Required for the ZeRO-3 path in §9.
+3. **DeepSpeed.** **RESOLVED** — 0.19.2 installed; ZeRO-3 + `AdamW8bit` verified on 4 GPUs (§0.6).
 
 Phase A is unblocked. The plan's one remaining *external* dependency is archival storage, a
 **Phase B** precondition only (§0.4).
@@ -203,6 +203,27 @@ also fits (251 GB host RAM) but makes every step several times slower across six
 
 **This is a deviation from a plain fp32 AdamW and must be recorded in §9.** It applies
 identically to every experiment, so cross-experiment comparability holds.
+
+#### DeepSpeed requires an explicit opt-in for this optimizer
+
+`bitsandbytes.optim.AdamW8bit` is not a DeepSpeed-native optimizer, so ZeRO refuses it unless the
+config says:
+
+```json
+"zero_allow_untested_optimizer": true
+```
+
+Without it, `deepspeed.initialize` aborts with *"You are using an untested ZeRO Optimizer."*
+**Take that wording seriously rather than just silencing it**: DeepSpeed is stating that this
+optimizer/ZeRO combination is outside its tested matrix. It is the right choice here — §0.6's
+arithmetic leaves no alternative that fits — but it is one more reason the §10 step-11 14B smoke
+test must verify **save / reload / resume / export**, not just that steps run. An 8-bit optimizer
+state under ZeRO-3 partitioning is exactly where an untested combination would break.
+
+**Verified working** (DeepSpeed 0.19.2, torch 2.13.0+cu130, 4 × A6000): ZeRO-3 with `AdamW8bit`
+partitions and steps cleanly — a 273M-param probe reports 0.117M params resident per GPU,
+confirming real partitioning rather than silent replication. This validates the *plumbing* only
+(§10 step 10); it says nothing about 14B memory or PCIe step time, which is step 11's job.
 
 ### 0.7 Throughput floor — fixed in advance, as a number
 

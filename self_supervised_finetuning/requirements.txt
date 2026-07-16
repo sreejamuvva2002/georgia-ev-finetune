@@ -1,6 +1,5 @@
 # Self-supervised (causal-LM) continued-pretraining framework — dependencies.
-# Lower bounds only; no upper pins. Installed separately from the rest of the repo
-# (training_project/ uses mlx-lm on Apple Silicon and has its own, unrelated deps).
+# Lower bounds only; no upper pins.
 
 torch>=2.2
 transformers>=4.45
@@ -8,6 +7,9 @@ datasets>=2.19
 accelerate>=0.30
 peft>=0.11
 bitsandbytes>=0.43
+# Full-parameter ZeRO-3 path (E1-E6). Needs zero_allow_untested_optimizer with
+# bitsandbytes AdamW8bit — see the experiment plan §0.6.
+deepspeed>=0.19
 sentencepiece>=0.2
 pyyaml>=6.0
 pandas>=2.2
