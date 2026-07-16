@@ -8,8 +8,8 @@ venv/
 # --- OS / editor ---
 .DS_Store
 
-# --- Session transcripts (not source) ---
-Chat*.txt
+# --- Session transcripts (not source; archived under chats/) ---
+chats/
 
 # --- Web corpus (LLM-wiki pages; data, not code — 9.7k files, reproducible) ---
 self_supervised_finetuning/data/raw/llm_wiki_pages/

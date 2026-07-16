@@ -49,8 +49,21 @@ off slightly (KB recall 0.78→0.61 when the web corpus is added) but do not col
   effective-training-set pages, KB-absent (company-aware).
 - Systems: base = KB-only run with adapter disabled (canonical `raw_outputs/base.json`);
   KB+web run `…/kb-web-mixed-full-corpus-kb50-web1/…/20260714_195323_749ad79f`.
-- Reproduce: `raw_outputs/*` (immutable, checksummed) → `score_questions.py` →
-  `scored/*` → `combine_question_eval.py` → `comparison.{json,md}`.
+- Reproduce (run from `self_supervised_finetuning/`; `bench_lib` imports `ssft`, so
+  `PYTHONPATH=src` is required): `outputs/question_eval/raw_outputs/*` (immutable,
+  checksummed) → `benchmarks/gnem_bench_v1/scripts/score_questions.py` →
+  `outputs/question_eval/scored/*` → `.../combine_question_eval.py` →
+  `outputs/question_eval/comparison.{json,md}`.
+
+  ```bash
+  PYTHONPATH=src python benchmarks/gnem_bench_v1/scripts/score_questions.py \
+    --raw outputs/question_eval/raw_outputs/base.json \
+    --gold benchmarks/gnem_bench_v1/questions_gold_v1.json \
+    --out outputs/question_eval/scored/base.json
+  ```
+
+  The `provenance.gold_file` / `systems[].file` strings in `scored/*.json` are recorded
+  relative to the invocation directory, so they vary with CWD; scores do not.
 
 ## Reserved / future
 RAG column (retrieval + SQL/pandas/DuckDB computation) — the path to the analytical
