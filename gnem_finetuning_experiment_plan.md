@@ -4,23 +4,70 @@
 **Base model:** `Qwen2.5-14B` (base, non-instruct)  
 **Primary goal:** Compare raw-document continued pretraining with analytical supervised fine-tuning  
 **Scope:** Fine-tuning only; RAG and tool-use experiments are excluded  
-**Training approach:** Full-parameter fine-tuning on 4 GPUs (~190 GB VRAM), DeepSpeed ZeRO-3 with 8-bit AdamW  
-**Execution:** Two phases — a 2-run pilot, then 4 more runs only if the §10.1 gate opens  
-**Current status:** Planned — blocked on hardware (see §0)
+**Training approach:** Full-parameter fine-tuning on 4 × RTX A6000 (192 GiB total, PCIe-only), DeepSpeed ZeRO-3 with 8-bit AdamW  
+**Execution:** Two phases — E0 + E4 pilot, then 5 more runs only if the §10.1 gate opens  
+**Current status:** Planned — Phase A unblocked; §0.1 driver repoint required before the first run
 
 ---
 
 ## 0. Preconditions
 
-Three things must be true before any training can start (E4 is the first run — see §10). None
-are true today.
+Three things must be true before any training can start (E4 is the first run — see §10).
 
-1. **GPU driver.** `nvidia-smi` fails with `Driver/library version mismatch` (NVML 580.126).
-   The GPUs are not visible, so the 4×48 GB assumption is unverified.
+1. **GPU driver.** `nvidia-smi` fails with `Driver/library version mismatch`. **Root-caused and
+   locally fixable — see below.** Not a sysadmin blocker.
 2. **Storage routing.** Not a "free up space" problem — a *which disk* problem. See below.
 3. **DeepSpeed.** Not installed. Required for the ZeRO-3 path in §9.
 
-### Storage: two disks, and the repo is on the small one
+Nothing here blocks Phase A once the driver symlinks are repointed. The plan's one remaining
+*external* dependency is archival storage, and it is a **Phase B** precondition only (§0.4).
+
+### 0.1 GPU driver — six symlinks, not a broken driver
+
+The host kernel module is **580.95.05**. Six loader symlinks in `/usr/lib/x86_64-linux-gnu/`
+point at **580.126.20**, whose module is not loaded — hence the mismatch. The correct 580.95.05
+libraries are already present, bind-mounted read-only from the host, and the symlinks sit on the
+container's writable overlay. Repoint them:
+
+```bash
+cd /usr/lib/x86_64-linux-gnu
+for l in libnvidia-ml libcuda libnvidia-opencl libnvidia-opticalflow \
+         libnvidia-ptxjitcompiler libnvidia-sandboxutils; do
+  sudo ln -sf ${l}.so.580.95.05 ${l}.so.1
+done
+nvidia-smi   # verify before every run; never assume
+```
+
+Requires root. `LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.95.05` is a proven
+per-process fallback for `nvidia-smi`, but it will not carry a training run — PyTorch needs
+`libcuda.so.1` to resolve correctly too.
+
+**This is a workaround to reapply, not a one-shot fix.** The symlinks are dated 2026-04-12 (image
+build) while the container started 2026-07-11: the mismatch is baked into the *image*, and the
+overlay is discarded on container recreation, which silently reintroduces the blocker. The
+durable fix belongs to infra — either the host upgrades its module to 580.126.20 to match the
+image, or the image ships 580.95.05 symlinks to match the host.
+
+### 0.2 GPU inventory (verified, not assumed)
+
+| Property | Value |
+|---|---|
+| GPUs | **4 × NVIDIA RTX A6000**, 48 GiB each — **192 GiB total** |
+| Architecture | Ampere (sm_86) — bf16 supported, so §9's bf16 control holds |
+| Topology (`nvidia-smi topo -m`) | all pairs `NODE` — **no NVLink; every GPU-to-GPU hop is PCIe** |
+| Driver / CUDA | 580.95.05 / 13.0 |
+
+The ~190 GB budget is **confirmed**. But the topology is a finding, not a formality:
+
+**ZeRO-3 is forced onto the least communication-friendly fabric available.** ZeRO-3 all-gathers
+sharded parameters on every forward *and* backward — ~600 GB/s over NVLink, PCIe here, one to two
+orders of magnitude slower. And ZeRO-3 is not optional: ZeRO-2 would need 29 (replicated params)
++ 7 (sharded grads) + 22 (sharded 8-bit optimizer) ≈ **58 GiB per GPU against 48 GiB**, so it
+does not fit. **The memory arithmetic was never the risk; step time is.**
+
+Consequently the §10 smoke test gates on **throughput, not just peak VRAM** — see §0.7.
+
+### 0.3 Storage — two disks, and the repo is on the small one
 
 This box has two separate filesystems, and the repo sits on the one without room:
 
@@ -30,24 +77,22 @@ This box has two separate filesystems, and the repo sits on the one without room
 | `/data/sreeja` — ollama store | `/dev/nvme0n1` | 3.7 T | **211 GB** |
 
 No amount of pruning helps `/`: the large artifacts (ollama models) were never on it.
-**Training artifacts must be routed to `/data/sreeja`.** `/dev/nvme1n1p2` has 860 GB free but is
-mounted at `/usr/bin/nvidia-smi` (a driver bind-mount), not general storage.
+**Training artifacts must be routed to `/data/sreeja`.** `/dev/nvme1n1p2` shows 860 GB free but
+is the **host's root filesystem**, bind-mounted **read-only** at 18 paths to inject the NVIDIA
+driver. It is not spare storage and cannot be written to.
 
-Budget against the 211 GB on `/data`:
+Budget against the 211 GB on `/data`. **Every figure below is provisional** until the §10 14B
+smoke test measures the real ones — ~29 GB is a bf16 weights estimate that ignores ZeRO shard
+size and consolidation scratch:
 
-| Item | Size |
+| Item | Size (provisional) |
 |---|---:|
 | Base model download (`Qwen2.5-14B`, bf16) | ~29 GB |
 | **Phase A** — E4 only, 1 × ~29 GB | **~29 GB** |
-| **Phase A total** | **~58 GB** — comfortable |
-| Phase B — E1, E2, E3, E5, E6, 5 × ~29 GB | ~145 GB |
-| **Worst case (both phases)** | **~203 GB** |
+| **Phase A total** | **~58 GB against 211 GB — comfortable** |
 
-Phase A is not tight at all: ~58 GB against 211 GB. Only the full six-run matrix approaches the
-limit, at ~203 GB against 211 GB — ~8 GB of headroom, too little to be comfortable. The §10.1
-gate therefore doubles as a storage decision: if it closes, the disk question never arises. If
-it opens, revisit headroom before starting Phase B (the seven context-eval models below are the
-easy ~112 GB). Two rules make even the worst case safe, and both are cheap:
+**Phase A needs no archiving and has no storage risk.** Two rules keep it that way, and they
+apply to every run:
 
 - **Keep one checkpoint per run** (`save_total_limit=1`). Intermediate checkpoints at ~29 GB
   each will blow the budget within a single experiment otherwise.
@@ -55,12 +100,41 @@ easy ~112 GB). Two rules make even the worst case safe, and both are cheap:
   would not fit even once. Nothing in this plan needs it: E5 starts from E1's *weights* and E6
   from E3's, not from a resumable optimizer.
 
-If headroom is still wanted, the seven context-eval models in the ollama store total ~112 GB
-(→ ~323 GB free). Their results are already committed under
-`outputs/context_vs_parametric/`, so only re-running that arm would need re-downloads.
-**`gpt-oss:120b` (65 GB) must stay** — it is the DeepEval judge that §8.2 depends on.
+The 14B smoke test must establish, and §0's numbers must then be replaced by: peak ZeRO shard
+size, export size, temporary consolidation size, total filesystem peak, and a **minimum
+free-space threshold to start a run**.
 
-### How to route the artifacts
+### 0.4 Archive — a Phase B precondition, never a Phase A blocker
+
+Phase B retains five more models. Under any accumulate-locally policy that lands near ~203 GB
+against 211 GB, and **~8 GB of headroom cannot absorb ZeRO-3 checkpoint consolidation**, which
+gathers a full ~29 GB bf16 model before writing. So Phase B is not runnable by accumulation.
+
+**Policy: score, then archive, then start the next run.** Peak usage then stays near Phase A
+levels regardless of how many experiments run. Per-run ordering:
+
+```text
+train → select checkpoint → export → score all required evaluations
+      → manifest + checksums → archive → verify archive
+      → delete local shards/export → confirm free space → next run
+```
+
+**The destination does not exist yet, and this box cannot provide one.** `/` is full, the host
+root is read-only, and there is no NFS, CIFS, S3, or rclone — only `scp`. Note that
+`/data/gnem_archive/` **frees no space at all**: it is the same disk as the checkpoints. Name it
+anyway and rehearse the checklist against it, so the procedure is proven before it matters —
+but treat it as a **rehearsal target, not a working archive**.
+
+Phase B's real precondition is genuine external storage, verified by: named location; test
+transfer; source/destination checksums match; test restore; permissions verified; and **the model
+loads from the restored copy**. With the driver now fixable locally, **this is the plan's only
+remaining external dependency** — worth requesting on its own.
+
+The seven context-eval ollama models (~112 GB) are *not* the answer: under an archive policy the
+space is unnecessary, and they back committed results in `outputs/context_vs_parametric/`.
+**`gpt-oss:120b` (65 GB) must stay regardless** — it is the DeepEval judge §8.2 depends on.
+
+### 0.5 How to route the artifacts
 
 `ssft.utils.paths` hard-wires `OUTPUTS_ROOT = SSFT_ROOT / "outputs"` with no environment
 override, and states the invariant that *"nothing this package writes ever lands outside its own
@@ -87,7 +161,7 @@ existing `ADAPTERS_ROOT`.
 Verify with `df -h /data /` before and after the §10 step-8 smoke test: `/data` should drop and
 **`/` should not move**. If `/` moves, the routing is wrong and the run will fill the 54 GB disk.
 
-### Why 8-bit AdamW, not plain AdamW
+### 0.6 Why 8-bit AdamW, not plain AdamW
 
 Full-parameter 14.7B with a standard fp32 AdamW does not fit in 190 GB:
 
@@ -106,7 +180,25 @@ also fits (251 GB host RAM) but makes every step several times slower across six
 **This is a deviation from a plain fp32 AdamW and must be recorded in §9.** It applies
 identically to every experiment, so cross-experiment comparability holds.
 
-### Why base, not Instruct
+### 0.7 Throughput floor — fixed in advance, as a number
+
+Because ZeRO-3 is forced onto a PCIe-only fabric (no NVLink), training is expected to be
+**communication-bound**. The §10 14B smoke test must report, and gate on:
+
+- **seconds/step and tokens/second** — not just peak VRAM;
+- the all-gather / communication share of step time, if DeepSpeed's profiler exposes it;
+- extrapolated wall-clock for E4, and separately for the web-corpus runs — E2/E3 cover ~9.7k
+  pages and will hurt far more than E1's 205 records.
+
+**Pick N before the smoke test runs and record it here:**
+
+> Projected E4 wall-clock **> N days → do not start.** First reduce sequence length, tune
+> gradient accumulation to amortise all-gather, or reconsider ZeRO CPU offload.
+
+"Unacceptable" without a number invites rationalising a bad run after the fact. The same
+discipline §10.1 applies to the gate applies here.
+
+### 0.8 Why base, not Instruct
 
 GNEM-Bench-v1's protocol scores **parsed raw completions** from a base (non-instruct)
 completion model, and its canonical frozen `raw_outputs/base.json` was generated that way.
@@ -114,7 +206,7 @@ Staying on `Qwen2.5-14B` base keeps that protocol and lets E0 reuse those frozen
 directly. Every experiment below reads `Qwen2.5-14B` base where an earlier draft said
 `-Instruct`.
 
-### Relationship to the existing QLoRA results
+### 0.9 Relationship to the existing QLoRA results
 
 `benchmarks/gnem_bench_v1/RESULTS_v1.md` reports base / KB-only / KB+web under **4-bit QLoRA
 r64**. Those runs cannot serve as E1/E3 for a full-parameter study — the training method
@@ -214,11 +306,26 @@ Recommended evaluation sets:
 
 | Test set | Size | Purpose |
 |---|---:|---|
-| `KB-Gold-42` | 42 | Existing Excel-grounded final test |
+| `KB-Gold-42` | 42 | Existing Excel-grounded final test (closed-book) |
 | `Web-Gold-42` | 42 | Held-out web knowledge evaluation |
 | `Mixed-Gold-20` | 20 | Questions requiring KB and web knowledge |
-| `Analytical-Synthetic-Test` | 100+ | Held-out count, sum, filter, and ranking tasks |
+| `Analytical-Synthetic-Test` | 100+ | Held-out count, sum, filter, and ranking tasks (closed-book) |
+| **`Analytical-Counterfactual-Test`** | 100+ | **The §10.1 gate.** Same operations over *supplied* record subsets; answers recomputed per subset; scored native-chat only |
 | `General-Capability-Test` | Small fixed set | Catastrophic-forgetting check |
+
+### 2.6 `Analytical-Counterfactual-Test` — freeze it like gold
+
+This is a new frozen artifact, not a variant of `KB-Gold-42` (whose questions are closed-book).
+It is the gate's primary instrument, so it gets the gold-freeze discipline:
+
+- **Freeze before any training.**
+- **The SFT generator must not be able to reach it:** disjoint subset seeds, disjoint
+  answer-value buckets, disjoint templates. Record the partition in the manifest.
+- Store a version number and checksum, as §7 requires of the other gold sets.
+
+This is the subtlest leakage vector in the design: no question string need be shared for the test
+to leak, because both sets are *generated* from the same 205 rows. §9's leakage report checks
+documents, not generator state, so it will not catch this on its own.
 
 ---
 
@@ -333,13 +440,53 @@ Example:
 
 The answer must be calculated by Python or SQL, not generated by an LLM.
 
+#### Emit context-grounded examples too — not only closed-book
+
+The example above is **closed-book**: no records supplied, the answer recalled from weights. §4.2
+already specifies the objective as `Instruction + optional structured input → validated
+analytical answer`, and that optional input is now mandatory for part of the set.
+
+**If every training example were closed-book, the §10.1 counterfactual gate would be
+out-of-distribution and its failures uninterpretable** — the model would never have been taught
+to read a table from context. Emit both forms in a **fixed, recorded proportion**:
+
+```json
+{
+  "instruction": "Using only the supplied records, calculate the total employment of Tier 1 companies.",
+  "records": [
+    {"company_id": "C001", "supplier_category": "Tier 1", "employment": 120},
+    {"company_id": "C002", "supplier_category": "OEM",    "employment": 400},
+    {"company_id": "C003", "supplier_category": "Tier 1", "employment": 80}
+  ],
+  "operation": "filter_then_sum",
+  "answer": 200
+}
+```
+
+The answer is computed deterministically **over the supplied subset**, not over the full KB.
+
+#### Vary the supplied records
+
+Never repeatedly ask the same operation over the complete 205 — that teaches "this question → 18"
+rather than the operation. Generate from: random company subsets; county subsets;
+supplier-category subsets; varied subset sizes; modified numeric values; records with missing
+values; duplicate-company scenarios; empty-result scenarios.
+
+#### Hold out answer values, not just templates and entities
+
+Template and entity holdout still permits memorizing a small answer set if the same values recur.
+Track and record the distributions of: answer-value frequency, count distribution, sum
+distribution, subset-size distribution, and operation frequency. The analytical and counterfactual
+tests should favour **answer values uncommon or absent in training** wherever feasible.
+
 Recommended analytical split:
 
 - 80% training,
 - 10% development,
 - 10% synthetic internal test.
 
-The split should hold out operation combinations, filters, entities, and question templates where possible.
+The split should hold out operation combinations, filters, entities, question templates, **answer
+values, and subset seeds** where possible.
 
 ---
 
@@ -501,10 +648,11 @@ E5/E6 run at all — see §10.1.
 | Training data | Deterministically generated analytical SFT dataset from the company JSON |
 | Fine-tuning technique | Full-parameter supervised fine-tuning |
 | Training objective | Instruction and analytical-answer learning |
-| Purpose | Measure what analytical SFT provides without raw-document CPT — and decide whether the analytical hypothesis is live before spending four more runs |
-| Evaluate on | KB-Gold-42, Analytical-Synthetic-Test, Web-Gold-42, General-Capability-Test |
-| Main comparison | E0 vs E4 |
-| Gate | §10.1 — read on Analytical-Synthetic-Test, held-out templates **and** entities |
+| Purpose | Measure what analytical SFT provides without raw-document CPT — and decide whether the analytical hypothesis is live before spending five more runs |
+| Evaluate on | **Analytical-Counterfactual-Test** (gate, native chat), Analytical-Synthetic-Test, KB-Gold-42, Web-Gold-42, General-Capability-Test — all SFT scoring dual-format per §9.1 |
+| Main comparison | E0 vs E4 — **reported but confounded**; E0 is a format floor, so the margin is dominated by format acquisition. Not the gate. |
+| Gate | §10.1 — counterfactual-context, native chat, thresholds pre-registered before scoring |
+| Expected outcome | **A2** — E4 receives no CPT, so weak closed-book knowledge is near-guaranteed |
 | Status | Planned — Phase A |
 
 Questions answered:
@@ -561,8 +709,14 @@ Questions answered:
 
 ## 6. Main Comparisons
 
+**Any comparison spanning a CPT-only and an SFT model carries a format confound** (§9.1): the
+CPT arm is a completion model, the SFT arm a chat model. Report the SFT side's
+`completion_bridge_score` for those rows, and state the confound. Only the §10.1 counterfactual
+gate is confound-free, being within-model and within-format.
+
 | Comparison | Research meaning |
 |---|---|
+| E0 vs E4 | **Confounded — reported, not decisive.** E0 is a format floor (it continues prompts rather than answering), so the margin is dominated by format acquisition, not analytics. |
 | E0 vs E1 | Effect of KB raw-document CPT |
 | E0 vs E2 | Effect of web raw-document CPT |
 | E0 vs E3 | Effect of combined raw-document CPT |
@@ -714,6 +868,32 @@ Purpose:
 - detect loss of instruction-following ability,
 - measure the trade-off between domain gain and general degradation.
 
+### 8.5 Protocol sanity test — a §10.1 gate input
+
+E4 starts from `Qwen2.5-14B` **base**, which has had no instruction post-training. So E4's SFT
+set must teach the interaction format itself: user/assistant turns, output structure, operation
+labels, refusal behaviour, analytical answer formatting. If it does not, an E4 failure means
+*"the base model never learned the protocol"* — not *"analytical SFT cannot teach the task."*
+Those must not be confused, so a **frozen, GNEM-free** protocol test gates the analytical
+numbers.
+
+`src/ssft/eval/eval_instruction_sanity.py` already exists and is the module to extend — but its
+five prompts are **completion-format** (`"Q: What is 12 + 7?\nA:"`), written as a CPT damage
+check. They cannot verify that an SFT'd model learned its chat template. Add an **SFT-format
+variant** and keep the existing prompts for E1/E2/E3.
+
+The SFT-format prompts must require no GNEM knowledge:
+
+- return the number 19;
+- extract the county from a supplied record;
+- count three supplied records;
+- return valid JSON with the requested fields;
+- **follow the instruction rather than continuing the prompt** — aimed squarely at E0's observed
+  failure mode.
+
+**Failure routes to A1 (repair), never to Fail or A2.** A model that did not learn the protocol
+has produced uninterpretable analytical numbers, not a finding about analytical SFT.
+
 ---
 
 ## 9. Training Controls
@@ -730,7 +910,9 @@ All comparable experiments should use:
   arithmetic in §0 and applied identically to every experiment so comparisons stay valid,
 - gradient checkpointing,
 - the same sequence length where possible,
-- identical evaluation prompts,
+- identical evaluation **questions** and identical decoding — but **model-native prompt
+  formatting**, recorded per run (see below); "identical prompts" is unachievable once SFT
+  stages exist,
 - identical decoding parameters,
 - identical test sets,
 - validation-only checkpoint selection,
@@ -748,7 +930,38 @@ Record:
 - sequence length,
 - GPU memory,
 - training time,
-- checkpoint size.
+- checkpoint size,
+- **seconds/step and tokens/second** (§0.7 — the PCIe-only topology makes throughput the risk),
+- **communication share of step time**, where the profiler exposes it.
+
+### 9.1 Dual-format evaluation for SFT stages
+
+CPT-only models (E1/E2/E3) are completion-format; SFT models (E4/E5/E6) are chat-format. One
+prompt cannot serve both without putting an arm outside its trained format. **Score every SFT
+model twice:**
+
+| Pass | Prompt | Role |
+|---|---|---|
+| **Native chat** — primary | the exact chat serialization used during SFT | **The official capability result.** What gets reported. |
+| **Completion bridge** — diagnostic | the frozen `Q: …\nA:` wrapper E0–E3 receive | Quantifies prompt-format sensitivity; comparable to `raw_outputs/base.json`. |
+
+Record per SFT run:
+
+| Field | Meaning |
+|---|---|
+| `native_chat_score` | Performance in its trained format — the reported result |
+| `completion_bridge_score` | Performance under the E0–E3 wrapper |
+| `format_delta` | native − completion; the format-acquisition effect, measured not assumed |
+| `prompt_template_hash` | Exact template used |
+| `answer_parser_version` | Parser used for scoring |
+| `stop_conditions` | Generation termination rules |
+
+**Reading `format_delta`:** a large gap *with a strong native score* is **format acquisition, not
+capability failure** — it is the expected signature of a model that learned its chat template,
+and it is precisely the quantity this design sets out to measure. Completion-side collapse bears
+only on the E0–E3 comparability narrative. It is never evidence against analytical capability,
+and it has no bearing on the §10.1 gate, which is **native-chat only** — being within-model, the
+gate needs no bridge and admits no format confound.
 
 ---
 
@@ -761,29 +974,49 @@ that assumption can be tested with one run instead of six. See §10.1.
 ### Phase A — setup and pilot (2 runs)
 
 ```text
-0. Clear the §0 preconditions: GPU driver, artifacts routed to /data/sreeja, DeepSpeed.
+0. Clear the §0 preconditions: driver symlinks (verify nvidia-smi), artifacts routed to
+   /data/sreeja, DeepSpeed installed. Pick and record N for the §0.7 throughput floor.
 1. Audit and clean the KB data.
 2. Clean and deduplicate the web wiki corpus; carve out the held-out web partition.
 3. Freeze KB-Gold-42.
 4. Create and freeze Web-Gold-42 (held-out pages only).
 5. Create and freeze Mixed-Gold-20.
-6. Generate analytical SFT train/dev/test data deterministically.
-7. Evaluate E0-BASE (reuses the frozen raw_outputs/base.json — no training).
-8. Run a small full-training smoke test; log peak VRAM and confirm it is under budget.
-9. Train and evaluate E4-SFT-ONLY.          <-- the pilot
-10. DECISION GATE: read E0 vs E4 on Analytical-Synthetic-Test (§10.1).
+6. Generate analytical SFT train/dev/test — closed-book AND context-grounded (§3.3).
+7. Build and freeze Analytical-Counterfactual-Test (§2.6); verify generator disjointness.
+8. Pre-register every §10.1 threshold. Before any scoring.
+9. Evaluate E0-BASE (reuses the frozen raw_outputs/base.json — no training).
+10. Infrastructure smoke test: small model, ZeRO-3 + AdamW8bit. Proves the plumbing only.
+11. **14B smoke test** — the one that validates the memory AND throughput arithmetic.
+12. Train and evaluate E4-SFT-ONLY (dual-format, §9.1).   <-- the pilot
+13. DECISION GATE (§10.1): A1 / Fail / A2 / Pass.
 ```
 
-### Phase B — the full matrix (4 runs), conditional on the gate
+**Step 10 does not substitute for step 11.** A small-model run proves ZeRO-3 + `AdamW8bit` is
+wired correctly; it says nothing about a 14B model's memory or step time. Do not mark the
+configuration confirmed until the **14B** run:
+
+- trains all parameters;
+- stays under the per-GPU limit (48 GiB);
+- **saves, reloads, resumes, and exports a usable checkpoint**;
+- reports seconds/step, tokens/second, and a projected E4 wall-clock under the §0.7 floor;
+- yields the real storage numbers that replace §0's provisional estimates.
+
+### Phase B — the full matrix (5 runs), conditional on the gate
+
+Ordered so each parent feeds its child immediately — under archive-after-each (§0.4), training
+E1 and consuming it three runs later would force an archive/restore round-trip per lineage:
 
 ```text
-11. Train and evaluate E1-KB-CPT.
-12. Train and evaluate E2-WEB-CPT.
-13. Train and evaluate E3-KBW-CPT.
-14. Continue E1 into E5-KB-CPT-SFT.
-15. Continue E3 into E6-KBW-CPT-SFT.
-16. Compare factual learning, analytical improvement, web contribution, and forgetting.
+14. Train and evaluate E1-KB-CPT.
+15. Continue E1 into E5-KB-CPT-SFT.      (E1 consumed immediately; archive both)
+16. Train and evaluate E3-KBW-CPT.
+17. Continue E3 into E6-KBW-CPT-SFT.     (E3 consumed immediately; archive both)
+18. Train and evaluate E2-WEB-CPT.       (no child; archive)
+19. Compare factual learning, analytical improvement, web contribution, and forgetting.
 ```
+
+Between every Phase B run, follow §0.4's ordering: score → manifest + checksums → archive →
+verify → delete local → confirm free space → next run.
 
 Steps 2 and 4 are ordered before **any** training for a reason: once E2/E3 have trained on a
 page, that page can never re-enter `Web-Gold-42`. The held-out partition is a one-way decision,
@@ -805,20 +1038,115 @@ Why the assumption deserves a gate rather than trust:
 - E1/E2 mostly re-establish structure the QLoRA arm already characterized (KB-only forgets web;
   KB+web retains both). They are ablations, not the risk.
 
-**Read the gate honestly, and beware a false positive.** The analytical train/dev/test splits
-are all generated from the *same 205 rows*, so a strong Analytical-Synthetic-Test score can
-mean memorized answer distribution rather than acquired capability. Before calling E4 a win,
-confirm it holds on the held-out templates *and* entity combinations, not just held-out
-question strings.
+**E0 vs E4 cannot be the gate criterion.** E0 does not answer questions — it *continues* them.
+Sampled from the frozen `outputs/question_eval/raw_outputs/base.json`:
 
-| E4 vs E0 on Analytical-Synthetic-Test | Action |
+| Question | E0's actual output |
 |---|---|
-| Clear, generalizing improvement | Run Phase B in full. The plan's hypothesis is live. |
-| No improvement | **Stop at 2 runs.** This is the result: analytical SFT does not teach analysis over the KB. Report it, and skip E5/E6 — they are E4 plus a CPT stage that §4.1 already says cannot supply the missing capability. Optionally run E3 alone for the knowledge/forgetting story. |
-| Improvement that fails held-out templates/entities | Treat as memorization, not capability. Report as such; Phase B is optional and must not claim analytical competence. |
+| Show all "Tier 1/2" suppliers in Georgia… | `"Sort by EV Supply Chain Role. Show only the first 10 results."` |
+| Which Georgia companies are classified under Battery Cell… | `"Please provide the company name, role, and tier in the following format:…"` |
 
-A null result here is not a failed project — it is the finding, and §13 frames it as such. The
-gate exists so that finding costs two runs instead of six.
+E0's 5.0% is a **format floor, not a knowledge measurement**. E4 is SFT'd and will answer, so
+`E4 > E0` is near-guaranteed and its margin is dominated by *format acquisition*. It stays a
+reported number (§6) with that confound stated — it is not the gate.
+
+**The gate is the counterfactual-context test**, because it is the only instrument that holds
+format constant and varies only the data. Supply a *subset* of records and ask for the same
+operation over that subset: the correct answer moves with the records (full KB → 18; subset A →
+7; subset B → 11). A memorizing model answers 18 regardless. This is **not RAG** — no retrieval,
+no ranking, no index — so it does not breach the scope exclusion in the header.
+
+### The four outcomes
+
+Evaluated in this order; first match wins.
+
+```text
+Is the E4 run technically interpretable?
+├── No  → A1 Repair
+└── Yes → Does E4 generalize on counterfactual context-grounded analytics?
+          ├── No  → Fail
+          └── Yes → Is closed-book GNEM knowledge still clearly weak?
+                    ├── Yes → A2 Knowledge Probe
+                    └── No  → Pass
+```
+
+| # | Outcome | Exact condition | Action |
+|---|---|---|---|
+| 1 | **A1 — Repair** | Training unstable; SFT protocol sanity fails; leakage; malformed or severely imbalanced dataset; gains only on dev | Uninterpretable. Repair dataset or training config, **re-run E4**. |
+| 2 | **Fail — analytical capability** | Run clean, but answers do not track supplied records, collapse to fixed values, or fail held-out counterfactual operations | **Stop at two runs.** Report: analytical SFT over the fixed GNEM data did not produce generalizing aggregation. |
+| 3 | **A2 — Knowledge probe** | Context-grounded analytics generalize, **but** closed-book KB/web factual performance is weak | Short KB+Web CPT → analytical SFT pilot; **one** re-gate. |
+| 4 | **Pass** | Context-grounded analytics generalize **and** closed-book performance is adequate enough that missing knowledge is not the dominant limitation | Open Phase B in full. |
+
+The cut that makes this coherent:
+
+- **Cannot compute from supplied records → analytical-operation failure** (Fail). CPT is not the
+  remedy: the records were already in the prompt, so missing parametric knowledge is *proven not
+  to be* the bottleneck. CPT only adds knowledge to weights.
+- **Can compute from supplied records but cannot answer without them** → the operation exists,
+  parametric knowledge is missing (A2). CPT is exactly this intervention.
+- **Both** → Pass.
+
+Order matters and so does Pass's second clause. A1 precedes everything: an uninterpretable run
+cannot be a Pass, a Fail, or evidence for A2. And **Pass must explicitly require adequate
+closed-book performance** — without that clause it subsumes every case A2 exists to catch, and
+the knowledge-probe branch becomes unreachable.
+
+### Pre-registration — every boundary, before E4 is scored
+
+§9 forbids test-set tuning; a threshold chosen after seeing the numbers breaches that in spirit.
+Fix all of these here, in this section, beside the frozen gold:
+
+- **Fail vs Pass** — numeric floors on the counterfactual primary: count, sum, filter, exact-set
+  and operation-selection accuracy, plus answer-value generalization. Without floors, "does not
+  track supplied records" is a judgement call and Fail-vs-weak-Pass becomes post-hoc.
+- **A2 vs Pass** — the closed-book threshold, stated **relative to the frozen base**: cloze
+  recall or KB-Gold entity F1 clearly above E0 (0.027), with a stated absolute floor. **Do not
+  use the QLoRA arm's 0.782**: that came from KB-only *CPT* under *QLoRA* — a different method
+  and a different stage. E4 receives no CPT, so a CPT-derived ceiling would make Pass unreachable
+  by construction. That ceiling is the yardstick for E5/E6, not for SFT-only.
+
+### A2 is the expected outcome, and the loop is bounded
+
+E4 is SFT-only, so weak closed-book knowledge is near-guaranteed — whatever KB facts it absorbs
+arrive incidentally through the analytical SFT data. **If the operation is learned at all, expect
+A2.** Pass would be the surprise: it would mean the analytical SFT set incidentally taught enough
+KB facts to matter, itself worth reporting.
+
+That is a feature — A2 lands exactly on *"SFT supplies the operation, CPT supplies the
+knowledge"*, which is E5/E6's hypothesis. Two things to state plainly:
+
+- **A2's pilot is a scaled-down E6.** It is justified by the same cost-control logic as Phase A
+  (one short pilot de-risks five full runs), not because it is a distinct experiment.
+- **One pilot only.** Allow one A2 pilot → one re-gate → then either open Phase B or stop, with
+  the decision written down either way. "Re-read this gate" must not license piloting forever.
+
+### Gate measurements
+
+**Primary — E4, native chat, on counterfactual record sets.** The same question run over
+multiple supplied datasets with different correct answers. Score: count, sum, filter, exact-set,
+and operation-selection accuracy, plus answer-value generalization.
+
+**Secondary generalization checks:** held-out templates; held-out entities; held-out
+operation/filter compositions; uncommon or unseen answer values; varied subset sizes; duplicates
+and missing values; empty-result cases.
+
+**Closed-book diagnostic:** the frozen KB and web questions. This separates **A2 from Pass
+only**. It must never decide whether E4 learned aggregation — that is the primary measurement's
+job, and conflating the two is exactly what makes the branches overlap.
+
+### Phase B entry paths
+
+Pass is rare by construction, so Phase B must not be read as though Pass is the normal door:
+
+| Gate outcome | Route into Phase B |
+|---|---|
+| **Fail** | Stop at two runs. No Phase B. |
+| **A2** | Short KB+Web CPT → analytical SFT pilot → **one** re-gate → Phase B or stop. **The expected path.** |
+| **Pass** | Phase B in full, directly. |
+| **A1** | Not an exit — repair, re-run E4, re-enter the gate. |
+
+A null result is not a failed project — it is the finding, and §13 frames it as such. The gate
+exists so that finding costs two runs instead of six.
 
 ### Implementation gaps this order assumes are closed
 
@@ -827,7 +1155,10 @@ gate exists so that finding costs two runs instead of six.
 | Full-parameter ZeRO-3 path (only LoRA/QLoRA exists today; `configs/methods/full_finetune_placeholder.yaml` is a stub that raises `NotImplementedError`) | `src/ssft/train/{trainer_factory,model_loader}.py` |
 | `CHECKPOINTS_ROOT` for full-parameter weights, routed to `/data` per §0 | `src/ssft/utils/paths.py` |
 | Per-stage SFT gate — `ssft.data.schemas.assert_no_qa_fields()` currently bans QA fields globally; CPT stages must keep the ban, E4–E6 must not | `src/ssft/data/schemas.py`, `tests/test_no_qa_format.py` |
-| Analytical SFT generator (does not exist) | new `src/ssft/data/analytical_sft.py` |
+| Analytical SFT generator, emitting **both** closed-book and context-grounded examples (does not exist) | new `src/ssft/data/analytical_sft.py` |
+| `Analytical-Counterfactual-Test` builder + freeze (does not exist) | new |
+| SFT-format protocol sanity prompts — the existing five are completion-format (`"Q: …\nA:"`), a CPT damage check, and cannot verify an SFT'd model learned its chat template | `src/ssft/eval/eval_instruction_sanity.py` |
+| Dual-format scoring (native chat + completion bridge) for SFT stages | `src/ssft/eval/`, benchmark scripts |
 | General-Capability-Test (does not exist) | new |
 
 ---
@@ -872,14 +1203,26 @@ gate exists so that finding costs two runs instead of six.
 **GPU configuration:**  
 **Distributed strategy:**  
 **Training time:**  
+**Seconds/step:**  
+**Tokens/second:**  
+**Communication share of step time:**  
 **Peak GPU memory:**  
+**Peak filesystem usage (/data):**  
 **Selected checkpoint:**  
 **Selection reason:**  
+**Prompt format (native chat / completion bridge):**  
+**Prompt template hash:**  
+**Answer parser version:**  
+**Stop conditions:**  
 **KB-Gold results:**  
 **Web-Gold results:**  
 **Mixed-Gold results:**  
-**Analytical results:**  
+**Analytical results (closed-book):**  
+**Analytical-Counterfactual results (native chat):**  
+**native_chat_score / completion_bridge_score / format_delta:**  
+**Protocol sanity result:**  
 **General-capability results:**  
+**Archive location + checksum + restore verified:**  
 **Failures or errors:**  
 **Interpretation:**  
 **Limitations:**  
@@ -893,7 +1236,7 @@ gate exists so that finding costs two runs instead of six.
 
 The project should be described as:
 
-> We perform full-parameter continued pretraining of Qwen2.5-14B (base) on raw Georgia EV supply-chain documents, comparing structured-KB-only, web-only, and combined KB+Web corpora. We then perform full-parameter analytical supervised fine-tuning using count, sum, filter, list, grouping, and ranking examples computed deterministically from the structured company JSON. The unchanged base model, the analytical-SFT-only model, and the sequential CPT-to-SFT models are evaluated on separate frozen KB, held-out web, mixed-source, analytical, and general-capability test sets. All runs use DeepSpeed ZeRO-3 with an 8-bit AdamW optimizer, applied uniformly.
+> We perform full-parameter continued pretraining of Qwen2.5-14B (base) on raw Georgia EV supply-chain documents, comparing structured-KB-only, web-only, and combined KB+Web corpora. We then perform full-parameter analytical supervised fine-tuning using count, sum, filter, list, grouping, and ranking examples computed deterministically from the structured company JSON. The unchanged base model, the analytical-SFT-only model, and the sequential CPT-to-SFT models are evaluated on separate frozen KB, held-out web, mixed-source, analytical, and general-capability test sets. **We distinguish memorization from acquired capability with a counterfactual-context test: the same operation is posed over varying supplied record subsets, so a model that has memorized a fixed answer is separated from one that computes over the records in front of it.** All runs use DeepSpeed ZeRO-3 with an 8-bit AdamW optimizer on 4 × RTX A6000, applied uniformly.
 
 This plan is motivated by a negative result the QLoRA arm already established
 (`benchmarks/gnem_bench_v1/RESULTS_v1.md`): fine-tuning reliably improves parametric fact
