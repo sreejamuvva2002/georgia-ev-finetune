@@ -6,47 +6,71 @@
 **Scope:** Fine-tuning only; RAG and tool-use experiments are excluded  
 **Training approach:** Full-parameter fine-tuning on 4 × RTX A6000 (192 GiB total, PCIe-only), DeepSpeed ZeRO-3 with 8-bit AdamW  
 **Execution:** Two phases — E0 + E4 pilot, then 5 more runs only if the §10.1 gate opens  
-**Current status:** Planned — Phase A unblocked; §0.1 driver repoint required before the first run
+**Current status:** Planned — Phase A unblocked (NVML fixed, §0.1); DeepSpeed install is the last setup step
 
 ---
 
 ## 0. Preconditions
 
-Three things must be true before any training can start (E4 is the first run — see §10).
+Three preconditions gate the first training run (E4 — see §10). One is resolved; two remain.
 
-1. **GPU driver.** `nvidia-smi` fails with `Driver/library version mismatch`. **Root-caused and
-   locally fixable — see below.** Not a sysadmin blocker.
+1. **GPU driver / NVML.** **RESOLVED — see §0.1.** Fixed without root; verified by real training
+   steps.
 2. **Storage routing.** Not a "free up space" problem — a *which disk* problem. See below.
 3. **DeepSpeed.** Not installed. Required for the ZeRO-3 path in §9.
 
-Nothing here blocks Phase A once the driver symlinks are repointed. The plan's one remaining
-*external* dependency is archival storage, and it is a **Phase B** precondition only (§0.4).
+Phase A is unblocked. The plan's one remaining *external* dependency is archival storage, a
+**Phase B** precondition only (§0.4).
 
-### 0.1 GPU driver — six symlinks, not a broken driver
+### 0.1 NVML version mismatch — RESOLVED
 
-The host kernel module is **580.95.05**. Six loader symlinks in `/usr/lib/x86_64-linux-gnu/`
-point at **580.126.20**, whose module is not loaded — hence the mismatch. The correct 580.95.05
-libraries are already present, bind-mounted read-only from the host, and the symlinks sit on the
-container's writable overlay. Repoint them:
+**What was actually broken.** Not "the GPUs are invisible": plain PyTorch compute always worked
+(a bf16 matmul on `cuda:0` succeeds unfixed). The failure is narrower and more dangerous —
+**`nvmlInit_v2_` fails, and PyTorch's CUDA caching allocator asserts on it mid-run.** This killed
+a real run on 2026-07-13 (`outputs/adapters/…/20260713_145719_356ac848`):
 
-```bash
-cd /usr/lib/x86_64-linux-gnu
-for l in libnvidia-ml libcuda libnvidia-opencl libnvidia-opticalflow \
-         libnvidia-ptxjitcompiler libnvidia-sandboxutils; do
-  sudo ln -sf ${l}.so.580.95.05 ${l}.so.1
-done
-nvidia-smi   # verify before every run; never assume
+```
+RuntimeError: NVML_SUCCESS == DriverAPI::get()->nvmlInit_v2_() INTERNAL ASSERT FAILED
+  at "c10/cuda/CUDACachingAllocator.cpp":1377
 ```
 
-Requires root. `LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.95.05` is a proven
-per-process fallback for `nvidia-smi`, but it will not carry a training run — PyTorch needs
-`libcuda.so.1` to resolve correctly too.
+A trivial matmul does not reach that path; a training run does. NVML failure also blanked
+`ssft.utils.gpu.snapshot()['nvidia_smi']` (→ `None`), which would have made §9's GPU-memory
+recording and §0.7's throughput/VRAM gate impossible to populate.
 
-**This is a workaround to reapply, not a one-shot fix.** The symlinks are dated 2026-04-12 (image
-build) while the container started 2026-07-11: the mismatch is baked into the *image*, and the
-overlay is discarded on container recreation, which silently reintroduces the blocker. The
-durable fix belongs to infra — either the host upgrades its module to 580.126.20 to match the
-image, or the image ships 580.95.05 symlinks to match the host.
+**Root cause.** The host kernel module is **580.95.05**. Six loader symlinks
+(`libnvidia-ml`, `libcuda`, `libnvidia-opencl`, `libnvidia-opticalflow`,
+`libnvidia-ptxjitcompiler`, `libnvidia-sandboxutils` → `.so.1`) point at **580.126.20**, whose
+module is not loaded. The matching 580.95.05 libraries are already present, bind-mounted
+read-only from the host.
+
+**Fix applied — no root required.** The `.so.1` symlinks live in a root-owned directory, but the
+loader searches `LD_LIBRARY_PATH` *before* the system path, so correct symlinks in a user-owned
+directory win:
+
+```bash
+mkdir -p /data/sreeja/nvidia-fix
+for l in libnvidia-ml libcuda libnvidia-opencl libnvidia-opticalflow \
+         libnvidia-ptxjitcompiler libnvidia-sandboxutils; do
+  ln -sfn /usr/lib/x86_64-linux-gnu/${l}.so.580.95.05 /data/sreeja/nvidia-fix/${l}.so.1
+done
+export LD_LIBRARY_PATH="/data/sreeja/nvidia-fix${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+```
+
+Exported from **both `~/.bashrc` and `~/.profile`** — `.bashrc` returns early for non-interactive
+shells, so batch jobs (`bash -lc`, `nohup`, `ssh <cmd>`) would otherwise miss it and hit the
+assert. Backups: `~/.bashrc.bak-20260716`, `~/.profile.bak-20260716`.
+
+**Verified:** `nvidia-smi` reports 4 × RTX A6000; three optimizer steps complete under
+`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` (the allocator path that asserted);
+`torch.cuda.memory_stats()` populated; `gpu.snapshot()` reports all 4 GPUs.
+
+**This survives container recreation but not image changes.** `/data` is a separate disk
+(`nvme0n1`) that persists, so the fix directory outlives the container — but it points into
+`/usr/lib/...`, which is re-injected on recreation, so **verify `nvidia-smi` before every run**.
+The durable fix belongs to infra: either the host upgrades its module to 580.126.20 to match the
+image, or the image ships 580.95.05 symlinks to match the host. Prefer repointing the six system
+symlinks directly if root ever becomes available.
 
 ### 0.2 GPU inventory (verified, not assumed)
 
@@ -974,8 +998,9 @@ that assumption can be tested with one run instead of six. See §10.1.
 ### Phase A — setup and pilot (2 runs)
 
 ```text
-0. Clear the §0 preconditions: driver symlinks (verify nvidia-smi), artifacts routed to
-   /data/sreeja, DeepSpeed installed. Pick and record N for the §0.7 throughput floor.
+0. Clear the §0 preconditions: verify nvidia-smi (§0.1 fix is applied; confirm, never assume),
+   route artifacts to /data/sreeja, install DeepSpeed. Pick and record N for the §0.7
+   throughput floor.
 1. Audit and clean the KB data.
 2. Clean and deduplicate the web wiki corpus; carve out the held-out web partition.
 3. Freeze KB-Gold-42.
