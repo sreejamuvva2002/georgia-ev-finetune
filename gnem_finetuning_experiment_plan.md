@@ -5,20 +5,87 @@
 **Primary goal:** Compare raw-document continued pretraining with analytical supervised fine-tuning  
 **Scope:** Fine-tuning only; RAG and tool-use experiments are excluded  
 **Training approach:** Full-parameter fine-tuning on 4 GPUs (~190 GB VRAM), DeepSpeed ZeRO-3 with 8-bit AdamW  
+**Execution:** Two phases — a 2-run pilot, then 4 more runs only if the §10.1 gate opens  
 **Current status:** Planned — blocked on hardware (see §0)
 
 ---
 
 ## 0. Preconditions
 
-Three things must be true before E1 can start. None are true today.
+Three things must be true before any training can start (E4 is the first run — see §10). None
+are true today.
 
 1. **GPU driver.** `nvidia-smi` fails with `Driver/library version mismatch` (NVML 580.126).
    The GPUs are not visible, so the 4×48 GB assumption is unverified.
-2. **Disk.** The filesystem is at 99% (~54 GB free). Full-parameter 14B writes ~29 GB per
-   checkpoint in bf16 weights alone; E1–E6 is ~174 GB of final weights before optimizer state,
-   intermediate checkpoints, or the ~29 GB base download. Provision ≥250 GB.
+2. **Storage routing.** Not a "free up space" problem — a *which disk* problem. See below.
 3. **DeepSpeed.** Not installed. Required for the ZeRO-3 path in §9.
+
+### Storage: two disks, and the repo is on the small one
+
+This box has two separate filesystems, and the repo sits on the one without room:
+
+| Path | Device | Size | Free |
+|---|---|---:|---:|
+| `/` — the repo, `~/.cache/huggingface` | `overlay` (nvme2n1) | 3.7 T | **54 GB** |
+| `/data/sreeja` — ollama store | `/dev/nvme0n1` | 3.7 T | **211 GB** |
+
+No amount of pruning helps `/`: the large artifacts (ollama models) were never on it.
+**Training artifacts must be routed to `/data/sreeja`.** `/dev/nvme1n1p2` has 860 GB free but is
+mounted at `/usr/bin/nvidia-smi` (a driver bind-mount), not general storage.
+
+Budget against the 211 GB on `/data`:
+
+| Item | Size |
+|---|---:|
+| Base model download (`Qwen2.5-14B`, bf16) | ~29 GB |
+| **Phase A** — E4 only, 1 × ~29 GB | **~29 GB** |
+| **Phase A total** | **~58 GB** — comfortable |
+| Phase B — E1, E2, E3, E5, E6, 5 × ~29 GB | ~145 GB |
+| **Worst case (both phases)** | **~203 GB** |
+
+Phase A is not tight at all: ~58 GB against 211 GB. Only the full six-run matrix approaches the
+limit, at ~203 GB against 211 GB — ~8 GB of headroom, too little to be comfortable. The §10.1
+gate therefore doubles as a storage decision: if it closes, the disk question never arises. If
+it opens, revisit headroom before starting Phase B (the seven context-eval models below are the
+easy ~112 GB). Two rules make even the worst case safe, and both are cheap:
+
+- **Keep one checkpoint per run** (`save_total_limit=1`). Intermediate checkpoints at ~29 GB
+  each will blow the budget within a single experiment otherwise.
+- **Do not persist optimizer state.** ZeRO-3 resumable state is ~88 GB per run at 8-bit and
+  would not fit even once. Nothing in this plan needs it: E5 starts from E1's *weights* and E6
+  from E3's, not from a resumable optimizer.
+
+If headroom is still wanted, the seven context-eval models in the ollama store total ~112 GB
+(→ ~323 GB free). Their results are already committed under
+`outputs/context_vs_parametric/`, so only re-running that arm would need re-downloads.
+**`gpt-oss:120b` (65 GB) must stay** — it is the DeepEval judge that §8.2 depends on.
+
+### How to route the artifacts
+
+`ssft.utils.paths` hard-wires `OUTPUTS_ROOT = SSFT_ROOT / "outputs"` with no environment
+override, and states the invariant that *"nothing this package writes ever lands outside its own
+top-level folder."* Note that `outputs/question_eval/` and `outputs/context_vs_parametric/` are
+**tracked in git** and must stay on `/` — so redirecting `outputs/` wholesale is wrong.
+
+Route via symlink rather than a code change — the package still only writes under `SSFT_ROOT`,
+so the invariant holds as written. Use a **new** `outputs/checkpoints` root for the
+full-parameter weights:
+
+```bash
+mkdir -p /data/sreeja/ssft/{checkpoints,hf_cache}
+ln -s /data/sreeja/ssft/checkpoints self_supervised_finetuning/outputs/checkpoints
+echo 'outputs/checkpoints' >> self_supervised_finetuning/.gitignore
+export HF_HOME=/data/sreeja/ssft/hf_cache   # moves the ~29 GB base download off /
+```
+
+Do **not** symlink `outputs/adapters/`: it tracks a `.gitkeep`, and it already holds ~17 GB of
+real QLoRA checkpoints on `/` that back the appendix arm. Leave it where it is. A fresh
+`checkpoints/` root avoids the git conflict entirely and gives the full-parameter path a name
+that isn't a LoRA-era misnomer — `ssft.utils.paths` should gain a `CHECKPOINTS_ROOT` beside the
+existing `ADAPTERS_ROOT`.
+
+Verify with `df -h /data /` before and after the §10 step-8 smoke test: `/data` should drop and
+**`/` should not move**. If `/` moves, the routing is wrong and the run will fill the 54 GB disk.
 
 ### Why 8-bit AdamW, not plain AdamW
 
@@ -371,7 +438,7 @@ The raw-document checkpoint must be evaluated before analytical SFT so that the 
 | Important limitation | The KB corpus is small and may encourage memorization |
 | Evaluate on | KB-Gold-42, Web-Gold-42, Analytical-Synthetic-Test, General-Capability-Test |
 | Main comparison | E0 vs E1 |
-| Status | Planned |
+| Status | Planned — Phase B, conditional on the §10.1 gate |
 
 Questions answered:
 
@@ -392,7 +459,7 @@ Questions answered:
 | Purpose | Isolate the knowledge contribution of the web corpus |
 | Evaluate on | Web-Gold-42, KB-Gold-42, Mixed-Gold-20, General-Capability-Test |
 | Main comparison | E0 vs E2 |
-| Status | Planned |
+| Status | Planned — Phase B, conditional on the §10.1 gate |
 
 Questions answered:
 
@@ -413,7 +480,7 @@ Questions answered:
 | Purpose | Build the primary raw-document domain model |
 | Evaluate on | All test sets |
 | Main comparisons | E0 vs E3, E1 vs E3, E2 vs E3 |
-| Status | Planned |
+| Status | Planned — Phase B, conditional on the §10.1 gate |
 
 Questions answered:
 
@@ -422,7 +489,10 @@ Questions answered:
 - Does the combined corpus improve mixed-source questions?
 - Does the larger corpus increase hallucinations or outdated answers?
 
-### Experiment E4 — Analytical SFT Only
+### Experiment E4 — Analytical SFT Only — **the pilot**
+
+Runs **second**, immediately after E0, not fourth. It is the gate that decides whether E1/E2/E3/
+E5/E6 run at all — see §10.1.
 
 | Field | Description |
 |---|---|
@@ -431,10 +501,11 @@ Questions answered:
 | Training data | Deterministically generated analytical SFT dataset from the company JSON |
 | Fine-tuning technique | Full-parameter supervised fine-tuning |
 | Training objective | Instruction and analytical-answer learning |
-| Purpose | Measure what analytical SFT provides without raw-document CPT |
+| Purpose | Measure what analytical SFT provides without raw-document CPT — and decide whether the analytical hypothesis is live before spending four more runs |
 | Evaluate on | KB-Gold-42, Analytical-Synthetic-Test, Web-Gold-42, General-Capability-Test |
 | Main comparison | E0 vs E4 |
-| Status | Planned |
+| Gate | §10.1 — read on Analytical-Synthetic-Test, held-out templates **and** entities |
+| Status | Planned — Phase A |
 
 Questions answered:
 
@@ -456,7 +527,7 @@ Questions answered:
 | Purpose | Test whether KB CPT improves analytical SFT |
 | Evaluate on | KB-Gold-42, Analytical-Synthetic-Test, Web-Gold-42, General-Capability-Test |
 | Main comparisons | E1 vs E5, E4 vs E5 |
-| Status | Planned |
+| Status | Planned — Phase B, conditional on the §10.1 gate |
 
 Questions answered:
 
@@ -477,7 +548,7 @@ Questions answered:
 | Purpose | Build and evaluate the main final fine-tuned model |
 | Evaluate on | All test sets |
 | Main comparisons | E3 vs E6, E4 vs E6, E5 vs E6 |
-| Status | Planned |
+| Status | Planned — Phase B, conditional on the §10.1 gate |
 
 Questions answered:
 
@@ -683,33 +754,78 @@ Record:
 
 ## 10. Recommended Training Order
 
+**The six training runs are not committed to up front.** They run in two phases with a decision
+gate between them, because the risk in this plan is concentrated in a single assumption and
+that assumption can be tested with one run instead of six. See §10.1.
+
+### Phase A — setup and pilot (2 runs)
+
 ```text
-0. Clear the §0 preconditions: GPU driver, >=250 GB disk, DeepSpeed installed.
+0. Clear the §0 preconditions: GPU driver, artifacts routed to /data/sreeja, DeepSpeed.
 1. Audit and clean the KB data.
 2. Clean and deduplicate the web wiki corpus; carve out the held-out web partition.
 3. Freeze KB-Gold-42.
 4. Create and freeze Web-Gold-42 (held-out pages only).
 5. Create and freeze Mixed-Gold-20.
 6. Generate analytical SFT train/dev/test data deterministically.
-7. Evaluate E0-BASE (reuses the frozen raw_outputs/base.json).
+7. Evaluate E0-BASE (reuses the frozen raw_outputs/base.json — no training).
 8. Run a small full-training smoke test; log peak VRAM and confirm it is under budget.
-9. Train and evaluate E1-KB-CPT.
-10. Train and evaluate E2-WEB-CPT.
-11. Train and evaluate E3-KBW-CPT.
-12. Train and evaluate E4-SFT-ONLY.
-13. Continue E1 into E5-KB-CPT-SFT.
-14. Continue E3 into E6-KBW-CPT-SFT.
-15. Compare factual learning, analytical improvement, web contribution, and forgetting.
+9. Train and evaluate E4-SFT-ONLY.          <-- the pilot
+10. DECISION GATE: read E0 vs E4 on Analytical-Synthetic-Test (§10.1).
 ```
 
-Steps 2 and 4 are ordered before any training for a reason: once E2/E3 have trained on a page,
-that page can never re-enter `Web-Gold-42`. The held-out partition is a one-way decision.
+### Phase B — the full matrix (4 runs), conditional on the gate
+
+```text
+11. Train and evaluate E1-KB-CPT.
+12. Train and evaluate E2-WEB-CPT.
+13. Train and evaluate E3-KBW-CPT.
+14. Continue E1 into E5-KB-CPT-SFT.
+15. Continue E3 into E6-KBW-CPT-SFT.
+16. Compare factual learning, analytical improvement, web contribution, and forgetting.
+```
+
+Steps 2 and 4 are ordered before **any** training for a reason: once E2/E3 have trained on a
+page, that page can never re-enter `Web-Gold-42`. The held-out partition is a one-way decision,
+and it must be made in Phase A even though the runs that consume it are in Phase B.
+
+## 10.1 The decision gate
+
+E4 is SFT-only from base. It is the cheapest direct test of this plan's central hypothesis —
+**can analytical SFT teach count / sum / filter / rank at all?** — and E0 vs E4 is already a
+stated main comparison in §6. Everything downstream (E5, E6) assumes the answer is yes.
+
+Why the assumption deserves a gate rather than trust:
+
+- §4.1 already concedes that CPT "does not guarantee exact count, sum, filtering, or
+  aggregation." The whole analytical story rests on the SFT stage carrying that weight alone.
+- The QLoRA arm found analytical accuracy near zero across base / KB-only / KB+web with fully
+  overlapping CIs (`benchmarks/gnem_bench_v1/RESULTS_v1.md`). Nothing yet suggests more
+  training on the same 205 rows changes that.
+- E1/E2 mostly re-establish structure the QLoRA arm already characterized (KB-only forgets web;
+  KB+web retains both). They are ablations, not the risk.
+
+**Read the gate honestly, and beware a false positive.** The analytical train/dev/test splits
+are all generated from the *same 205 rows*, so a strong Analytical-Synthetic-Test score can
+mean memorized answer distribution rather than acquired capability. Before calling E4 a win,
+confirm it holds on the held-out templates *and* entity combinations, not just held-out
+question strings.
+
+| E4 vs E0 on Analytical-Synthetic-Test | Action |
+|---|---|
+| Clear, generalizing improvement | Run Phase B in full. The plan's hypothesis is live. |
+| No improvement | **Stop at 2 runs.** This is the result: analytical SFT does not teach analysis over the KB. Report it, and skip E5/E6 — they are E4 plus a CPT stage that §4.1 already says cannot supply the missing capability. Optionally run E3 alone for the knowledge/forgetting story. |
+| Improvement that fails held-out templates/entities | Treat as memorization, not capability. Report as such; Phase B is optional and must not claim analytical competence. |
+
+A null result here is not a failed project — it is the finding, and §13 frames it as such. The
+gate exists so that finding costs two runs instead of six.
 
 ### Implementation gaps this order assumes are closed
 
 | Gap | Where |
 |---|---|
 | Full-parameter ZeRO-3 path (only LoRA/QLoRA exists today; `configs/methods/full_finetune_placeholder.yaml` is a stub that raises `NotImplementedError`) | `src/ssft/train/{trainer_factory,model_loader}.py` |
+| `CHECKPOINTS_ROOT` for full-parameter weights, routed to `/data` per §0 | `src/ssft/utils/paths.py` |
 | Per-stage SFT gate — `ssft.data.schemas.assert_no_qa_fields()` currently bans QA fields globally; CPT stages must keep the ban, E4–E6 must not | `src/ssft/data/schemas.py`, `tests/test_no_qa_format.py` |
 | Analytical SFT generator (does not exist) | new `src/ssft/data/analytical_sft.py` |
 | General-Capability-Test (does not exist) | new |
