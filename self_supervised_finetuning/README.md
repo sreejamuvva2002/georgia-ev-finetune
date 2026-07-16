@@ -2,10 +2,13 @@
 
 An **experiment framework** for self-supervised continued pretraining / domain-adaptive
 fine-tuning of causal language models (Qwen2.5 family by default) on the Georgia EV
-supply-chain knowledge base, via LoRA/QLoRA. Fully separate from `training_project/`
-(the existing supervised Q&A instruction-tuning pipeline) — nothing here touches that
-code, and this framework produces a different *kind* of model artifact for a
-different research question.
+supply-chain knowledge base.
+
+> **Scope note.** This framework was built CPT-only, deliberately: the CPT stages must never
+> see instruction/answer pairs. The E4–E6 analytical-SFT stages of
+> [the experiment plan](../gnem_finetuning_experiment_plan.md) add a supervised path
+> alongside it, gated per stage — §2 below describes the invariant that guard enforces and
+> which stages it applies to.
 
 ## 1. What self-supervised continued pretraining is
 
@@ -21,9 +24,9 @@ instead of started from scratch.
 
 ## 2. Why this is not Q&A fine-tuning
 
-`training_project/` builds instruction/answer pairs and trains on them with a chat
-template — that's supervised fine-tuning (SFT), and it's how you make a model follow
-instructions or answer specific questions. This framework does the opposite: it
+Supervised fine-tuning builds instruction/answer pairs and trains on them with a chat
+template — that's how you make a model follow instructions or answer specific questions.
+The continued-pretraining path here does the opposite: it
 never constructs a prompt/response pair, never applies a chat template, and never
 computes loss only over an "answer" span. Every module in `src/ssft/data/` enforces
 this — `ssft.data.schemas.assert_no_qa_fields()` is called on every example this
@@ -268,9 +271,9 @@ bug, and is exactly why:
 
 ## 17. This does not replace RAG
 
-The existing `training_project/` pipeline (retrieval-free, Q&A-tuned) and any
-RAG-based approach both directly optimize for answering questions correctly. This
-framework does not: it has no notion of "correct answer," no retrieval, and no
+A Q&A-tuned pipeline and any RAG-based approach both directly optimize for answering
+questions correctly. Continued pretraining does not: it has no notion of "correct answer,"
+no retrieval, and no
 evaluation against a held-out Q&A set — its cloze probes measure whether specific
 field values got absorbed into the weights, not whether the model can converse
 about the KB. It exists to answer a narrower research question (does self-supervised
@@ -297,7 +300,7 @@ exception, meant for pipeline smoke-testing, not real results.
 
 ```bash
 bash self_supervised_finetuning/scripts/00_inspect_environment.sh
-python -m ssft.cli inspect-repo    # KB schema check, git commit, confirms training_project/ untouched
+python -m ssft.cli inspect-repo    # KB schema check, git commit, row/company counts
 python -m ssft.cli inspect-env     # python/torch/transformers/peft/accelerate/bitsandbytes + GPU snapshot
 ```
 

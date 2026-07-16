@@ -50,8 +50,6 @@ def cmd_inspect_repo(args) -> int:
         if missing_cols:
             print(f"kb_missing_columns: {missing_cols}")
 
-    training_project = REPO_ROOT / "training_project"
-    print(f"training_project_present (untouched by ssft): {training_project.exists()}")
     return 0
 
 

@@ -1,55 +1,72 @@
 # Georgia EV Supply-Chain — LLM Fine-Tuning
 
-Fine-tuning a local LLM to answer questions about Georgia's electric-vehicle supply chain
-(companies, supply-chain roles, OEM relationships, counties, employment, etc.) from a curated
-knowledge base — with **maximal accuracy and full company coverage**, trained entirely on-device.
+Fine-tuning a local LLM on Georgia's electric-vehicle supply chain (companies, supply-chain
+roles, OEM relationships, counties, employment) and measuring what fine-tuning can and cannot
+teach it.
 
-- **Base model:** `Qwen2.5-14B-Instruct` (MLX 8-bit)
-- **Method:** LoRA fine-tuning via [`mlx-lm`](https://github.com/ml-explore/mlx-lm) on Apple Silicon (Metal). Pure fine-tuning, no retrieval.
-- **Data:** auto-generated from the KB under one canonical convention (unique-company counting,
-  normalized supply-chain roles, OEM-token splitting), plus an offline paraphrase bank, refusals,
-  and "none-match" classes. The 50 human-validated Q&A are **held out** (never trained on).
-- **Evaluation:** a held-out **probe benchmark** (primary metric — pass rate + company recall) plus
-  the 50 human Q&A as a secondary reference.
+The active study separates two learning goals that are usually conflated:
+
+- **Continued pretraining (CPT)** on raw documents — teaches *domain knowledge*.
+- **Analytical SFT** on deterministically computed examples — teaches *task behaviour*
+  (count, sum, filter, group, rank, list).
+
+Seven experiments (E0–E6) measure each stage independently before evaluating the combination.
+The full design is in **[`gnem_finetuning_experiment_plan.md`](gnem_finetuning_experiment_plan.md)**.
+
+- **Base model:** `Qwen2.5-14B` (base, non-instruct — answers are parsed from raw completions)
+- **Method:** full-parameter CPT and SFT, DeepSpeed ZeRO-3 + 8-bit AdamW
+- **Scope:** fine-tuning only; RAG and tool-use are explicitly out of scope
+- **Data:** 205-company KB (`kb_full.jsonl`) + ~9.7k LLM-generated wiki pages
+- **Evaluation:** [GNEM-Bench-v1](self_supervised_finetuning/benchmarks/gnem_bench_v1/) —
+  deterministic scoring first, DeepEval as a secondary layer that never overrides it
 
 ## Repository layout
 
 ```
-training_project/
-  scripts/
-    build_dataset.py          # generate train/valid/test from the KB (canonical conventions)
-    build_probe_benchmark.py  # held-out probe benchmark + scorer (primary metric)
-    validate_dataset.py       # integrity / leakage gates
-    train_mlx.py              # LoRA fine-tune (--smoke / --stability / --resume)
-    lora_14b.yaml             # mlx-lm LoRA config
-    evaluate_mlx.py           # score the 50 Q&A + probe benchmark
-    serve_gradio_mlx.py       # local Gradio demo
-  data/                       # train/valid/test + probe_benchmark (jsonl)
-  logs/                       # training & eval logs
-docs/                         # per-version notes (v1..v5)
-deployment/                   # deployment notes (vLLM)
-SESSION_LOG*.md               # detailed engineering logs / handoffs
+kb_full.jsonl                      # the 205-company knowledge base (authoritative)
+Human validated questions.xlsx     # the 42 human-validated questions (frozen gold)
+gnem_finetuning_experiment_plan.md # the E0–E6 experiment design
+self_supervised_finetuning/        # the framework ("ssft")
+  src/ssft/                        #   data/ train/ eval/ utils/
+  configs/                         #   data, methods, models, training, experiments
+  benchmarks/gnem_bench_v1/        #   frozen gold, benchmark card, scorer, results
+  outputs/question_eval/           #   immutable raw outputs -> scored -> comparison
+  reports/                         #   thesis_paper.md, course_project_paper.md
+  external/LLM_Context/            #   vendored DeepEval / direct-context harness
+chats/                             # archived session transcripts (untracked)
 ```
 
-> Model weights, LoRA adapters, and release archives are **not** tracked in git (size) — they are
-> reproduced by running the training pipeline below.
+> Model weights, adapters, and the web corpus are **not** tracked in git (size); they are
+> reproduced from the configs and `kb_full.jsonl`.
 
 ## Quick start
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install mlx-lm pandas      # plus transformers, openpyxl as needed
+cd self_supervised_finetuning
+python -m venv .venv && .venv/bin/pip install -r requirements.txt
 PY=.venv/bin/python
 
-$PY training_project/scripts/build_probe_benchmark.py   # build held-out probes (before dataset)
-$PY training_project/scripts/build_dataset.py           # build train/valid (decontaminates vs probes)
-$PY training_project/scripts/validate_dataset.py        # integrity + 0-leakage gates
-$PY training_project/scripts/train_mlx.py --stability   # 90-iter stability probe
-$PY training_project/scripts/train_mlx.py               # full LoRA run (config in lora_14b.yaml)
-$PY training_project/scripts/evaluate_mlx.py generate && $PY training_project/scripts/evaluate_mlx.py score
+$PY -m ssft.cli inspect-repo    # KB schema + row/company counts
+$PY -m ssft.cli inspect-env     # GPU / environment snapshot
+$PY -m ssft.cli prepare-kb      # serialize the KB into raw documents
+$PY -m ssft.cli train-experiment --config configs/experiments/<experiment>.yaml
 ```
 
-## Versions
+## Results so far
 
-See `docs/` and the `SESSION_LOG*.md` files for the full per-version history (v1/v2 = 7B, v3/v4/v5 = 14B).
-The latest iteration (v5) targets v4's known weak spots (count grounding and "none-match" handling).
+`benchmarks/gnem_bench_v1/RESULTS_v1.md` reports the QLoRA arm (base / KB-only / KB+web):
+fine-tuning reliably improves **parametric fact retention** (KB cloze recall 0.03 → 0.78) and
+**web-fact absorption** (+33 points over KB-only), but **analytical questions stay near zero for
+every memorization model** — filtering, ranking, counting, and aggregating over 205 rows is not
+something more facts in the weights can buy. That negative result is what motivates the
+analytical-SFT arm (E4–E6) of the current plan.
+
+## Reproducing the benchmark
+
+```bash
+cd self_supervised_finetuning
+PYTHONPATH=src .venv/bin/python benchmarks/gnem_bench_v1/scripts/score_questions.py \
+  --raw outputs/question_eval/raw_outputs/base.json \
+  --gold benchmarks/gnem_bench_v1/questions_gold_v1.json \
+  --out outputs/question_eval/scored/base.json
+```

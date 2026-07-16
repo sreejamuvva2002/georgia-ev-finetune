@@ -1,14 +1,0 @@
-[train_mlx] 5635 train examples; iters from yaml (3300 ~= 2.5 epochs) unless --iters given; adapter -> /Users/surya/dev/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx_v5
-[train_mlx] running: /Users/surya/dev/georgia-ev-finetune/.venv/bin/python -m mlx_lm lora -c /Users/surya/dev/georgia-ev-finetune/training_project/scripts/lora_14b.yaml --data /Users/surya/dev/georgia-ev-finetune/training_project/data --adapter-path /Users/surya/dev/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx_v5 --resume-adapter-file /Users/surya/dev/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx_v5/adapters.safetensors
-Loading configuration file /Users/surya/dev/georgia-ev-finetune/training_project/scripts/lora_14b.yaml
-Loading pretrained model
-Loading datasets
-Training
-Loading fine-tuned weights from /Users/surya/dev/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx_v5/adapters.safetensors
-Trainable parameters: 0.699% (103.219M/14770.034M)
-Starting training..., iters: 2750
-Calculating loss...:   0%|          | 0/16 [00:00<?, ?it/s]Calculating loss...:   6%|▋         | 1/16 [00:04<01:02,  4.19s/it]Calculating loss...:  12%|█▎        | 2/16 [00:05<00:38,  2.77s/it]Calculating loss...:  19%|█▉        | 3/16 [00:08<00:33,  2.54s/it]Calculating loss...:  25%|██▌       | 4/16 [00:14<00:48,  4.01s/it]Calculating loss...:  31%|███▏      | 5/16 [00:16<00:37,  3.38s/it]Calculating loss...:  38%|███▊      | 6/16 [00:18<00:28,  2.81s/it]Calculating loss...:  44%|████▍     | 7/16 [00:21<00:27,  3.01s/it]Calculating loss...:  50%|█████     | 8/16 [00:26<00:27,  3.50s/it]Calculating loss...:  56%|█████▋    | 9/16 [00:28<00:20,  2.94s/it]Calculating loss...:  62%|██████▎   | 10/16 [00:30<00:16,  2.73s/it]Calculating loss...:  69%|██████▉   | 11/16 [00:38<00:22,  4.52s/it]Calculating loss...:  75%|███████▌  | 12/16 [00:41<00:16,  4.01s/it]Calculating loss...:  81%|████████▏ | 13/16 [00:44<00:10,  3.48s/it]Calculating loss...:  88%|████████▊ | 14/16 [00:52<00:09,  4.86s/it]Calculating loss...:  94%|█████████▍| 15/16 [00:55<00:04,  4.43s/it]Calculating loss...: 100%|██████████| 16/16 [00:59<00:00,  4.14s/it]Calculating loss...: 100%|██████████| 16/16 [00:59<00:00,  3.69s/it]
-Iter 1: Val loss 0.105, Val took 59.049s
-Iter 25: Train loss 0.102, Learning Rate 1.507e-05, It/sec 0.041, Tokens/sec 23.880, Trained Tokens 14444, Peak mem 28.628 GB
-Iter 50: Train loss 0.097, Learning Rate 3.066e-05, It/sec 0.043, Tokens/sec 23.400, Trained Tokens 27919, Peak mem 28.628 GB
-Iter 75: Train loss 0.124, Learning Rate 4.626e-05, It/sec 0.052, Tokens/sec 25.402, Trained Tokens 40171, Peak mem 28.628 GB

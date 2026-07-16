@@ -1,26 +1,0 @@
-Loading configuration file scripts/lora_14b.yaml
-Loading pretrained model
-Loading datasets
-Training
-Trainable parameters: 0.466% (68.813M/14770.034M)
-Starting training..., iters: 1200
-Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]Calculating loss...:   8%|▊         | 1/12 [00:02<00:29,  2.64s/it]Calculating loss...:  17%|█▋        | 2/12 [00:12<01:07,  6.76s/it]Calculating loss...:  25%|██▌       | 3/12 [00:23<01:17,  8.60s/it]Calculating loss...:  33%|███▎      | 4/12 [00:27<00:55,  6.99s/it]Calculating loss...:  42%|████▏     | 5/12 [00:29<00:35,  5.08s/it]Calculating loss...:  50%|█████     | 6/12 [00:31<00:24,  4.11s/it]Calculating loss...:  58%|█████▊    | 7/12 [00:34<00:19,  3.87s/it]Calculating loss...:  67%|██████▋   | 8/12 [00:38<00:14,  3.71s/it]Calculating loss...:  75%|███████▌  | 9/12 [00:41<00:10,  3.42s/it]Calculating loss...:  83%|████████▎ | 10/12 [00:43<00:06,  3.06s/it]Calculating loss...:  92%|█████████▏| 11/12 [00:46<00:02,  2.98s/it]Calculating loss...: 100%|██████████| 12/12 [00:48<00:00,  2.75s/it]Calculating loss...: 100%|██████████| 12/12 [00:48<00:00,  4.03s/it]
-Iter 1: Val loss 3.259, Val took 48.352s
-Iter 25: Train loss 1.797, Learning Rate 2.006e-05, It/sec 0.109, Tokens/sec 22.688, Trained Tokens 5184, Peak mem 19.605 GB
-Iter 50: Train loss 0.924, Learning Rate 4.085e-05, It/sec 0.083, Tokens/sec 24.292, Trained Tokens 12480, Peak mem 23.317 GB
-Iter 75: Train loss 0.734, Learning Rate 4.999e-05, It/sec 0.100, Tokens/sec 22.634, Trained Tokens 18156, Peak mem 23.317 GB
-Iter 100: Train loss 0.642, Learning Rate 4.989e-05, It/sec 0.076, Tokens/sec 22.214, Trained Tokens 25472, Peak mem 24.400 GB
-Iter 125: Train loss 0.546, Learning Rate 4.969e-05, It/sec 0.090, Tokens/sec 22.228, Trained Tokens 31639, Peak mem 24.400 GB
-Iter 150: Train loss 0.460, Learning Rate 4.941e-05, It/sec 0.092, Tokens/sec 22.404, Trained Tokens 37722, Peak mem 24.400 GB
-Iter 175: Train loss 0.488, Learning Rate 4.902e-05, It/sec 0.074, Tokens/sec 22.856, Trained Tokens 45414, Peak mem 24.400 GB
-Iter 200: Train loss 0.430, Learning Rate 4.855e-05, It/sec 0.080, Tokens/sec 24.255, Trained Tokens 52951, Peak mem 24.400 GB
-Iter 225: Train loss 0.352, Learning Rate 4.798e-05, It/sec 0.086, Tokens/sec 23.279, Trained Tokens 59681, Peak mem 24.400 GB
-Iter 250: Train loss 0.325, Learning Rate 4.733e-05, It/sec 0.071, Tokens/sec 22.517, Trained Tokens 67641, Peak mem 24.400 GB
-Iter 275: Train loss 0.318, Learning Rate 4.659e-05, It/sec 0.053, Tokens/sec 16.013, Trained Tokens 75132, Peak mem 24.400 GB
-[WARNING] Some sequences are longer than 1024 tokens. The longest sentence 1236 will be truncated to 1024. Consider pre-splitting your data to save memory.
-Iter 300: Train loss 0.255, Learning Rate 4.577e-05, It/sec 0.022, Tokens/sec 7.963, Trained Tokens 84087, Peak mem 24.487 GB
-Iter 300: Saved adapter weights to /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/adapters.safetensors and /Users/surya/Desktop/projects/georgia-ev-finetune/training_project/adapters/georgia_ev_14b_mlx/0000300_adapters.safetensors.
-Iter 325: Train loss 0.322, Learning Rate 4.487e-05, It/sec 0.011, Tokens/sec 3.049, Trained Tokens 91280, Peak mem 24.676 GB
-Iter 350: Train loss 0.336, Learning Rate 4.390e-05, It/sec 0.026, Tokens/sec 6.996, Trained Tokens 97994, Peak mem 24.676 GB
-/opt/homebrew/Cellar/python@3.13/3.13.13/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:400: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-77952-zola3ycl'}
-  warnings.warn(
